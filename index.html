@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anurag Society for Social Needs | अनुराग सोसायटी</title>
+<title>WORK IN PROGRESS Anurag Society for Social Needs | अनुराग सोसायटी</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Sans:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -2259,8 +2259,17 @@ document.addEventListener('keydown', e => {
 });
 
 
+/* ── BILINGUAL ENGINE ── */
 let currentLang = 'en';
 function setLang(lang) {
   currentLang = lang;
   document.getElementById('btnEN').classList.toggle('active', lang === 'en');
-  document.getElementById('btnHI').cl
+  document.getElementById('btnHI').classList.toggle('active', lang === 'hi');
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    el.innerHTML = el.getAttribute('data-' + lang);
+  });
+  document.documentElement.lang = lang;
+}
+</script>
+</body>
+</html>
