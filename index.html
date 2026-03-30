@@ -1,0 +1,2275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anurag Society for Social Needs | अनुराग सोसायटी</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Sans:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   ROOT & RESET
+═══════════════════════════════════════ */
+:root {
+  --lotus:    #C0392B;
+  --lotus-lt: #E74C3C;
+  --indigo:   #1A237E;
+  --indigo-m: #283593;
+  --indigo-lt:#3949AB;
+  --gold:     #F9A825;
+  --gold-lt:  #FDD835;
+  --cream:    #FFF8F0;
+  --parchment:#FFF1DC;
+  --white:    #FFFFFF;
+  --ink:      #1A1A2E;
+  --ink-soft: #4A4A6A;
+  --border:   rgba(26,35,126,0.1);
+  --shadow:   0 4px 24px rgba(26,35,126,0.08);
+  --r:        14px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+img { max-width: 100%; }
+
+/* ═══════════════════════════════════════
+   ACCESSIBILITY BAR
+═══════════════════════════════════════ */
+.a11y-bar {
+  background: var(--indigo);
+  color: rgba(255,255,255,0.8);
+  padding: 0.38rem 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.74rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.a11y-left { display: flex; align-items: center; gap: 0.5rem; }
+.a11y-right { display: flex; align-items: center; gap: 0.75rem; }
+.a11y-btn {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  padding: 0.18rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.72rem;
+  transition: background 0.2s;
+}
+.a11y-btn:hover { background: rgba(255,255,255,0.25); }
+.lang-pill {
+  display: flex;
+  background: rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: 2px;
+  gap: 2px;
+}
+.lang-btn {
+  background: none; border: none;
+  color: rgba(255,255,255,0.65);
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+}
+.lang-btn.active { background: var(--gold); color: var(--indigo); }
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 2px solid var(--border);
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  box-shadow: 0 2px 20px rgba(26,35,126,0.06);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+.brand-logo {
+  width: 46px; height: 46px;
+  background: linear-gradient(135deg, var(--indigo), var(--indigo-lt));
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  box-shadow: 0 3px 12px rgba(26,35,126,0.3);
+}
+.brand-name {
+  line-height: 1.2;
+}
+.brand-name-en {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.05rem;
+  color: var(--indigo);
+  letter-spacing: -0.01em;
+  display: block;
+}
+.brand-name-hi {
+  font-size: 0.72rem;
+  color: var(--lotus);
+  font-weight: 500;
+  display: block;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0.25rem;
+  align-items: center;
+}
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:hover { color: var(--indigo); background: rgba(26,35,126,0.05); }
+.nav-cta {
+  background: var(--lotus) !important;
+  color: white !important;
+  padding: 0.45rem 1.1rem !important;
+  border-radius: 8px;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: var(--indigo) !important; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+}
+.hamburger span {
+  width: 22px; height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(160deg, var(--cream) 0%, var(--parchment) 50%, #E8EAF6 100%);
+  display: grid;
+  grid-template-columns: 55% 45%;
+  align-items: center;
+  padding: 60px 5vw 60px;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(26,35,126,0.06) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero::after {
+  content: '❤';
+  position: absolute;
+  bottom: 40px; left: 5vw;
+  font-size: 120px;
+  opacity: 0.04;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--indigo);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.hero-eyebrow span { color: var(--lotus); }
+
+.hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  color: var(--indigo);
+}
+.hero-h1 .accent {
+  color: var(--lotus);
+  font-style: italic;
+  font-weight: 400;
+}
+.hero-h1-hi {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  max-width: 480px;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--indigo);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(26,35,126,0.25);
+}
+.btn-primary:hover { background: var(--lotus); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,57,43,0.3); }
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: var(--indigo);
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border: 1.5px solid var(--border);
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-ghost:hover { border-color: var(--indigo); background: #F0F2FF; }
+
+.hero-trust {
+  display: flex;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.trust-item .tn {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: var(--indigo);
+  line-height: 1;
+}
+.trust-item .tl {
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  margin-top: 0.2rem;
+}
+
+/* Hero Right – decorative cards */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+.info-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  border-left: 4px solid transparent;
+  animation: floatUp 0.6s ease both;
+  transition: transform 0.3s;
+}
+.info-card:hover { transform: translateX(6px); }
+.info-card:nth-child(1) { border-color: var(--indigo); animation-delay: 0.1s; }
+.info-card:nth-child(2) { border-color: var(--lotus); animation-delay: 0.25s; margin-left: 24px; }
+.info-card:nth-child(3) { border-color: var(--gold); animation-delay: 0.4s; margin-left: 12px; }
+.ic-icon { font-size: 1.7rem; line-height: 1; }
+.ic-title { font-weight: 600; font-size: 0.88rem; color: var(--indigo); margin-bottom: 0.2rem; }
+.ic-desc { font-size: 0.77rem; color: var(--ink-soft); }
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════
+   SECTIONS – SHARED
+═══════════════════════════════════════ */
+.section { padding: 80px 5vw; }
+.section.alt { background: var(--cream); }
+.section.dark { background: var(--indigo); color: white; }
+
+.sec-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lotus);
+  margin-bottom: 0.75rem;
+}
+.sec-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--lotus);
+  border-radius: 2px;
+}
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+  color: var(--indigo);
+}
+.section.dark .sec-title { color: white; }
+.sec-sub {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+.section.dark .sec-sub { color: rgba(255,255,255,0.65); }
+
+/* ═══════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.about-quote-block {
+  position: relative;
+}
+.big-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  line-height: 0.6;
+  color: var(--indigo);
+  opacity: 0.08;
+  position: absolute;
+  top: -10px; left: -20px;
+  pointer-events: none;
+}
+.about-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--indigo);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  border-left: 3px solid var(--lotus);
+  background: var(--parchment);
+  border-radius: 0 12px 12px 0;
+}
+.about-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+.about-tile {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.about-tile:hover { border-color: var(--indigo-lt); box-shadow: var(--shadow); }
+.at-icon { font-size: 1.4rem; }
+.at-label { font-size: 0.82rem; font-weight: 600; color: var(--indigo); }
+.at-sub { font-size: 0.72rem; color: var(--ink-soft); }
+
+.about-text p {
+  color: var(--ink-soft);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+.value-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.vr-dot {
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg, var(--indigo), var(--indigo-lt));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.vr-text { font-size: 0.9rem; color: var(--ink-soft); padding-top: 4px; }
+
+/* ═══════════════════════════════════════
+   PROGRAMS
+═══════════════════════════════════════ */
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.25rem;
+}
+.prog-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.prog-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+}
+.prog-card:nth-child(1)::after { background: linear-gradient(90deg, var(--indigo), var(--indigo-lt)); }
+.prog-card:nth-child(2)::after { background: linear-gradient(90deg, var(--lotus), #E74C3C); }
+.prog-card:nth-child(3)::after { background: linear-gradient(90deg, var(--gold), var(--gold-lt)); }
+.prog-card:nth-child(4)::after { background: linear-gradient(90deg, #00897B, #26A69A); }
+.prog-card:nth-child(5)::after { background: linear-gradient(90deg, #8E24AA, #AB47BC); }
+.prog-card:nth-child(6)::after { background: linear-gradient(90deg, #E64A19, #FF7043); }
+.prog-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(26,35,126,0.12); }
+.prog-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.04em;
+}
+.prog-icon-wrap {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.prog-card:nth-child(1) .prog-icon-wrap { background: #E8EAF6; }
+.prog-card:nth-child(2) .prog-icon-wrap { background: #FFEBEE; }
+.prog-card:nth-child(3) .prog-icon-wrap { background: #FFFDE7; }
+.prog-card:nth-child(4) .prog-icon-wrap { background: #E0F2F1; }
+.prog-card:nth-child(5) .prog-icon-wrap { background: #F3E5F5; }
+.prog-card:nth-child(6) .prog-icon-wrap { background: #FBE9E7; }
+.prog-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--indigo);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+.prog-title-hi { font-size: 0.82rem; color: var(--lotus); font-weight: 500; margin-bottom: 0.65rem; }
+.prog-desc { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.65; }
+.prog-badge {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  background: var(--cream);
+  color: var(--ink-soft);
+  border: 1px solid var(--border);
+}
+
+/* ═══════════════════════════════════════
+   EVENTS
+═══════════════════════════════════════ */
+.events-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2.5rem;
+}
+.event-row {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  background: white;
+}
+.event-row:hover { border-color: var(--indigo); background: #F8F9FF; transform: translateX(4px); }
+.ev-date {
+  min-width: 58px;
+  background: var(--indigo);
+  color: white;
+  border-radius: 10px;
+  padding: 0.6rem 0.4rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+.ev-day { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 900; line-height: 1; }
+.ev-mon { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; }
+.ev-title { font-weight: 600; font-size: 0.92rem; color: var(--indigo); margin-bottom: 0.2rem; }
+.ev-title-hi { font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 0.35rem; }
+.ev-meta { font-size: 0.77rem; color: var(--ink-soft); }
+.ev-pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 100px;
+  margin-top: 0.45rem;
+}
+.pill-open { background: #E8F5E9; color: #2E7D32; }
+.pill-online { background: #E3F2FD; color: #1565C0; }
+.pill-paid { background: #FFF8E1; color: #F57F17; }
+
+/* Sidebar */
+.ev-sidebar-card {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--border);
+}
+.ev-sidebar-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--indigo);
+  margin-bottom: 1rem;
+}
+.mini-cal .cal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--indigo);
+  margin-bottom: 0.5rem;
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  text-align: center;
+  font-size: 0.75rem;
+}
+.cal-dn { padding: 3px 0; color: var(--ink-soft); font-weight: 600; font-size: 0.65rem; }
+.cal-d { padding: 5px 2px; border-radius: 6px; cursor: pointer; transition: background 0.15s; }
+.cal-d:hover { background: rgba(26,35,126,0.08); }
+.cal-d.ev { background: var(--lotus); color: white; font-weight: 700; }
+.cal-d.td { background: var(--indigo); color: white; font-weight: 700; }
+.cal-d.em { opacity: 0.25; pointer-events: none; }
+.notif-form { display: flex; flex-direction: column; gap: 0.65rem; }
+.notif-form input {
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  background: white;
+  outline: none;
+  transition: border-color 0.2s;
+  color: var(--ink);
+}
+.notif-form input:focus { border-color: var(--indigo); }
+.notif-form button {
+  background: var(--indigo);
+  color: white;
+  border: none;
+  padding: 0.65rem;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.notif-form button:hover { background: var(--lotus); }
+
+/* ═══════════════════════════════════════
+   PARENT RESOURCES / BLOG
+═══════════════════════════════════════ */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.25rem;
+}
+.res-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.res-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,35,126,0.1); }
+.res-icon-wrap {
+  width: 50px; height: 50px;
+  background: #E8EAF6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.res-title { font-weight: 700; font-size: 0.9rem; color: var(--indigo); margin-bottom: 0.2rem; }
+.res-title-hi { font-size: 0.77rem; color: var(--lotus); font-weight: 500; margin-bottom: 0.5rem; }
+.res-desc { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.6; flex: 1; }
+.res-link { font-size: 0.78rem; color: var(--indigo); font-weight: 600; margin-top: 1rem; display: flex; align-items: center; gap: 0.3rem; }
+
+/* Blog preview */
+.blog-preview {
+  margin-top: 4rem;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.blog-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.blog-card:hover { box-shadow: 0 12px 32px rgba(26,35,126,0.1); }
+.blog-thumb {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+.blog-card:nth-child(1) .blog-thumb { background: linear-gradient(135deg, #E8EAF6, #C5CAE9); height: 220px; }
+.blog-card:nth-child(2) .blog-thumb { background: linear-gradient(135deg, #FFEBEE, #FFCDD2); }
+.blog-card:nth-child(3) .blog-thumb { background: linear-gradient(135deg, #E0F2F1, #B2DFDB); }
+.blog-body { padding: 1.25rem; }
+.blog-cat {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lotus);
+  margin-bottom: 0.4rem;
+}
+.blog-title { font-weight: 700; font-size: 0.9rem; color: var(--indigo); line-height: 1.4; margin-bottom: 0.4rem; }
+.blog-date { font-size: 0.75rem; color: var(--ink-soft); }
+
+/* FAQ */
+.faq-wrap { margin-top: 4rem; }
+.faq-h { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--indigo); margin-bottom: 1.5rem; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-btn {
+  width: 100%; text-align: left;
+  background: none; border: none;
+  font-family: inherit;
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 1.1rem 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq-btn .faq-icon {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  color: var(--indigo);
+  font-weight: 700;
+  transition: background 0.2s, transform 0.3s;
+}
+.faq-item.open .faq-btn .faq-icon { background: var(--indigo); color: white; transform: rotate(45deg); }
+.faq-answer {
+  font-size: 0.87rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s;
+}
+.faq-item.open .faq-answer { max-height: 300px; padding-bottom: 1.2rem; }
+
+/* ═══════════════════════════════════════
+   DONATE
+═══════════════════════════════════════ */
+.donate-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.donate-amounts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.amt-card {
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  background: white;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.amt-card:hover { transform: translateY(-2px); }
+.amt-card.selected { border-color: var(--indigo); background: #EEF0FC; }
+.amt-rs { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 900; color: var(--indigo); line-height: 1; }
+.amt-what { font-size: 0.68rem; color: var(--ink-soft); margin-top: 0.2rem; }
+.donate-form { display: flex; flex-direction: column; gap: 0.85rem; }
+.df-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+.donate-form input,
+.donate-form select {
+  padding: 0.72rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  background: white;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.donate-form input:focus,
+.donate-form select:focus { border-color: var(--indigo); }
+.donate-submit {
+  background: linear-gradient(135deg, var(--lotus), #C0392B);
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(192,57,43,0.3);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.donate-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,57,43,0.4); }
+.upi-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+}
+.tax-note { font-size: 0.72rem; color: var(--ink-soft); text-align: center; margin-top: 0.5rem; }
+
+.impact-list { display: flex; flex-direction: column; gap: 1rem; }
+.impact-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  transition: border-color 0.2s;
+}
+.impact-item:hover { border-color: var(--indigo-lt); }
+.imp-icon-wrap {
+  width: 50px; height: 50px;
+  background: #E8EAF6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.imp-amount { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 900; color: var(--lotus); line-height: 1; }
+.imp-desc { font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.15rem; }
+
+/* ═══════════════════════════════════════
+   CONTACT & ADMISSIONS
+═══════════════════════════════════════ */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+.contact-form { display: flex; flex-direction: column; gap: 0.9rem; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  padding: 0.72rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  background: var(--white);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus { border-color: var(--indigo); }
+.contact-form textarea { resize: vertical; min-height: 110px; }
+.contact-submit {
+  background: var(--indigo);
+  color: white;
+  border: none;
+  padding: 0.85rem;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.contact-submit:hover { background: var(--lotus); transform: translateY(-1px); }
+
+.contact-info { display: flex; flex-direction: column; gap: 0; }
+.ci-block {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.ci-icon {
+  width: 42px; height: 42px;
+  background: #E8EAF6;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.ci-label { font-size: 0.69rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); font-weight: 700; margin-bottom: 0.25rem; }
+.ci-val { font-size: 0.9rem; font-weight: 600; color: var(--indigo); }
+.ci-sub { font-size: 0.78rem; color: var(--ink-soft); }
+
+.map-placeholder {
+  margin-top: 1.5rem;
+  background: #E8EAF6;
+  border-radius: 14px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--indigo-m);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px dashed rgba(26,35,126,0.2);
+}
+
+.social-row { display: flex; gap: 0.65rem; margin-top: 1.5rem; }
+.soc-btn {
+  width: 42px; height: 42px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.soc-btn:hover { background: #E8EAF6; transform: translateY(-2px); }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  background: var(--indigo);
+  color: rgba(255,255,255,0.7);
+  padding: 4rem 5vw 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 2rem;
+}
+.footer-brand .brand-name-en { color: white; font-size: 1.15rem; }
+.footer-brand p {
+  font-size: 0.82rem;
+  margin-top: 0.85rem;
+  line-height: 1.7;
+  max-width: 240px;
+  color: rgba(255,255,255,0.55);
+}
+.footer-col h5 {
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.1rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.footer-col a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 0.83rem;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.77rem;
+  color: rgba(255,255,255,0.35);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+.footer-bottom a:hover { color: var(--gold); }
+
+/* ═══════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════ */
+.divider {
+  height: 4px;
+  background: linear-gradient(90deg, var(--indigo), var(--lotus), var(--gold), var(--indigo));
+  background-size: 200%;
+  animation: shimmer 4s linear infinite;
+}
+@keyframes shimmer { to { background-position: 200% 0; } }
+
+/* ═══════════════════════════════════════
+   GALLERY
+═══════════════════════════════════════ */
+#gallery { background: var(--indigo); color: white; }
+#gallery .sec-title { color: white; }
+#gallery .sec-sub { color: rgba(255,255,255,0.6); }
+#gallery .sec-eyebrow { color: var(--gold); }
+#gallery .sec-eyebrow::before { background: var(--gold); }
+
+/* Category filter tabs */
+.gallery-tabs {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.gtab {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7);
+  padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.gtab:hover { background: rgba(255,255,255,0.15); color: white; }
+.gtab.active { background: var(--gold); color: var(--indigo); border-color: var(--gold); font-weight: 700; }
+
+/* Gallery grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+}
+.gitem {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: rgba(255,255,255,0.06);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s, box-shadow 0.25s;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.gitem:nth-child(1) { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 340px; }
+.gitem:nth-child(7) { grid-column: span 2; aspect-ratio: auto; min-height: 180px; }
+.gitem:hover { transform: scale(1.02); box-shadow: 0 12px 40px rgba(0,0,0,0.4); z-index: 2; }
+
+/* Real image fill */
+.gitem img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+.gitem:hover img { transform: scale(1.06); }
+
+/* Placeholder state (before real photos) */
+.gplaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%; height: 100%;
+  min-height: 160px;
+}
+.gplaceholder .gp-icon { font-size: 2.2rem; opacity: 0.3; }
+.gplaceholder .gp-label { font-size: 0.72rem; opacity: 0.35; text-align: center; padding: 0 1rem; }
+
+/* Overlay on hover */
+.goverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,15,60,0.85) 0%, rgba(10,15,60,0.1) 55%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.25s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+}
+.gitem:hover .goverlay { opacity: 1; }
+.goverlay-title { color: white; font-weight: 700; font-size: 0.88rem; line-height: 1.3; }
+.goverlay-meta { color: rgba(255,255,255,0.65); font-size: 0.74rem; margin-top: 0.25rem; }
+.goverlay-zoom {
+  position: absolute;
+  top: 0.85rem; right: 0.85rem;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: white;
+}
+
+/* Load more */
+.gallery-more {
+  text-align: center;
+  margin-top: 2rem;
+}
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: white;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  padding: 0.72rem 1.75rem;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn-outline-white:hover { background: rgba(255,255,255,0.08); border-color: var(--gold); color: var(--gold); }
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(5, 8, 30, 0.96);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+}
+.lightbox.open { display: flex; }
+.lb-inner {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lb-img-wrap {
+  width: 100%;
+  max-height: 70vh;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+.lb-img-wrap img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 16px;
+}
+.lb-placeholder-big {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.9rem;
+}
+.lb-placeholder-big .lbp-icon { font-size: 4rem; opacity: 0.3; }
+.lb-caption {
+  margin-top: 1.25rem;
+  text-align: center;
+  color: white;
+}
+.lb-caption-title { font-weight: 700; font-size: 1rem; }
+.lb-caption-meta { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 0.25rem; }
+
+.lb-close {
+  position: absolute;
+  top: -2.5rem; right: 0;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.lb-close:hover { background: var(--lotus); }
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+  z-index: 10;
+}
+.lb-nav:hover { background: rgba(255,255,255,0.2); }
+.lb-prev { left: -3.5rem; }
+.lb-next { right: -3.5rem; }
+.lb-counter {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+}
+
+/* How to add photos note */
+.gallery-howto {
+  margin-top: 2.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px dashed rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.howto-icon { font-size: 1.4rem; flex-shrink: 0; opacity: 0.7; }
+.howto-text { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+.howto-text strong { color: rgba(255,255,255,0.8); }
+
+@media (max-width: 960px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gitem:nth-child(1) { grid-column: span 2; }
+  .gitem:nth-child(7) { grid-column: span 2; }
+  .lb-prev { left: -1rem; }
+  .lb-next { right: -1rem; }
+}
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .lb-nav { display: none; }
+}
+
+/* ═══════════════════════════════════════
+   HIGH CONTRAST
+═══════════════════════════════════════ */
+body.high-contrast {
+  --indigo: #0000BB;
+  --lotus: #CC0000;
+  --ink-soft: #333333;
+  --border: rgba(0,0,0,0.3);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .about-grid,
+  .events-layout,
+  .donate-layout,
+  .contact-layout { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 70px; left: 0; right: 0;
+    background: white;
+    padding: 1.5rem 5vw;
+    gap: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    z-index: 199;
+  }
+}
+@media (max-width: 600px) {
+  .hero { padding: 40px 5vw 50px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .donate-amounts { grid-template-columns: 1fr 1fr; }
+  .hero-trust { flex-wrap: wrap; gap: 1.25rem; }
+  .a11y-bar { font-size: 0.68rem; }
+  .df-row, .cf-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── ACCESSIBILITY BAR ── -->
+<div class="a11y-bar">
+  <div class="a11y-left">
+    <span>♿ Accessibility:</span>
+    <button class="a11y-btn" onclick="adjFont(1)" title="Increase font size">A＋</button>
+    <button class="a11y-btn" onclick="adjFont(-1)" title="Decrease font size">A－</button>
+    <button class="a11y-btn" onclick="toggleHC()" title="Toggle high contrast">◑ Contrast</button>
+  </div>
+  <div class="a11y-right">
+    <span>Language:</span>
+    <div class="lang-pill">
+      <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btnHI" onclick="setLang('hi')">हिंदी</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="mainNav">
+  <a href="#top" class="brand">
+    <div class="brand-logo">🌸</div>
+    <div class="brand-name">
+      <span class="brand-name-en">Anurag Society</span>
+      <span class="brand-name-hi">अनुराग सोसायटी फ़ॉर सोशल नीड्स</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navMenu">
+    <li><a href="#about" data-en="About" data-hi="हमारे बारे में">About</a></li>
+    <li><a href="#programs" data-en="Programs" data-hi="कार्यक्रम">Programs</a></li>
+    <li><a href="#events" data-en="Events" data-hi="आयोजन">Events</a></li>
+    <li><a href="#parents" data-en="Parents" data-hi="अभिभावक">Parents</a></li>
+    <li><a href="#gallery" data-en="Gallery" data-hi="गैलरी">Gallery</a></li>
+    <li><a href="#donate" data-en="Donate" data-hi="दान करें">Donate</a></li>
+    <li><a href="#contact" class="nav-cta" data-en="Contact Us" data-hi="संपर्क करें">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="top">
+  <div class="hero-text">
+    <div class="hero-eyebrow">
+      🌸 <span data-en="Autism Awareness &amp; Inclusion" data-hi="ऑटिज्म जागरूकता और समावेश">Autism Awareness &amp; Inclusion</span>
+      &nbsp;·&nbsp; India
+    </div>
+    <h1 class="hero-h1">
+      <span data-en="Every child deserves" data-hi="हर बच्चा हकदार है">Every child deserves</span><br>
+      <span class="accent" data-en="love &amp; belonging." data-hi="प्यार और अपनेपन का।">love &amp; belonging.</span>
+    </h1>
+    <p class="hero-h1-hi" data-en="अनुराग — प्रेम, देखभाल, समावेश।" data-hi="Anurag — Love, Care, Inclusion.">अनुराग — प्रेम, देखभाल, समावेश।</p>
+    <p class="hero-desc" data-en="Anurag Society for Social Needs is dedicated to empowering autistic individuals, supporting families, and building an inclusive community across India — grounded in compassion and evidence-based care." data-hi="अनुराग सोसायटी फ़ॉर सोशल नीड्स ऑटिस्टिक व्यक्तियों को सशक्त बनाने, परिवारों को सहयोग देने और भारत में एक समावेशी समुदाय बनाने के लिए प्रतिबद्ध है।">
+      Anurag Society for Social Needs is dedicated to empowering autistic individuals, supporting families, and building an inclusive community across India — grounded in compassion and evidence-based care.
+    </p>
+    <div class="hero-btns">
+      <a href="#programs" class="btn-primary">
+        <span data-en="Explore Programs" data-hi="कार्यक्रम देखें">Explore Programs</span> →
+      </a>
+      <a href="#contact" class="btn-ghost">
+        <span data-en="Admissions Enquiry" data-hi="प्रवेश संबंधी पूछताछ">Admissions Enquiry</span>
+      </a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <div class="tn">400+</div>
+        <div class="tl" data-en="Families Supported" data-hi="परिवार समर्थित">Families Supported</div>
+      </div>
+      <div class="trust-item">
+        <div class="tn">10+</div>
+        <div class="tl" data-en="Programs Running" data-hi="चालू कार्यक्रम">Programs Running</div>
+      </div>
+      <div class="trust-item">
+        <div class="tn">Free</div>
+        <div class="tl" data-en="Core Resources" data-hi="मुख्य संसाधन">Core Resources</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="info-card">
+      <div class="ic-icon">📅</div>
+      <div>
+        <div class="ic-title">World Autism Day Community Walk</div>
+        <div class="ic-desc">April 2 · All are welcome · Free entry</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="ic-icon">🏫</div>
+      <div>
+        <div class="ic-title">Parent Workshop: IEPs in Indian Schools</div>
+        <div class="ic-desc">April 12 · Online (Zoom) · Free registration</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="ic-icon">📘</div>
+      <div>
+        <div class="ic-title">First Steps Guide — Hindi/English</div>
+        <div class="ic-desc">Free download for newly diagnosed families</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── ABOUT ── -->
+<section class="section" id="about">
+  <div class="sec-eyebrow" data-en="Who We Are" data-hi="हम कौन हैं">Who We Are</div>
+  <h2 class="sec-title" data-en="Built on love.<br>Driven by purpose." data-hi="प्रेम पर आधारित।<br>उद्देश्य से प्रेरित।">Built on love.<br>Driven by purpose.</h2>
+  <div class="about-grid">
+    <div class="about-quote-block">
+      <div class="big-quote">"</div>
+      <blockquote class="about-quote" data-en="&ldquo;Anurag means deep love. That is exactly what we bring to every family, every child, every interaction.&rdquo;" data-hi="&ldquo;अनुराग का अर्थ है गहरा प्रेम। यही हम हर परिवार, हर बच्चे और हर बातचीत में लेकर आते हैं।&rdquo;">
+        &ldquo;Anurag means deep love. That is exactly what we bring to every family, every child, every interaction.&rdquo;
+      </blockquote>
+      <div class="about-tiles">
+        <div class="about-tile">
+          <div class="at-icon">🇮🇳</div>
+          <div><div class="at-label">India-Rooted</div><div class="at-sub">Culturally sensitive</div></div>
+        </div>
+        <div class="about-tile">
+          <div class="at-icon">⚖️</div>
+          <div><div class="at-label">RPWD Act 2016</div><div class="at-sub">Rights-informed</div></div>
+        </div>
+        <div class="about-tile">
+          <div class="at-icon">🧠</div>
+          <div><div class="at-label">Evidence-Based</div><div class="at-sub">ABA + TEACCH</div></div>
+        </div>
+        <div class="about-tile">
+          <div class="at-icon">💙</div>
+          <div><div class="at-label">Family-First</div><div class="at-sub">Carers matter too</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <p data-en="Anurag Society for Social Needs was established to be a community anchor for families navigating autism in India. We are not simply a school — we are a movement for awareness, acceptance, and access." data-hi="अनुराग सोसायटी फ़ॉर सोशल नीड्स की स्थापना भारत में ऑटिज्म से जूझ रहे परिवारों के लिए एक सामुदायिक आधार बनने के लिए की गई थी।">
+        Anurag Society for Social Needs was established to be a community anchor for families navigating autism in India. We are not simply a school — we are a movement for awareness, acceptance, and access.
+      </p>
+      <p data-en="Our programs blend internationally recognised methodologies with deeply Indian values — understanding that the family is the first and most important teacher. We honour the RPWD Act, 2016 in every program we design." data-hi="हमारे कार्यक्रम अंतरराष्ट्रीय पद्धतियों को गहरे भारतीय मूल्यों के साथ जोड़ते हैं — यह मानते हुए कि परिवार पहला और सबसे महत्वपूर्ण शिक्षक है।">
+        Our programs blend internationally recognised methodologies with deeply Indian values — understanding that the family is the first and most important teacher. We honour the RPWD Act, 2016 in every program we design.
+      </p>
+      <div style="margin-top:1.5rem;">
+        <div class="value-row">
+          <div class="vr-dot">🌟</div>
+          <div class="vr-text" data-en="Inclusion over assimilation — we celebrate difference." data-hi="आत्मसात करने से ऊपर समावेश — हम अंतर का जश्न मनाते हैं।">Inclusion over assimilation — we celebrate difference.</div>
+        </div>
+        <div class="value-row">
+          <div class="vr-dot">🤝</div>
+          <div class="vr-text" data-en="Family involvement is central to every program." data-hi="परिवार की भागीदारी हर कार्यक्रम का केंद्र है।">Family involvement is central to every program.</div>
+        </div>
+        <div class="value-row">
+          <div class="vr-dot">💬</div>
+          <div class="vr-text" data-en="Support in Hindi and regional languages — language is never a barrier." data-hi="हिंदी और क्षेत्रीय भाषाओं में सहायता — भाषा कभी बाधा नहीं बनती।">Support in Hindi and regional languages — language is never a barrier.</div>
+        </div>
+        <div class="value-row">
+          <div class="vr-dot">🕊️</div>
+          <div class="vr-text" data-en="No child is too different, no family is too far." data-hi="कोई बच्चा इतना अलग नहीं है, कोई परिवार इतना दूर नहीं है।">No child is too different, no family is too far.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── PROGRAMS ── -->
+<section class="section alt" id="programs">
+  <div class="sec-eyebrow" data-en="What We Offer" data-hi="हम क्या प्रदान करते हैं">What We Offer</div>
+  <h2 class="sec-title" data-en="Programs for every stage." data-hi="हर चरण के लिए कार्यक्रम।">Programs for every stage.</h2>
+  <p class="sec-sub" data-en="From early identification to adult independence — our programs serve the full journey of every autistic individual and their family." data-hi="प्रारंभिक पहचान से वयस्क स्वतंत्रता तक — हमारे कार्यक्रम हर ऑटिस्टिक व्यक्ति की पूरी यात्रा को सेवा देते हैं।">
+    From early identification to adult independence — our programs serve the full journey of every autistic individual and their family.
+  </p>
+  <div class="programs-grid">
+    <div class="prog-card">
+      <div class="prog-icon-wrap">🔍</div>
+      <div class="prog-title" data-en="Early Identification Workshops" data-hi="प्रारंभिक पहचान कार्यशालाएं">Early Identification Workshops</div>
+      <div class="prog-title-hi" data-en="प्रारंभिक पहचान कार्यशालाएं" data-hi="Early Identification Workshops">प्रारंभिक पहचान कार्यशालाएं</div>
+      <div class="prog-desc" data-en="Free community sessions helping parents and teachers recognize early signs of autism for timely support and intervention." data-hi="मुफ्त सामुदायिक सत्र जो माता-पिता और शिक्षकों को समय पर सहायता के लिए ऑटिज्म के प्रारंभिक संकेतों को पहचानने में मदद करते हैं।">Free community sessions helping parents and teachers recognize early signs of autism for timely support and intervention.</div>
+      <div class="prog-badge" data-en="For Parents &amp; Educators" data-hi="माता-पिता और शिक्षकों के लिए">For Parents &amp; Educators</div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon-wrap">🗣️</div>
+      <div class="prog-title" data-en="Speech &amp; Communication" data-hi="वाणी और संचार">Speech &amp; Communication</div>
+      <div class="prog-title-hi" data-en="वाणी और संचार" data-hi="Speech &amp; Communication">वाणी और संचार</div>
+      <div class="prog-desc" data-en="AAC support, speech therapy guidance, and communication skill-building available in Hindi and regional Indian languages." data-hi="हिंदी और क्षेत्रीय भाषाओं में AAC सहायता, स्पीच थेरेपी मार्गदर्शन और संचार कौशल निर्माण।">AAC support, speech therapy guidance, and communication skill-building available in Hindi and regional Indian languages.</div>
+      <div class="prog-badge" data-en="Ages 2–14" data-hi="आयु 2–14 वर्ष">Ages 2–14</div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon-wrap">🎨</div>
+      <div class="prog-title" data-en="Art &amp; Sensory Therapy" data-hi="कला और संवेदी चिकित्सा">Art &amp; Sensory Therapy</div>
+      <div class="prog-title-hi" data-en="कला और संवेदी चिकित्सा" data-hi="Art &amp; Sensory Therapy">कला और संवेदी चिकित्सा</div>
+      <div class="prog-desc" data-en="Creative expression through art, music, and sensory play in a safe, structured environment with trained facilitators." data-hi="प्रशिक्षित सूत्रधारों के साथ सुरक्षित वातावरण में कला, संगीत और संवेदी खेल के माध्यम से रचनात्मक अभिव्यक्ति।">Creative expression through art, music, and sensory play in a safe, structured environment with trained facilitators.</div>
+      <div class="prog-badge" data-en="Ages 3–18" data-hi="आयु 3–18 वर्ष">Ages 3–18</div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon-wrap">📚</div>
+      <div class="prog-title" data-en="Inclusive Education Support" data-hi="समावेशी शिक्षा सहायता">Inclusive Education Support</div>
+      <div class="prog-title-hi" data-en="समावेशी शिक्षा सहायता" data-hi="Inclusive Education Support">समावेशी शिक्षा सहायता</div>
+      <div class="prog-desc" data-en="IEP guidance, shadow teacher training, and coordination with mainstream Indian schools for successful inclusive placement." data-hi="IEP मार्गदर्शन, शैडो टीचर प्रशिक्षण, और मुख्यधारा के स्कूलों में सफल समावेशी प्लेसमेंट के लिए समन्वय।">IEP guidance, shadow teacher training, and coordination with mainstream Indian schools for successful inclusive placement.</div>
+      <div class="prog-badge" data-en="For Schools &amp; Parents" data-hi="स्कूलों और माता-पिता के लिए">For Schools &amp; Parents</div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon-wrap">💼</div>
+      <div class="prog-title" data-en="Vocational Readiness" data-hi="व्यावसायिक तैयारी">Vocational Readiness</div>
+      <div class="prog-title-hi" data-en="व्यावसायिक तैयारी" data-hi="Vocational Readiness">व्यावसायिक तैयारी</div>
+      <div class="prog-desc" data-en="Life skills training, job readiness workshops, and supported employment pathways for autistic young adults in India." data-hi="भारत में ऑटिस्टिक युवा वयस्कों के लिए जीवन कौशल प्रशिक्षण, रोजगार तैयारी कार्यशालाएं और रोजगार मार्ग।">Life skills training, job readiness workshops, and supported employment pathways for autistic young adults in India.</div>
+      <div class="prog-badge" data-en="Ages 16+" data-hi="आयु 16+">Ages 16+</div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon-wrap">🧘</div>
+      <div class="prog-title" data-en="Carer Wellness Program" data-hi="देखभालकर्ता कल्याण कार्यक्रम">Carer Wellness Program</div>
+      <div class="prog-title-hi" data-en="देखभालकर्ता कल्याण कार्यक्रम" data-hi="Carer Wellness Program">देखभालकर्ता कल्याण कार्यक्रम</div>
+      <div class="prog-desc" data-en="Support groups, counselling, and respite resources for parents, grandparents, and siblings — because carers deserve care too." data-hi="माता-पिता, दादा-दादी और भाई-बहनों के लिए सहायता समूह, परामर्श और विश्राम संसाधन — क्योंकि देखभालकर्ताओं को भी देखभाल की जरूरत है।">Support groups, counselling, and respite resources for parents, grandparents, and siblings — because carers deserve care too.</div>
+      <div class="prog-badge" data-en="For Families" data-hi="परिवारों के लिए">For Families</div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── EVENTS ── -->
+<section class="section" id="events">
+  <div class="sec-eyebrow" data-en="Community Calendar" data-hi="सामुदायिक कैलेंडर">Community Calendar</div>
+  <h2 class="sec-title" data-en="Upcoming Events" data-hi="आगामी आयोजन">Upcoming Events</h2>
+  <p class="sec-sub" data-en="Open to parents, educators, professionals, and the general public. All are welcome." data-hi="माता-पिता, शिक्षकों, पेशेवरों और आम जनता के लिए खुला। सभी का स्वागत है।">Open to parents, educators, professionals, and the general public. All are welcome.</p>
+  <div class="events-layout">
+    <div class="events-list">
+      <div class="event-row">
+        <div class="ev-date"><div class="ev-day">02</div><div class="ev-mon">Apr</div></div>
+        <div>
+          <div class="ev-title" data-en="World Autism Day – Community Awareness Walk" data-hi="विश्व ऑटिज्म दिवस – सामुदायिक जागरूकता वॉक">World Autism Day – Community Awareness Walk</div>
+          <div class="ev-title-hi" data-en="विश्व ऑटिज्म दिवस – सामुदायिक जागरूकता वॉक" data-hi="World Autism Day – Community Awareness Walk">विश्व ऑटिज्म दिवस – सामुदायिक जागरूकता वॉक</div>
+          <div class="ev-meta">9:00 AM · Nehru Park, New Delhi · Free Entry</div>
+          <span class="ev-pill pill-open" data-en="Open to All" data-hi="सभी के लिए खुला">Open to All</span>
+        </div>
+      </div>
+      <div class="event-row">
+        <div class="ev-date"><div class="ev-day">12</div><div class="ev-mon">Apr</div></div>
+        <div>
+          <div class="ev-title" data-en="Workshop: Understanding IEPs in Indian Schools" data-hi="कार्यशाला: भारतीय स्कूलों में IEP को समझना">Workshop: Understanding IEPs in Indian Schools</div>
+          <div class="ev-title-hi" data-en="कार्यशाला: भारतीय स्कूलों में IEP को समझना" data-hi="Workshop: Understanding IEPs in Indian Schools">कार्यशाला: भारतीय स्कूलों में IEP को समझना</div>
+          <div class="ev-meta">10:00 AM – 1:00 PM · Online via Zoom · Free</div>
+          <span class="ev-pill pill-online" data-en="Online · Free" data-hi="ऑनलाइन · निःशुल्क">Online · Free</span>
+        </div>
+      </div>
+      <div class="event-row">
+        <div class="ev-date"><div class="ev-day">20</div><div class="ev-mon">Apr</div></div>
+        <div>
+          <div class="ev-title" data-en="Art Exhibition: Colours of My World" data-hi="कला प्रदर्शनी: मेरी दुनिया के रंग">Art Exhibition: Colours of My World</div>
+          <div class="ev-title-hi" data-en="कला प्रदर्शनी: मेरी दुनिया के रंग" data-hi="Art Exhibition: Colours of My World">कला प्रदर्शनी: मेरी दुनिया के रंग</div>
+          <div class="ev-meta">11:00 AM – 5:00 PM · Anurag Centre, Mumbai · Free Entry</div>
+          <span class="ev-pill pill-open" data-en="Open to All" data-hi="सभी के लिए खुला">Open to All</span>
+        </div>
+      </div>
+      <div class="event-row">
+        <div class="ev-date"><div class="ev-day">03</div><div class="ev-mon">May</div></div>
+        <div>
+          <div class="ev-title" data-en="Sibling Support Circle – Monthly Meetup" data-hi="भाई-बहन सहायता मंडल – मासिक मिलन">Sibling Support Circle – Monthly Meetup</div>
+          <div class="ev-title-hi" data-en="भाई-बहन सहायता मंडल – मासिक मिलन" data-hi="Sibling Support Circle – Monthly Meetup">भाई-बहन सहायता मंडल – मासिक मिलन</div>
+          <div class="ev-meta">3:00 PM · Anurag Centre, Bengaluru · Free</div>
+          <span class="ev-pill pill-open" data-en="Open to All" data-hi="सभी के लिए खुला">Open to All</span>
+        </div>
+      </div>
+      <div class="event-row">
+        <div class="ev-date"><div class="ev-day">17</div><div class="ev-mon">May</div></div>
+        <div>
+          <div class="ev-title" data-en="Teacher Training: Autism in the Classroom" data-hi="शिक्षक प्रशिक्षण: कक्षा में ऑटिज्म">Teacher Training: Autism in the Classroom</div>
+          <div class="ev-title-hi" data-en="शिक्षक प्रशिक्षण: कक्षा में ऑटिज्म" data-hi="Teacher Training: Autism in the Classroom">शिक्षक प्रशिक्षण: कक्षा में ऑटिज्म</div>
+          <div class="ev-meta">9:00 AM – 4:00 PM · Delhi · ₹500 per participant</div>
+          <span class="ev-pill pill-paid" data-en="₹500 · In-Person" data-hi="₹500 · व्यक्तिगत रूप से">₹500 · In-Person</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="ev-sidebar-card mini-cal">
+        <h4 data-en="April 2025" data-hi="अप्रैल 2025">April 2025</h4>
+        <div class="cal-head"><span></span></div>
+        <div class="cal-grid">
+          <div class="cal-dn">S</div><div class="cal-dn">M</div><div class="cal-dn">T</div><div class="cal-dn">W</div><div class="cal-dn">T</div><div class="cal-dn">F</div><div class="cal-dn">S</div>
+          <div class="cal-d em"></div><div class="cal-d">1</div><div class="cal-d ev">2</div><div class="cal-d">3</div><div class="cal-d">4</div><div class="cal-d">5</div><div class="cal-d">6</div>
+          <div class="cal-d">7</div><div class="cal-d">8</div><div class="cal-d">9</div><div class="cal-d">10</div><div class="cal-d">11</div><div class="cal-d ev">12</div><div class="cal-d">13</div>
+          <div class="cal-d">14</div><div class="cal-d">15</div><div class="cal-d">16</div><div class="cal-d">17</div><div class="cal-d">18</div><div class="cal-d">19</div><div class="cal-d ev">20</div>
+          <div class="cal-d">21</div><div class="cal-d">22</div><div class="cal-d">23</div><div class="cal-d">24</div><div class="cal-d td">25</div><div class="cal-d">26</div><div class="cal-d">27</div>
+          <div class="cal-d">28</div><div class="cal-d">29</div><div class="cal-d">30</div><div class="cal-d em"></div><div class="cal-d em"></div><div class="cal-d em"></div><div class="cal-d em"></div>
+        </div>
+        <p style="font-size:0.68rem;color:var(--ink-soft);margin-top:0.75rem;">🔴 Event day &nbsp;·&nbsp; 🔵 Today</p>
+      </div>
+      <div class="ev-sidebar-card">
+        <h4 data-en="📬 Stay Updated" data-hi="📬 अपडेट रहें">📬 Stay Updated</h4>
+        <p style="font-size:0.8rem;color:var(--ink-soft);margin-bottom:0.85rem;" data-en="Get event alerts in your inbox and WhatsApp." data-hi="इनबॉक्स और WhatsApp पर इवेंट अलर्ट पाएं।">Get event alerts in your inbox and WhatsApp.</p>
+        <!-- Netlify Form: newsletter subscribers go to your dashboard -->
+        <form class="notif-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="newsletter">
+          <input type="hidden" name="bot-field" style="display:none">
+          <input type="text" name="name" placeholder="Your Name / आपका नाम" required>
+          <input type="email" name="email" placeholder="Email / ईमेल" required>
+          <input type="tel" name="whatsapp" placeholder="WhatsApp (optional / वैकल्पिक)">
+          <button type="submit" data-en="Subscribe — Free" data-hi="सदस्य बनें — निःशुल्क">Subscribe — Free</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── PARENT RESOURCES / BLOG ── -->
+<section class="section alt" id="parents">
+  <div class="sec-eyebrow" data-en="For Families" data-hi="परिवारों के लिए">For Families</div>
+  <h2 class="sec-title" data-en="Resources &amp; Support" data-hi="संसाधन और सहायता">Resources &amp; Support</h2>
+  <p class="sec-sub" data-en="Free guides, toolkits, legal information, and community support — in English and Hindi." data-hi="अंग्रेजी और हिंदी में मुफ्त गाइड, टूलकिट, कानूनी जानकारी और सामुदायिक सहायता।">Free guides, toolkits, legal information, and community support — in English and Hindi.</p>
+  <div class="resources-grid">
+    <a href="#" class="res-card">
+      <div class="res-icon-wrap">📘</div>
+      <div class="res-title" data-en="First Steps Guide (EN + HI)" data-hi="First Steps Guide (EN + HI)">First Steps Guide (EN + HI)</div>
+      <div class="res-title-hi" data-en="प्रारंभिक मार्गदर्शिका" data-hi="First Steps Guide">प्रारंभिक मार्गदर्शिका</div>
+      <div class="res-desc" data-en="A practical handbook for families who just received an autism diagnosis. Covers first steps, therapy options, and emotional support." data-hi="उन परिवारों के लिए व्यावहारिक पुस्तिका जिन्हें अभी ऑटिज्म का निदान मिला है।">A practical handbook for families who just received an autism diagnosis. Covers first steps, therapy options, and emotional support.</div>
+      <span class="res-link" data-en="Download Free PDF →" data-hi="मुफ्त PDF डाउनलोड करें →">Download Free PDF →</span>
+    </a>
+    <a href="#" class="res-card">
+      <div class="res-icon-wrap">🏫</div>
+      <div class="res-title" data-en="School Inclusion Toolkit" data-hi="School Inclusion Toolkit">School Inclusion Toolkit</div>
+      <div class="res-title-hi" data-en="स्कूल समावेश टूलकिट" data-hi="School Inclusion Toolkit">स्कूल समावेश टूलकिट</div>
+      <div class="res-desc" data-en="How to advocate for your child in a mainstream school, request reasonable accommodations, and collaborate with teachers." data-hi="मुख्यधारा के स्कूल में अपने बच्चे की वकालत कैसे करें और उचित आवास कैसे मांगें।">How to advocate for your child in a mainstream school, request reasonable accommodations, and collaborate with teachers.</div>
+      <span class="res-link" data-en="Access Toolkit →" data-hi="टूलकिट देखें →">Access Toolkit →</span>
+    </a>
+    <a href="#" class="res-card">
+      <div class="res-icon-wrap">⚖️</div>
+      <div class="res-title" data-en="RPWD Act 2016 – Plain Language" data-hi="RPWD Act 2016 – Plain Language">RPWD Act 2016 – Plain Language</div>
+      <div class="res-title-hi" data-en="RPWD अधिनियम 2016 – सरल भाषा में" data-hi="RPWD Act 2016 – Plain Language">RPWD अधिनियम 2016 – सरल भाषा में</div>
+      <div class="res-desc" data-en="Know your rights. What the law guarantees for autistic individuals and their families in simple, jargon-free language." data-hi="अपने अधिकार जानें। कानून ऑटिस्टिक व्यक्तियों और उनके परिवारों के लिए क्या गारंटी देता है।">Know your rights. What the law guarantees for autistic individuals and their families in simple, jargon-free language.</div>
+      <span class="res-link" data-en="Read Guide →" data-hi="गाइड पढ़ें →">Read Guide →</span>
+    </a>
+    <a href="#" class="res-card">
+      <div class="res-icon-wrap">🗺️</div>
+      <div class="res-title" data-en="Therapy Finder – India" data-hi="Therapy Finder – India">Therapy Finder – India</div>
+      <div class="res-title-hi" data-en="थेरेपी फाइंडर – भारत" data-hi="Therapy Finder – India">थेरेपी फाइंडर – भारत</div>
+      <div class="res-desc" data-en="Curated directory of speech therapists, occupational therapists, and behavioral therapists across 20+ Indian cities." data-hi="20+ भारतीय शहरों में स्पीच, OT और व्यवहार थेरेपिस्टों की क्यूरेटेड डायरेक्टरी।">Curated directory of speech therapists, occupational therapists, and behavioral therapists across 20+ Indian cities.</div>
+      <span class="res-link" data-en="Find Therapist →" data-hi="थेरेपिस्ट खोजें →">Find Therapist →</span>
+    </a>
+    <a href="#" class="res-card">
+      <div class="res-icon-wrap">🤲</div>
+      <div class="res-title" data-en="Govt. Schemes &amp; Financial Aid" data-hi="Govt. Schemes &amp; Financial Aid">Govt. Schemes &amp; Financial Aid</div>
+      <div class="res-title-hi" data-en="सरकारी योजनाएं और वित्तीय सहायता" data-hi="Govt. Schemes &amp; Financial Aid">सरकारी योजनाएं और वित्तीय सहायता</div>
+      <div class="res-desc" data-en="Disability pensions, NHFDC loans, NGO scholarships, and Divyangjan schemes explained in one place." data-hi="विकलांगता पेंशन, NHFDC ऋण, NGO छात्रवृत्ति और दिव्यांगजन योजनाएं एक ही स्थान पर।">Disability pensions, NHFDC loans, NGO scholarships, and Divyangjan schemes explained in one place.</div>
+      <span class="res-link" data-en="Explore Schemes →" data-hi="योजनाएं देखें →">Explore Schemes →</span>
+    </a>
+    <a href="#" class="res-card">
+      <div class="res-icon-wrap">🎙️</div>
+      <div class="res-title" data-en="Podcast: Autism in India" data-hi="Podcast: Autism in India">Podcast: Autism in India</div>
+      <div class="res-title-hi" data-en="पॉडकास्ट: भारत में ऑटिज्म" data-hi="Podcast: Autism in India">पॉडकास्ट: भारत में ऑटिज्म</div>
+      <div class="res-desc" data-en="Real conversations with Indian families, therapists, and autistic adults. Available in Hindi and English." data-hi="भारतीय परिवारों, थेरेपिस्टों और ऑटिस्टिक वयस्कों के साथ वास्तविक बातचीत। हिंदी और अंग्रेजी में।">Real conversations with Indian families, therapists, and autistic adults. Available in Hindi and English.</div>
+      <span class="res-link" data-en="Listen Free →" data-hi="मुफ्त सुनें →">Listen Free →</span>
+    </a>
+  </div>
+
+  <!-- Blog Preview -->
+  <div class="blog-preview">
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--indigo);margin-bottom:0.25rem;" data-en="From Our Blog" data-hi="हमारे ब्लॉग से">From Our Blog</h3>
+    <p style="font-size:0.85rem;color:var(--ink-soft);margin-bottom:0;" data-en="Stories, guidance, and updates from our community." data-hi="हमारे समुदाय की कहानियां, मार्गदर्शन और अपडेट।">Stories, guidance, and updates from our community.</p>
+    <div class="blog-grid">
+      <a href="#" class="blog-card">
+        <div class="blog-thumb">📖</div>
+        <div class="blog-body">
+          <div class="blog-cat" data-en="Parent Story" data-hi="माता-पिता की कहानी">Parent Story</div>
+          <div class="blog-title" data-en="'When my son was diagnosed at age 3, I felt completely alone. Anurag changed that.'" data-hi="'जब मेरे बेटे को 3 साल में निदान मिला, मैं बिल्कुल अकेली थी। अनुराग ने यह बदला।'">'When my son was diagnosed at age 3, I felt completely alone. Anurag changed that.'</div>
+          <div class="blog-date">March 15, 2025</div>
+        </div>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-thumb">🧠</div>
+        <div class="blog-body">
+          <div class="blog-cat" data-en="Guidance" data-hi="मार्गदर्शन">Guidance</div>
+          <div class="blog-title" data-en="5 things to do in the first month after an autism diagnosis in India" data-hi="भारत में ऑटिज्म निदान के बाद पहले महीने में 5 काम करने योग्य">5 things to do in the first month after an autism diagnosis in India</div>
+          <div class="blog-date">February 28, 2025</div>
+        </div>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-thumb">🏫</div>
+        <div class="blog-body">
+          <div class="blog-cat" data-en="Education" data-hi="शिक्षा">Education</div>
+          <div class="blog-title" data-en="How to talk to your child's school about autism — a practical guide" data-hi="अपने बच्चे के स्कूल से ऑटिज्म के बारे में कैसे बात करें — एक व्यावहारिक मार्गदर्शिका">How to talk to your child's school about autism — a practical guide</div>
+          <div class="blog-date">February 10, 2025</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-wrap">
+    <div class="faq-h" data-en="Frequently Asked Questions" data-hi="अक्सर पूछे जाने वाले प्रश्न">Frequently Asked Questions</div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        <span data-en="Is autism a disease that can be cured?" data-hi="क्या ऑटिज्म एक बीमारी है जिसे ठीक किया जा सकता है?">Is autism a disease that can be cured?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer" data-en="Autism is not a disease — it is a neurodevelopmental difference. It cannot and should not be 'cured.' The goal of support is to help autistic individuals live fulfilling, independent lives on their own terms, not to make them neurotypical." data-hi="ऑटिज्म कोई बीमारी नहीं है — यह एक न्यूरोडेवलपमेंटल अंतर है। इसे 'ठीक' नहीं किया जा सकता और न किया जाना चाहिए। समर्थन का लक्ष्य ऑटिस्टिक व्यक्तियों को अपनी शर्तों पर पूर्ण, स्वतंत्र जीवन जीने में मदद करना है।">Autism is not a disease — it is a neurodevelopmental difference. It cannot and should not be 'cured.' The goal of support is to help autistic individuals live fulfilling, independent lives on their own terms, not to make them neurotypical.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        <span data-en="What age should I seek a diagnosis for my child?" data-hi="मुझे अपने बच्चे के लिए किस उम्र में निदान लेना चाहिए?">What age should I seek a diagnosis for my child?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer" data-en="Early intervention before age 5 has the greatest impact, but diagnosis is beneficial at any age. If you notice differences in communication, social interaction, or sensory responses, consult a developmental pediatrician. We can help connect you with diagnosticians across India." data-hi="5 वर्ष से पहले प्रारंभिक हस्तक्षेप का सबसे अधिक प्रभाव पड़ता है, लेकिन निदान किसी भी उम्र में फायदेमंद होता है। यदि आप संचार, सामाजिक संपर्क या संवेदी प्रतिक्रियाओं में अंतर देखते हैं, तो एक विकासात्मक बाल रोग विशेषज्ञ से परामर्श करें।">Early intervention before age 5 has the greatest impact, but diagnosis is beneficial at any age. If you notice differences in communication, social interaction, or sensory responses, consult a developmental pediatrician. We can help connect you with diagnosticians across India.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        <span data-en="Are Anurag Society's programs free?" data-hi="क्या अनुराग सोसायटी के कार्यक्रम मुफ्त हैं?">Are Anurag Society's programs free?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer" data-en="Most community programs, awareness workshops, and parent resources are completely free. Some specialized training has a small nominal fee (₹200–500) to cover materials. No family is ever turned away due to financial constraints." data-hi="अधिकांश सामुदायिक कार्यक्रम, जागरूकता कार्यशालाएं और माता-पिता के संसाधन पूरी तरह मुफ्त हैं। कुछ विशेष प्रशिक्षण में सामग्री के लिए एक छोटा नाममात्र शुल्क (₹200–500) है। किसी भी परिवार को वित्तीय कारणों से कभी नहीं लौटाया जाता।">Most community programs, awareness workshops, and parent resources are completely free. Some specialized training has a small nominal fee (₹200–500) to cover materials. No family is ever turned away due to financial constraints.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        <span data-en="Do you provide support in Hindi and regional languages?" data-hi="क्या आप हिंदी और क्षेत्रीय भाषाओं में सहायता प्रदान करते हैं?">Do you provide support in Hindi and regional languages?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer" data-en="Yes. We provide resources in Hindi, Tamil, Telugu, Kannada, Marathi, and Bengali. Our helpline has volunteers fluent in 8 Indian languages. Language should never be a barrier to getting support." data-hi="हाँ। हम हिंदी, तमिल, तेलुगू, कन्नड़, मराठी और बंगाली में संसाधन प्रदान करते हैं। हमारी हेल्पलाइन पर 8 भारतीय भाषाओं में कुशल स्वयंसेवक हैं।">Yes. We provide resources in Hindi, Tamil, Telugu, Kannada, Marathi, and Bengali. Our helpline has volunteers fluent in 8 Indian languages. Language should never be a barrier to getting support.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        <span data-en="How do I apply for admission to your programs?" data-hi="मैं आपके कार्यक्रमों में प्रवेश के लिए कैसे आवेदन करूं?">How do I apply for admission to your programs?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer" data-en="Fill the contact form below selecting 'Programs & Admissions' as your query type. One of our coordinators will call you within 24 hours to understand your child's needs and guide you through the process. No prior documentation is needed to make the initial enquiry." data-hi="नीचे संपर्क फ़ॉर्म भरें और अपनी क्वेरी प्रकार के रूप में 'कार्यक्रम और प्रवेश' चुनें। हमारे एक समन्वयक 24 घंटे के भीतर आपको कॉल करेंगे।">Fill the contact form below selecting 'Programs &amp; Admissions' as your query type. One of our coordinators will call you within 24 hours to understand your child's needs and guide you through the process. No prior documentation is needed to make the initial enquiry.</div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── GALLERY ── -->
+<section class="section" id="gallery">
+  <div class="sec-eyebrow" data-en="Our Moments" data-hi="हमारे पल">Our Moments</div>
+  <h2 class="sec-title" data-en="Events &amp; Occasions" data-hi="आयोजन और अवसर">Events &amp; Occasions</h2>
+  <p class="sec-sub" data-en="A glimpse into the joy, learning, and community we build together every day." data-hi="हर दिन मिलकर बनाई जाने वाली खुशी, सीख और समुदाय की एक झलक।">A glimpse into the joy, learning, and community we build together every day.</p>
+
+  <!-- Filter Tabs -->
+  <div class="gallery-tabs">
+    <button class="gtab active" onclick="filterGallery('all', this)" data-en="All Photos" data-hi="सभी फ़ोटो">All Photos</button>
+    <button class="gtab" onclick="filterGallery('autism-day', this)" data-en="🌸 Autism Day" data-hi="🌸 ऑटिज्म दिवस">🌸 Autism Day</button>
+    <button class="gtab" onclick="filterGallery('art', this)" data-en="🎨 Art &amp; Therapy" data-hi="🎨 कला और चिकित्सा">🎨 Art &amp; Therapy</button>
+    <button class="gtab" onclick="filterGallery('workshops', this)" data-en="📚 Workshops" data-hi="📚 कार्यशालाएं">📚 Workshops</button>
+    <button class="gtab" onclick="filterGallery('annual', this)" data-en="🎉 Annual Function" data-hi="🎉 वार्षिक समारोह">🎉 Annual Function</button>
+    <button class="gtab" onclick="filterGallery('community', this)" data-en="🤝 Community" data-hi="🤝 समुदाय">🤝 Community</button>
+  </div>
+
+  <!-- Gallery Grid -->
+  <div class="gallery-grid" id="galleryGrid">
+
+    <!-- PHOTO SLOT 1 — Featured/Large -->
+    <div class="gitem" data-cat="autism-day" onclick="openLightbox(0)">
+      <!-- TO ADD PHOTO: replace the gplaceholder div below with:
+           <img src="photos/events/autism-day-2025/main.jpg" alt="World Autism Day Walk 2025"> -->
+      <div class="gplaceholder">
+        <div class="gp-icon">📸</div>
+        <div class="gp-label">World Autism Day Walk 2025<br><small>Replace with your photo</small></div>
+      </div>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">World Autism Day Walk 2025</div>
+        <div class="goverlay-meta">April 2 · New Delhi · 200+ participants</div>
+      </div>
+    </div>
+
+    <!-- PHOTO SLOT 2 -->
+    <div class="gitem" data-cat="art" onclick="openLightbox(1)">
+      <div class="gplaceholder">
+        <div class="gp-icon">🎨</div>
+        <div class="gp-label">Art Exhibition 2024</div>
+      </div>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">Art Exhibition: Colours of My World</div>
+        <div class="goverlay-meta">November 2024 · Mumbai Centre</div>
+      </div>
+    </div>
+
+    <!-- PHOTO SLOT 3 -->
+    <div class="gitem" data-cat="workshops" onclick="openLightbox(2)">
+      <div class="gplaceholder">
+        <div class="gp-icon">📚</div>
+        <div class="gp-label">Parent Workshop</div>
+      </div>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">Parent Workshop: IEPs in Indian Schools</div>
+        <div class="goverlay-meta">March 2025 · Online · 85 attendees</div>
+      </div>
+    </div>
+
+    <!-- PHOTO SLOT 4 -->
+    <div class="gitem" data-cat="annual" onclick="openLightbox(3)">
+      <div class="gplaceholder">
+        <div class="gp-icon">🎉</div>
+        <div class="gp-label">Annual Function 2024</div>
+      </div>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">Annual Day Celebration 2024</div>
+        <div class="goverlay-meta">December 2024 · Delhi Centre</div>
+      </div>
+    </div>
+
+    <!-- PHOTO SLOT 5 -->
+    <div class="gitem" data-cat="community" onclick="openLightbox(4)">
+      <div class="gplaceholder">
+        <div class="gp-icon">🤝</div>
+        <div class="gp-label">Sibling Support Circle</div>
+      </div>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">Sibling Support Circle</div>
+        <div class="goverlay-meta">February 2025 · Bengaluru</div>
+      </div>
+    </div>
+
+    <!-- PHOTO SLOT 6 -->
+    <div class="gitem" data-cat="art" onclick="openLightbox(5)">
+      <div class="gplaceholder">
+        <div class="gp-icon">🎵</div>
+        <div class="gp-label">Music Therapy Session</div>
+      </div>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">Music Therapy Sessions</div>
+        <div class="goverlay-meta">Every Saturday · Delhi Centre</div>
+      </div>
+    </div>
+
+    <!-- PHOTO SLOT 7 — Wide -->
+    <div class="gitem" data-cat="autism-day" onclick="openLightbox(6)">
+      <div class="gplaceholder">
+        <div class="gp-icon">🌸</div>
+        <div class="gp-label">Awareness Campaign 2024 — Group photo</div>
+      </div>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">Autism Awareness Campaign 2024</div>
+        <div class="goverlay-meta">Group photo · 150+ volunteers</div>
+      </div>
+    </div>
+
+    <!-- PHOTO SLOT 8 -->
+    <div class="gitem" data-cat="workshops" onclick="openLightbox(7)">
+      <div class="gplaceholder">
+        <div class="gp-icon">👩‍🏫</div>
+        <div class="gp-label">Teacher Training</div>
+      </div>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">Teacher Training: Autism in Classroom</div>
+        <div class="goverlay-meta">May 2025 · Delhi</div>
+      </div>
+    </div>
+
+    <!-- PHOTO SLOT 9 -->
+    <div class="gitem" data-cat="community" onclick="openLightbox(8)">
+      <div class="gplaceholder">
+        <div class="gp-icon">🏃</div>
+        <div class="gp-label">Inclusion Run 2024</div>
+      </div>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">Inclusion Run for Awareness</div>
+        <div class="goverlay-meta">October 2024 · Mumbai</div>
+      </div>
+    </div>
+
+  </div><!-- /gallery-grid -->
+
+  <div class="gallery-more">
+    <button class="btn-outline-white" data-en="📷 View Full Photo Archive →" data-hi="📷 पूरा फ़ोटो संग्रह देखें →">📷 View Full Photo Archive →</button>
+  </div>
+
+  <!-- How to add photos note -->
+  <div class="gallery-howto">
+    <div class="howto-icon">💡</div>
+    <div class="howto-text">
+      <strong>For the website manager:</strong> To add real photos, create a <code>photos/events/</code> folder alongside <code>index.html</code>.
+      Then in each photo slot above, replace the <code>&lt;div class="gplaceholder"&gt;</code> block with
+      <code>&lt;img src="photos/events/your-photo.jpg" alt="description"&gt;</code>.
+      Compress photos at <strong>tinypng.com</strong> before uploading for fast loading on mobile data.
+    </div>
+  </div>
+</section>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <div class="lb-inner">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <button class="lb-nav lb-prev" onclick="lbNav(-1)">‹</button>
+    <button class="lb-nav lb-next" onclick="lbNav(1)">›</button>
+    <div class="lb-img-wrap" id="lbImgWrap">
+      <!-- image or placeholder injected by JS -->
+    </div>
+    <div class="lb-caption">
+      <div class="lb-caption-title" id="lbTitle"></div>
+      <div class="lb-caption-meta" id="lbMeta"></div>
+    </div>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── DONATE ── -->
+<section class="section" id="donate">
+  <div class="sec-eyebrow" data-en="Support Our Mission" data-hi="हमारे मिशन का समर्थन करें">Support Our Mission</div>
+  <h2 class="sec-title" data-en="Every rupee changes a life." data-hi="हर रुपया एक जीवन बदलता है।">Every rupee changes a life.</h2>
+  <p class="sec-sub" data-en="100% of your donation goes to programs, resources, and families. 80G tax exemption available. FCRA pending." data-hi="आपके दान का 100% कार्यक्रमों, संसाधनों और परिवारों को जाता है। 80G कर छूट उपलब्ध। FCRA pending.">100% of your donation goes to programs, resources, and families. 80G tax exemption available. FCRA pending.</p>
+  <div class="donate-layout">
+    <div>
+      <div class="donate-amounts">
+        <div class="amt-card selected" onclick="selectAmt(this)">
+          <div class="amt-rs">₹500</div>
+          <div class="amt-what" data-en="Resource Pack" data-hi="संसाधन पैक">Resource Pack</div>
+        </div>
+        <div class="amt-card" onclick="selectAmt(this)">
+          <div class="amt-rs">₹1,000</div>
+          <div class="amt-what" data-en="Workshop Seat" data-hi="कार्यशाला सीट">Workshop Seat</div>
+        </div>
+        <div class="amt-card" onclick="selectAmt(this)">
+          <div class="amt-rs">₹2,500</div>
+          <div class="amt-what" data-en="Monthly" data-hi="मासिक">Monthly</div>
+        </div>
+        <div class="amt-card" onclick="selectAmt(this)">
+          <div class="amt-rs">₹5,000</div>
+          <div class="amt-what" data-en="Child Sponsor" data-hi="बाल प्रायोजक">Child Sponsor</div>
+        </div>
+        <div class="amt-card" onclick="selectAmt(this)">
+          <div class="amt-rs">₹10,000</div>
+          <div class="amt-what" data-en="Program Partner" data-hi="कार्यक्रम भागीदार">Program Partner</div>
+        </div>
+        <div class="amt-card" onclick="selectAmt(this)">
+          <div class="amt-rs" data-en="Custom" data-hi="कस्टम">Custom</div>
+          <div class="amt-what" data-en="Your amount" data-hi="अपनी राशि">Your amount</div>
+        </div>
+      </div>
+      <div class="donate-form">
+        <div class="df-row">
+          <input type="text" placeholder="First Name / नाम">
+          <input type="text" placeholder="Last Name / उपनाम">
+        </div>
+        <input type="email" placeholder="Email for receipt / ईमेल">
+        <input type="tel" placeholder="Phone / फ़ोन">
+        <select>
+          <option data-en="One-time donation" data-hi="एकमुश्त दान">One-time donation</option>
+          <option data-en="Monthly recurring" data-hi="मासिक आवर्ती">Monthly recurring</option>
+          <option data-en="Annual donation" data-hi="वार्षिक दान">Annual donation</option>
+        </select>
+        <button class="donate-submit" data-en="💙 Donate via Razorpay" data-hi="💙 Razorpay से दान करें">💙 Donate via Razorpay</button>
+      </div>
+      <div class="upi-row">
+        <span style="font-size:1.2rem;">📱</span>
+        <div>
+          <div style="font-weight:600;font-size:0.83rem;" data-en="UPI: anurag.social@ybl" data-hi="UPI: anurag.social@ybl">UPI: anurag.social@ybl</div>
+          <div style="font-size:0.72rem;color:var(--ink-soft);" data-en="Bank details available on request" data-hi="बैंक विवरण अनुरोध पर उपलब्ध">Bank details available on request</div>
+        </div>
+      </div>
+      <div class="tax-note" data-en="Registered Society · 80G Tax Exemption · All donations acknowledged" data-hi="पंजीकृत सोसायटी · 80G कर छूट · सभी दान स्वीकृत">Registered Society · 80G Tax Exemption · All donations acknowledged</div>
+    </div>
+    <div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:var(--indigo);margin-bottom:1.25rem;" data-en="Your donation in action" data-hi="आपका दान काम में">Your donation in action</h3>
+      <div class="impact-list">
+        <div class="impact-item">
+          <div class="imp-icon-wrap">📚</div>
+          <div><div class="imp-amount">₹500</div><div class="imp-desc" data-en="Funds one family's resource pack for a year" data-hi="एक परिवार के लिए एक वर्ष के संसाधन पैक को वित्त पोषित करता है">Funds one family's resource pack for a year</div></div>
+        </div>
+        <div class="impact-item">
+          <div class="imp-icon-wrap">🎨</div>
+          <div><div class="imp-amount">₹1,000</div><div class="imp-desc" data-en="Covers one child's art therapy session" data-hi="एक बच्चे का आर्ट थेरेपी सत्र कवर करता है">Covers one child's art therapy session</div></div>
+        </div>
+        <div class="impact-item">
+          <div class="imp-icon-wrap">🏫</div>
+          <div><div class="imp-amount">₹5,000</div><div class="imp-desc" data-en="Sponsors a full teacher inclusion training" data-hi="एक पूर्ण शिक्षक समावेश प्रशिक्षण प्रायोजित करता है">Sponsors a full teacher inclusion training</div></div>
+        </div>
+        <div class="impact-item">
+          <div class="imp-icon-wrap">💙</div>
+          <div><div class="imp-amount">₹10,000</div><div class="imp-desc" data-en="Funds a full community awareness workshop" data-hi="एक पूर्ण सामुदायिक जागरूकता कार्यशाला वित्त पोषित करता है">Funds a full community awareness workshop</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── CONTACT & ADMISSIONS ── -->
+<section class="section alt" id="contact">
+  <div class="sec-eyebrow" data-en="Contact &amp; Admissions" data-hi="संपर्क और प्रवेश">Contact &amp; Admissions</div>
+  <h2 class="sec-title" data-en="We're here for you." data-hi="हम आपके लिए यहाँ हैं।">We're here for you.</h2>
+  <p class="sec-sub" data-en="Parents, educators, volunteers, donors — reach out any time. We respond within 24 hours." data-hi="माता-पिता, शिक्षक, स्वयंसेवक, दाता — किसी भी समय संपर्क करें। हम 24 घंटे के भीतर जवाब देते हैं।">Parents, educators, volunteers, donors — reach out any time. We respond within 24 hours.</p>
+  <div class="contact-layout">
+    <div>
+      <!-- Netlify Form: submissions arrive in your Netlify dashboard + email -->
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+        <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="bot-field" style="display:none"> <!-- spam trap -->
+        <div class="cf-row">
+          <input type="text" name="name" placeholder="Your Name / आपका नाम" required>
+          <input type="tel" name="whatsapp" placeholder="WhatsApp / Phone">
+        </div>
+        <input type="email" name="email" placeholder="Email / ईमेल" required>
+        <select name="visitor-type">
+          <option value="" data-en="I am a..." data-hi="मैं हूँ...">I am a...</option>
+          <option value="Parent / Caregiver">Parent / Caregiver</option>
+          <option value="Educator / Teacher">Educator / Teacher</option>
+          <option value="Healthcare Professional">Healthcare Professional</option>
+          <option value="Volunteer">Volunteer</option>
+          <option value="Donor / Supporter">Donor / Supporter</option>
+          <option value="General Public">General Public</option>
+        </select>
+        <select name="query-type">
+          <option value="" data-en="Query about..." data-hi="प्रश्न है...">Query about...</option>
+          <option value="Programs & Admissions">Programs &amp; Admissions</option>
+          <option value="Events & Workshops">Events &amp; Workshops</option>
+          <option value="Parent Resources">Parent Resources</option>
+          <option value="Volunteering">Volunteering</option>
+          <option value="Donation / Funding">Donation / Funding</option>
+          <option value="Media / Press">Media / Press</option>
+          <option value="Other">Other</option>
+        </select>
+        <textarea name="message" placeholder="Your message / आपका संदेश" required></textarea>
+        <button type="submit" class="contact-submit" data-en="Send Message →" data-hi="संदेश भेजें →">Send Message →</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <div class="ci-block">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label" data-en="Main Centre" data-hi="मुख्य केंद्र">Main Centre</div>
+          <div class="ci-val">Anurag Society for Social Needs</div>
+          <div class="ci-sub" data-en="[Your Full Address Here], India" data-hi="[यहाँ अपना पूरा पता]">[ Your Full Address ], India</div>
+        </div>
+      </div>
+      <div class="ci-block">
+        <div class="ci-icon">📞</div>
+        <div>
+          <div class="ci-label" data-en="Helpline (Mon–Sat, 9AM–6PM)" data-hi="हेल्पलाइन (सोम–शनि, 9AM–6PM)">Helpline</div>
+          <div class="ci-val">+91 XXXXX XXXXX</div>
+          <div class="ci-sub" data-en="Monday – Saturday · 9 AM – 6 PM" data-hi="सोमवार – शनिवार · 9 AM – 6 PM">Monday – Saturday · 9 AM – 6 PM</div>
+        </div>
+      </div>
+      <div class="ci-block">
+        <div class="ci-icon">💬</div>
+        <div>
+          <div class="ci-label">WhatsApp</div>
+          <div class="ci-val">+91 XXXXX XXXXX</div>
+          <div class="ci-sub" data-en="Quick queries &amp; resource sharing" data-hi="त्वरित प्रश्न और संसाधन साझाकरण">Quick queries &amp; resource sharing</div>
+        </div>
+      </div>
+      <div class="ci-block">
+        <div class="ci-icon">✉️</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3d55585151527d5c53484f5c5a4e525e5458494413524f5a">[email&#160;protected]</a></div>
+          <div class="ci-sub" data-en="We reply within 24 hours" data-hi="हम 24 घंटे के भीतर जवाब देते हैं">We reply within 24 hours</div>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <div style="font-size:2rem;">📍</div>
+        <div data-en="Google Maps Embed — Paste your free iframe code here" data-hi="Google Maps Embed — अपना iframe code यहाँ paste करें">Google Maps Embed — Paste your free iframe code here</div>
+      </div>
+      <div>
+        <div class="ci-label" style="margin-bottom:0.5rem;" data-en="Follow Us" data-hi="हमें फ़ॉलो करें">Follow Us</div>
+        <div class="social-row">
+          <a href="#" class="soc-btn" title="Facebook">📘</a>
+          <a href="#" class="soc-btn" title="Instagram">📸</a>
+          <a href="#" class="soc-btn" title="Twitter/X">🐦</a>
+          <a href="#" class="soc-btn" title="YouTube">▶️</a>
+          <a href="#" class="soc-btn" title="WhatsApp">💬</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand">
+        <div class="brand-logo" style="width:40px;height:40px;font-size:1.2rem;">🌸</div>
+        <div class="brand-name">
+          <span class="brand-name-en" style="color:white;font-size:1rem;">Anurag Society for Social Needs</span>
+          <span class="brand-name-hi" style="color:var(--gold);">अनुराग सोसायटी फ़ॉर सोशल नीड्स</span>
+        </div>
+      </div>
+      <p>A community built on compassion, science, and the unwavering belief that every mind belongs.</p>
+      <p style="margin-top:0.5rem;">प्रेम, विज्ञान और समावेश के आधार पर निर्मित एक समुदाय।</p>
+    </div>
+    <div class="footer-col">
+      <h5 data-en="Programs" data-hi="कार्यक्रम">Programs</h5>
+      <ul>
+        <li><a href="#">Early Identification</a></li>
+        <li><a href="#">Speech Therapy</a></li>
+        <li><a href="#">Art Therapy</a></li>
+        <li><a href="#">Inclusive Education</a></li>
+        <li><a href="#">Vocational Training</a></li>
+        <li><a href="#">Carer Wellness</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-en="Resources" data-hi="संसाधन">Resources</h5>
+      <ul>
+        <li><a href="#">First Steps Guide</a></li>
+        <li><a href="#">School Toolkit</a></li>
+        <li><a href="#">RPWD Act Guide</a></li>
+        <li><a href="#">Therapy Finder</a></li>
+        <li><a href="#">Govt. Schemes</a></li>
+        <li><a href="#">Podcast</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-en="Organisation" data-hi="संगठन">Organisation</h5>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Annual Report</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Anurag Society for Social Needs. Built with ❤️ in India. Free to share.</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+/* ── NAVIGATION ── */
+function toggleNav() {
+  document.getElementById('navMenu').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('navMenu').classList.remove('open');
+  });
+});
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const tgt = document.querySelector(a.getAttribute('href'));
+    if (tgt) { e.preventDefault(); tgt.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+/* ── FAQ ── */
+function toggleFaq(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+/* ── DONATE AMOUNT ── */
+function selectAmt(el) {
+  document.querySelectorAll('.amt-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+/* ── FONT SIZE ── */
+let fs = 16;
+function adjFont(d) {
+  fs = Math.max(13, Math.min(22, fs + d));
+  document.documentElement.style.fontSize = fs + 'px';
+}
+
+/* ── HIGH CONTRAST ── */
+function toggleHC() {
+  document.body.classList.toggle('high-contrast');
+}
+
+/* ── GALLERY FILTER ── */
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.gtab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gitem').forEach(item => {
+    const match = cat === 'all' || item.dataset.cat === cat;
+    item.style.display = match ? '' : 'none';
+  });
+}
+
+/* ── LIGHTBOX DATA ── */
+const lbData = [
+  { src: '', title: 'World Autism Day Walk 2025', meta: 'April 2 · New Delhi · 200+ participants' },
+  { src: '', title: 'Art Exhibition: Colours of My World', meta: 'November 2024 · Mumbai Centre' },
+  { src: '', title: 'Parent Workshop: IEPs in Indian Schools', meta: 'March 2025 · Online · 85 attendees' },
+  { src: '', title: 'Annual Day Celebration 2024', meta: 'December 2024 · Delhi Centre' },
+  { src: '', title: 'Sibling Support Circle', meta: 'February 2025 · Bengaluru' },
+  { src: '', title: 'Music Therapy Sessions', meta: 'Every Saturday · Delhi Centre' },
+  { src: '', title: 'Autism Awareness Campaign 2024', meta: 'Group photo · 150+ volunteers' },
+  { src: '', title: 'Teacher Training: Autism in Classroom', meta: 'May 2025 · Delhi' },
+  { src: '', title: 'Inclusion Run for Awareness', meta: 'October 2024 · Mumbai' },
+];
+let lbIndex = 0;
+const icons = ['🌸','🎨','📚','🎉','🤝','🎵','🌸','👩‍🏫','🏃'];
+
+function openLightbox(idx) {
+  lbIndex = idx;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeLightboxOutside(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+}
+function lbNav(dir) {
+  const visible = lbData.filter((_, i) => {
+    const items = document.querySelectorAll('.gitem');
+    return items[i] && items[i].style.display !== 'none';
+  });
+  lbIndex = (lbIndex + dir + lbData.length) % lbData.length;
+  renderLightbox();
+}
+function renderLightbox() {
+  const d = lbData[lbIndex];
+  const wrap = document.getElementById('lbImgWrap');
+  if (d.src) {
+    wrap.innerHTML = `<img src="${d.src}" alt="${d.title}">`;
+  } else {
+    wrap.innerHTML = `<div class="lb-placeholder-big">
+      <div class="lbp-icon">${icons[lbIndex]}</div>
+      <div>Photo coming soon — replace <code>lbData[${lbIndex}].src</code> with your image path</div>
+    </div>`;
+  }
+  document.getElementById('lbTitle').textContent = d.title;
+  document.getElementById('lbMeta').textContent = d.meta;
+  document.getElementById('lbCounter').textContent = (lbIndex + 1) + ' / ' + lbData.length;
+}
+/* Keyboard nav */
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') lbNav(1);
+  if (e.key === 'ArrowLeft') lbNav(-1);
+  if (e.key === 'Escape') closeLightbox();
+});
+
+
+/* ── BILINGUAL ENGINE ── */
+let currentLang = 'en';
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnHI').classList.toggle('active', lang === 'hi');
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    el.innerHTML = el.getAttribute('data-' + lang);
+  });
+  document.documentElement.lang = lang;
+}
+</script>
+</body>
+</html>
