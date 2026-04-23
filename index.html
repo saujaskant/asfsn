@@ -466,8 +466,14 @@ nav {
 ═══════════════════════════════════════ */
 .programs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 2rem;
+}
+.prog-card:nth-child(even) {
+  margin-top: 1.5rem;
+}
+.prog-card:nth-child(odd) {
+  margin-top: 0;
 }
 .prog-card {
   background: white;
@@ -553,11 +559,10 @@ nav {
   border-radius: 14px;
   margin-bottom: 1rem;
   align-items: flex-start;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  cursor: default;
   background: white;
 }
-.event-row:hover { border-color: var(--indigo); background: #F8F9FF; transform: translateX(4px); }
+.event-row:hover { border-color: var(--border); background: white; transform: none; cursor: default; }
 .ev-date {
   min-width: 58px;
   background: var(--indigo);
@@ -1617,7 +1622,7 @@ body.high-contrast {
         <div id="subscribeSuccess" style="display:none;background:#E8F5E9;border-radius:10px;padding:1rem;text-align:center;">
           <div style="font-size:1.5rem;margin-bottom:0.4rem;">✅</div>
           <div style="font-size:0.85rem;font-weight:600;color:#2E7D32;" data-en="Thank you! We'll be in touch." data-hi="धन्यवाद! हम संपर्क करेंगे।">Thank you! We'll be in touch.</div>
-          <div style="font-size:0.75rem;color:#4A4A6A;margin-top:0.3rem;" data-en="Email us at hello@anuragsocietyforspecialneeds.org to confirm." data-hi="पुष्टि के लिए hello@anuragsocietyforspecialneeds.org पर ईमेल करें।">Email us at hello@anuragsocietyforspecialneeds.org to confirm.</div>
+          <div style="font-size:0.75rem;color:#4A4A6A;margin-top:0.3rem;" data-en="We will be in touch with you soon." data-hi="हम जल्द ही आपसे संपर्क करेंगे।">We will be in touch with you soon.</div>
         </div>
       </div>
     </div>
@@ -1680,7 +1685,7 @@ body.high-contrast {
     <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--indigo);margin-bottom:0.25rem;" data-en="From Our Blog" data-hi="हमारे ब्लॉग से">From Our Blog</h3>
     <p style="font-size:0.85rem;color:var(--ink-soft);margin-bottom:0;" data-en="Stories, guidance, and updates from our community." data-hi="हमारे समुदाय की कहानियां, मार्गदर्शन और अपडेट।">Stories, guidance, and updates from our community.</p>
     <div class="blog-grid">
-      <a href="#" class="blog-card">
+      <a href="blog-parent-story.html" class="blog-card">
         <div class="blog-thumb">📖</div>
         <div class="blog-body">
           <div class="blog-cat" data-en="Parent Story" data-hi="माता-पिता की कहानी">Parent Story</div>
@@ -1688,7 +1693,7 @@ body.high-contrast {
           <div class="blog-date">March 15, 2026</div>
         </div>
       </a>
-      <a href="#" class="blog-card">
+      <a href="blog-first-month.html" class="blog-card">
         <div class="blog-thumb">🧠</div>
         <div class="blog-body">
           <div class="blog-cat" data-en="Guidance" data-hi="मार्गदर्शन">Guidance</div>
@@ -1696,7 +1701,7 @@ body.high-contrast {
           <div class="blog-date">February 28, 2026</div>
         </div>
       </a>
-      <a href="#" class="blog-card">
+      <a href="blog-school-talk.html" class="blog-card">
         <div class="blog-thumb">🏫</div>
         <div class="blog-body">
           <div class="blog-cat" data-en="Education" data-hi="शिक्षा">Education</div>
@@ -1726,17 +1731,17 @@ body.high-contrast {
     </div>
     <div class="faq-item">
       <button class="faq-btn" onclick="toggleFaq(this)">
-        <span data-en="Are Anurag Society's programs free?" data-hi="क्या अनुराग सोसायटी के कार्यक्रम मुफ्त हैं?">Are Anurag Society's programs free?</span>
+        <span data-en="Are Anurag Society for Special Needs' programs free?" data-hi="क्या अनुराग सोसायटी फ़ॉर स्पेशल नीड्स के कार्यक्रम मुफ्त हैं?">Are Anurag Society for Special Needs' programs free?</span>
         <span class="faq-icon">+</span>
       </button>
-      <div class="faq-answer" data-en="Most community programs, awareness workshops, and parent resources are completely free. Some specialized training has a small nominal fee (₹200–500) to cover materials. No family is ever turned away due to financial constraints." data-hi="अधिकांश सामुदायिक कार्यक्रम, जागरूकता कार्यशालाएं और माता-पिता के संसाधन पूरी तरह मुफ्त हैं। कुछ विशेष प्रशिक्षण में सामग्री के लिए एक छोटा नाममात्र शुल्क (₹200–500) है। किसी भी परिवार को वित्तीय कारणों से कभी नहीं लौटाया जाता।">Most community programs, awareness workshops, and parent resources are completely free. Some specialized training has a small nominal fee (₹200–500) to cover materials. No family is ever turned away due to financial constraints.</div>
+      <div class="faq-answer" data-en="Most community programs, awareness workshops, and parent resources are completely free. No family is ever turned away due to financial constraints." data-hi="अधिकांश सामुदायिक कार्यक्रम, जागरूकता कार्यशालाएं और माता-पिता के संसाधन पूरी तरह मुफ्त हैं। किसी भी परिवार को वित्तीय कारणों से कभी नहीं लौटाया जाता।">Most community programs, awareness workshops, and parent resources are completely free. No family is ever turned away due to financial constraints.</div>
     </div>
     <div class="faq-item">
       <button class="faq-btn" onclick="toggleFaq(this)">
         <span data-en="Do you provide support in Hindi and regional languages?" data-hi="क्या आप हिंदी और क्षेत्रीय भाषाओं में सहायता प्रदान करते हैं?">Do you provide support in Hindi and regional languages?</span>
         <span class="faq-icon">+</span>
       </button>
-      <div class="faq-answer" data-en="Yes. We provide resources in Hindi, Tamil, Telugu, Kannada, Marathi, and Bengali. Our helpline has volunteers fluent in 8 Indian languages. Language should never be a barrier to getting support." data-hi="हाँ। हम हिंदी, तमिल, तेलुगू, कन्नड़, मराठी और बंगाली में संसाधन प्रदान करते हैं। हमारी हेल्पलाइन पर 8 भारतीय भाषाओं में कुशल स्वयंसेवक हैं।">Yes. We provide resources in Hindi, Tamil, Telugu, Kannada, Marathi, and Bengali. Our helpline has volunteers fluent in 8 Indian languages. Language should never be a barrier to getting support.</div>
+      <div class="faq-answer" data-en="Yes. We provide resources in Hindi and English currently. However language would never be a barrier to getting support." data-hi="हाँ। हम अभी हिंदी और अंग्रेजी में संसाधन प्रदान करते हैं। हालांकि भाषा कभी सहायता पाने में बाधा नहीं बनेगी।">Yes. We provide resources in Hindi and English currently. However language would never be a barrier to getting support.</div>
     </div>
     <div class="faq-item">
       <button class="faq-btn" onclick="toggleFaq(this)">
@@ -1893,16 +1898,7 @@ body.high-contrast {
     <button class="btn-outline-white" data-en="📷 View Full Photo Archive →" data-hi="📷 पूरा फ़ोटो संग्रह देखें →">📷 View Full Photo Archive →</button>
   </div>
 
-  <!-- How to add photos note -->
-  <div class="gallery-howto">
-    <div class="howto-icon">💡</div>
-    <div class="howto-text">
-      <strong>For the website manager:</strong> To add real photos, create a <code>photos/events/</code> folder alongside <code>index.html</code>.
-      Then in each photo slot above, replace the <code>&lt;div class="gplaceholder"&gt;</code> block with
-      <code>&lt;img src="photos/events/your-photo.jpg" alt="description"&gt;</code>.
-      Compress photos at <strong>tinypng.com</strong> before uploading for fast loading on mobile data.
-    </div>
-  </div>
+
 </section>
 
 <!-- ── LIGHTBOX ── -->
@@ -2012,16 +2008,13 @@ body.high-contrast {
   <p class="sec-sub" data-en="Parents, educators, volunteers, donors — reach out any time. We respond within 24 hours." data-hi="माता-पिता, शिक्षक, स्वयंसेवक, दाता — किसी भी समय संपर्क करें। हम 24 घंटे के भीतर जवाब देते हैं।">Parents, educators, volunteers, donors — reach out any time. We respond within 24 hours.</p>
   <div class="contact-layout">
     <div>
-      <!-- Netlify Form: submissions arrive in your Netlify dashboard + email -->
-      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
-        <input type="hidden" name="form-name" value="contact">
-        <input type="hidden" name="bot-field" style="display:none"> <!-- spam trap -->
+      <div class="contact-form" id="contactFormWrap">
         <div class="cf-row">
-          <input type="text" name="name" placeholder="Your Name / आपका नाम" required>
-          <input type="tel" name="whatsapp" placeholder="WhatsApp / Phone">
+          <input type="text" id="cf-name" placeholder="Your Name / आपका नाम" required>
+          <input type="tel" id="cf-phone" placeholder="WhatsApp / Phone">
         </div>
-        <input type="email" name="email" placeholder="Email / ईमेल" required>
-        <select name="visitor-type">
+        <input type="email" id="cf-email" placeholder="Email / ईमेल" required>
+        <select id="cf-type">
           <option value="" data-en="I am a..." data-hi="मैं हूँ...">I am a...</option>
           <option value="Parent / Caregiver">Parent / Caregiver</option>
           <option value="Educator / Teacher">Educator / Teacher</option>
@@ -2030,19 +2023,25 @@ body.high-contrast {
           <option value="Donor / Supporter">Donor / Supporter</option>
           <option value="General Public">General Public</option>
         </select>
-        <select name="query-type">
+        <select id="cf-query">
           <option value="" data-en="Query about..." data-hi="प्रश्न है...">Query about...</option>
-          <option value="Programs & Admissions">Programs &amp; Admissions</option>
-          <option value="Events & Workshops">Events &amp; Workshops</option>
+          <option value="Programs &amp; Admissions">Programs &amp; Admissions</option>
+          <option value="Events &amp; Workshops">Events &amp; Workshops</option>
           <option value="Parent Resources">Parent Resources</option>
           <option value="Volunteering">Volunteering</option>
           <option value="Donation / Funding">Donation / Funding</option>
           <option value="Media / Press">Media / Press</option>
           <option value="Other">Other</option>
         </select>
-        <textarea name="message" placeholder="Your message / आपका संदेश" required></textarea>
-        <button type="submit" class="contact-submit" data-en="Send Message →" data-hi="संदेश भेजें →">Send Message →</button>
-      </form>
+        <textarea id="cf-message" placeholder="Your message / आपका संदेश" required></textarea>
+        <button type="button" onclick="submitContact()" class="contact-submit" data-en="Send Message →" data-hi="संदेश भेजें →">Send Message →</button>
+      </div>
+      <div id="contactSuccess" style="display:none;background:#E8F5E9;border-radius:14px;padding:2rem;text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem;">✅</div>
+        <div style="font-weight:700;font-size:1.1rem;color:#2E7D32;margin-bottom:0.5rem;" data-en="Message sent successfully!" data-hi="संदेश सफलतापूर्वक भेजा गया!">Message sent successfully!</div>
+        <div style="font-size:0.88rem;color:#4A4A6A;" data-en="We will get back to you within 24 hours." data-hi="हम 24 घंटे के भीतर आपसे संपर्क करेंगे।">We will get back to you within 24 hours.</div>
+        <a href="index.html" style="display:inline-block;margin-top:1rem;color:#1A237E;font-weight:600;font-size:0.88rem;">← Back to top</a>
+      </div>
     </div>
     <div class="contact-info">
       <div class="ci-block">
@@ -2057,7 +2056,7 @@ body.high-contrast {
         <div class="ci-icon">📞</div>
         <div>
           <div class="ci-label" data-en="Helpline (Mon–Sat, 9AM–6PM)" data-hi="हेल्पलाइन (सोम–शनि, 9AM–6PM)">Helpline</div>
-          <div class="ci-val">+91 XXXXX XXXXX</div>
+          <div class="ci-val"><a href="tel:+917505908833" style="color:inherit;text-decoration:none;">+91 75059 08833</a></div>
           <div class="ci-sub" data-en="Monday – Saturday · 9 AM – 6 PM" data-hi="सोमवार – शनिवार · 9 AM – 6 PM">Monday – Saturday · 9 AM – 6 PM</div>
         </div>
       </div>
@@ -2065,7 +2064,7 @@ body.high-contrast {
         <div class="ci-icon">💬</div>
         <div>
           <div class="ci-label">WhatsApp</div>
-          <div class="ci-val">+91 XXXXX XXXXX</div>
+          <div class="ci-val"><a href="https://wa.me/917505908833" target="_blank" style="color:inherit;text-decoration:none;">+91 75059 08833</a></div>
           <div class="ci-sub" data-en="Quick queries &amp; resource sharing" data-hi="त्वरित प्रश्न और संसाधन साझाकरण">Quick queries &amp; resource sharing</div>
         </div>
       </div>
@@ -2073,7 +2072,7 @@ body.high-contrast {
         <div class="ci-icon">✉️</div>
         <div>
           <div class="ci-label">Email</div>
-          <div class="ci-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3d55585151527d5c53484f5c5a4e525e5458494413524f5a">[email&#160;protected]</a></div>
+          <div class="ci-val"><a href="mailto:kantsaurabh6@gmail.com" style="color:inherit;text-decoration:none;">Contact via email form below</a></div>
           <div class="ci-sub" data-en="We reply within 24 hours" data-hi="हम 24 घंटे के भीतर जवाब देते हैं">We reply within 24 hours</div>
         </div>
       </div>
@@ -2084,11 +2083,9 @@ body.high-contrast {
       <div>
         <div class="ci-label" style="margin-bottom:0.5rem;" data-en="Follow Us" data-hi="हमें फ़ॉलो करें">Follow Us</div>
         <div class="social-row">
-          <a href="#" class="soc-btn" title="Facebook">📘</a>
-          <a href="#" class="soc-btn" title="Instagram">📸</a>
-          <a href="#" class="soc-btn" title="Twitter/X">🐦</a>
-          <a href="#" class="soc-btn" title="YouTube">▶️</a>
-          <a href="#" class="soc-btn" title="WhatsApp">💬</a>
+          <a href="https://www.facebook.com/people/Anurag-Society-for-Special-Needs/100090073144699/" target="_blank" class="soc-btn" title="Facebook">📘</a>
+          <a href="https://www.instagram.com/anuragsociety2007?igsh=OWpkeXV6aW5iejhx" target="_blank" class="soc-btn" title="Instagram">📸</a>
+          <a href="https://wa.me/917505908833" target="_blank" class="soc-btn" title="WhatsApp">💬</a>
         </div>
       </div>
     </div>
@@ -2262,6 +2259,29 @@ document.addEventListener('keydown', e => {
 });
 
 
+/* ── CONTACT FORM ── */
+function submitContact() {
+  const name = document.getElementById('cf-name').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const phone = document.getElementById('cf-phone').value.trim();
+  const type = document.getElementById('cf-type').value;
+  const query = document.getElementById('cf-query').value;
+  const message = document.getElementById('cf-message').value.trim();
+  if (!name || !email || !message) {
+    alert('Please fill in your name, email, and message.');
+    return;
+  }
+  const body = 'Name: ' + name +
+    '%0AEmail: ' + email +
+    '%0APhone/WhatsApp: ' + (phone || 'Not provided') +
+    '%0AVisitor Type: ' + (type || 'Not specified') +
+    '%0AQuery About: ' + (query || 'Not specified') +
+    '%0A%0AMessage:%0A' + encodeURIComponent(message);
+  window.location.href = 'mailto:kantsaurabh6@gmail.com?subject=Website Enquiry from ' + encodeURIComponent(name) + '&body=' + body;
+  document.getElementById('contactFormWrap').style.display = 'none';
+  document.getElementById('contactSuccess').style.display = 'block';
+}
+
 /* ── SUBSCRIBE FORM ── */
 function handleSubscribe() {
   const name = document.getElementById('subName').value.trim();
@@ -2277,7 +2297,7 @@ function handleSubscribe() {
   document.getElementById('subscribeForm').style.display = 'none';
   document.getElementById('subscribeSuccess').style.display = 'block';
   // Optional: open mailto so you receive the subscription
-  window.location.href = 'mailto:hello@anuragsocietyforspecialneeds.org?subject=Newsletter Subscription&body=Name: ' + encodeURIComponent(name) + '%0AEmail: ' + encodeURIComponent(email);
+  window.location.href = 'mailto:kantsaurabh6@gmail.com?subject=Newsletter Subscription Request&body=Name: ' + encodeURIComponent(name) + '%0AEmail: ' + encodeURIComponent(email);
 }
 
 /* ── BILINGUAL ENGINE ── */
