@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anurag Society for Social Needs | अनुराग सोसायटी</title>
+<title>Anurag Society for Special Needs | अनुराग सोसायटी</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Sans:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -658,21 +658,38 @@ nav {
 ═══════════════════════════════════════ */
 .resources-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.resources-grid .res-card:nth-child(even) {
+  margin-top: 1.25rem;
 }
 .res-card {
   background: white;
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 1.5rem;
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.25s, box-shadow 0.25s;
   text-decoration: none;
   color: inherit;
+  position: relative;
+  overflow: hidden;
 }
-.res-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,35,126,0.1); }
+.res-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--indigo), var(--indigo-lt));
+}
+.res-card:nth-child(2)::before { background: linear-gradient(90deg, var(--lotus), #E74C3C); }
+.res-card:nth-child(3)::before { background: linear-gradient(90deg, var(--gold), var(--gold-lt)); }
+.res-card:nth-child(4)::before { background: linear-gradient(90deg, #00897B, #26A69A); }
+.res-card:nth-child(5)::before { background: linear-gradient(90deg, #8E24AA, #AB47BC); }
+.res-card:nth-child(6)::before { background: linear-gradient(90deg, #E64A19, #FF7043); }
+.res-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(26,35,126,0.12); }
 .res-icon-wrap {
   width: 50px; height: 50px;
   background: #E8EAF6;
@@ -1348,7 +1365,7 @@ body.high-contrast {
     <div class="brand-logo">🌸</div>
     <div class="brand-name">
       <span class="brand-name-en">Anurag Society</span>
-      <span class="brand-name-hi">अनुराग सोसायटी फ़ॉर सोशल नीड्स</span>
+      <span class="brand-name-hi">अनुराग सोसायटी फ़ॉर स्पेशल नीड्स</span>
     </div>
   </a>
   <ul class="nav-links" id="navMenu">
@@ -1377,8 +1394,8 @@ body.high-contrast {
       <span class="accent" data-en="love &amp; belonging." data-hi="प्यार और अपनेपन का।">love &amp; belonging.</span>
     </h1>
     <p class="hero-h1-hi" data-en="अनुराग — प्रेम, देखभाल, समावेश।" data-hi="Anurag — Love, Care, Inclusion.">अनुराग — प्रेम, देखभाल, समावेश।</p>
-    <p class="hero-desc" data-en="Anurag Society for Social Needs is dedicated to empowering autistic individuals, supporting families, and building an inclusive community across India — grounded in compassion and evidence-based care." data-hi="अनुराग सोसायटी फ़ॉर सोशल नीड्स ऑटिस्टिक व्यक्तियों को सशक्त बनाने, परिवारों को सहयोग देने और भारत में एक समावेशी समुदाय बनाने के लिए प्रतिबद्ध है।">
-      Anurag Society for Social Needs is dedicated to empowering autistic individuals, supporting families, and building an inclusive community across India — grounded in compassion and evidence-based care.
+    <p class="hero-desc" data-en="Anurag Society for Special Needs is dedicated to empowering autistic individuals, supporting families, and building an inclusive community across India — grounded in compassion and evidence-based care." data-hi="अनुराग सोसायटी फ़ॉर स्पेशल नीड्स ऑटिस्टिक व्यक्तियों को सशक्त बनाने, परिवारों को सहयोग देने और भारत में एक समावेशी समुदाय बनाने के लिए प्रतिबद्ध है।">
+      Anurag Society for Special Needs is dedicated to empowering autistic individuals, supporting families, and building an inclusive community across India — grounded in compassion and evidence-based care.
     </p>
     <div class="hero-btns">
       <a href="#programs" class="btn-primary">
@@ -1408,7 +1425,7 @@ body.high-contrast {
       <div class="ic-icon">📅</div>
       <div>
         <div class="ic-title">Community Discussion and Activity</div>
-        <div class="ic-desc">May 2 · Registration is Requested </div>
+        <div class="ic-desc">May 2 · Registration Requested </div>
       </div>
     </div>
     <div class="info-card">
@@ -1459,8 +1476,8 @@ body.high-contrast {
       </div>
     </div>
     <div class="about-text">
-      <p data-en="Anurag Society for Social Needs was established to be a community anchor for families navigating autism in India. We are not simply a school — we are a movement for awareness, acceptance, and access." data-hi="अनुराग सोसायटी फ़ॉर सोशल नीड्स की स्थापना भारत में ऑटिज्म से जूझ रहे परिवारों के लिए एक सामुदायिक आधार बनने के लिए की गई थी।">
-        Anurag Society for Social Needs was established to be a community anchor for families navigating autism in India. We are not simply a school — we are a movement for awareness, acceptance, and access.
+      <p data-en="Anurag Society for Special Needs was established to be a community anchor for families navigating autism in India. We are not simply a school — we are a movement for awareness, acceptance, and access." data-hi="अनुराग सोसायटी फ़ॉर स्पेशल नीड्स की स्थापना भारत में ऑटिज्म से जूझ रहे परिवारों के लिए एक सामुदायिक आधार बनने के लिए की गई थी।">
+        Anurag Society for Special Needs was established to be a community anchor for families navigating autism in India. We are not simply a school — we are a movement for awareness, acceptance, and access.
       </p>
       <p data-en="Our programs blend internationally recognised methodologies with deeply Indian values — understanding that the family is the first and most important teacher. We honour the RPWD Act, 2016 in every program we design." data-hi="हमारे कार्यक्रम अंतरराष्ट्रीय पद्धतियों को गहरे भारतीय मूल्यों के साथ जोड़ते हैं — यह मानते हुए कि परिवार पहला और सबसे महत्वपूर्ण शिक्षक है।">
         Our programs blend internationally recognised methodologies with deeply Indian values — understanding that the family is the first and most important teacher. We honour the RPWD Act, 2016 in every program we design.
@@ -1636,42 +1653,42 @@ body.high-contrast {
   <h2 class="sec-title" data-en="Resources &amp; Support" data-hi="संसाधन और सहायता">Resources &amp; Support</h2>
   <p class="sec-sub" data-en="Free guides, toolkits, legal information, and community support — in English and Hindi." data-hi="अंग्रेजी और हिंदी में मुफ्त गाइड, टूलकिट, कानूनी जानकारी और सामुदायिक सहायता।">Free guides, toolkits, legal information, and community support — in English and Hindi.</p>
   <div class="resources-grid">
-    <a href="#" class="res-card">
+    <a href="resource-first-steps.html" class="res-card">
       <div class="res-icon-wrap">📘</div>
       <div class="res-title" data-en="First Steps Guide (EN + HI)" data-hi="First Steps Guide (EN + HI)">First Steps Guide (EN + HI)</div>
       <div class="res-title-hi" data-en="प्रारंभिक मार्गदर्शिका" data-hi="First Steps Guide">प्रारंभिक मार्गदर्शिका</div>
       <div class="res-desc" data-en="A practical handbook for families who just received an autism diagnosis. Covers first steps, therapy options, and emotional support." data-hi="उन परिवारों के लिए व्यावहारिक पुस्तिका जिन्हें अभी ऑटिज्म का निदान मिला है।">A practical handbook for families who just received an autism diagnosis. Covers first steps, therapy options, and emotional support.</div>
-      <span class="res-link" data-en="Download Free PDF →" data-hi="मुफ्त PDF डाउनलोड करें →">Download Free PDF →</span>
+      <span class="res-link" data-en="Read Guide →" data-hi="गाइड पढ़ें →">Read Guide →</span>
     </a>
-    <a href="#" class="res-card">
+    <a href="resource-school-toolkit.html" class="res-card">
       <div class="res-icon-wrap">🏫</div>
       <div class="res-title" data-en="School Inclusion Toolkit" data-hi="School Inclusion Toolkit">School Inclusion Toolkit</div>
       <div class="res-title-hi" data-en="स्कूल समावेश टूलकिट" data-hi="School Inclusion Toolkit">स्कूल समावेश टूलकिट</div>
       <div class="res-desc" data-en="How to advocate for your child in a mainstream school, request reasonable accommodations, and collaborate with teachers." data-hi="मुख्यधारा के स्कूल में अपने बच्चे की वकालत कैसे करें और उचित आवास कैसे मांगें।">How to advocate for your child in a mainstream school, request reasonable accommodations, and collaborate with teachers.</div>
       <span class="res-link" data-en="Access Toolkit →" data-hi="टूलकिट देखें →">Access Toolkit →</span>
     </a>
-    <a href="#" class="res-card">
+    <a href="resource-rpwd-act.html" class="res-card">
       <div class="res-icon-wrap">⚖️</div>
       <div class="res-title" data-en="RPWD Act 2016 – Plain Language" data-hi="RPWD Act 2016 – Plain Language">RPWD Act 2016 – Plain Language</div>
       <div class="res-title-hi" data-en="RPWD अधिनियम 2016 – सरल भाषा में" data-hi="RPWD Act 2016 – Plain Language">RPWD अधिनियम 2016 – सरल भाषा में</div>
       <div class="res-desc" data-en="Know your rights. What the law guarantees for autistic individuals and their families in simple, jargon-free language." data-hi="अपने अधिकार जानें। कानून ऑटिस्टिक व्यक्तियों और उनके परिवारों के लिए क्या गारंटी देता है।">Know your rights. What the law guarantees for autistic individuals and their families in simple, jargon-free language.</div>
       <span class="res-link" data-en="Read Guide →" data-hi="गाइड पढ़ें →">Read Guide →</span>
     </a>
-    <a href="#" class="res-card">
+    <a href="resource-therapy-finder.html" class="res-card">
       <div class="res-icon-wrap">🗺️</div>
       <div class="res-title" data-en="Therapy Finder – India" data-hi="Therapy Finder – India">Therapy Finder – India</div>
       <div class="res-title-hi" data-en="थेरेपी फाइंडर – भारत" data-hi="Therapy Finder – India">थेरेपी फाइंडर – भारत</div>
-      <div class="res-desc" data-en="Curated directory of speech therapists, occupational therapists, and behavioral therapists across 20+ Indian cities." data-hi="20+ भारतीय शहरों में स्पीच, OT और व्यवहार थेरेपिस्टों की क्यूरेटेड डायरेक्टरी।">Curated directory of speech therapists, occupational therapists, and behavioral therapists across 20+ Indian cities.</div>
+      <div class="res-desc" data-en="Curated directory of speech therapists, occupational therapists, and behavioral therapists across Indian cities." data-hi="भारतीय शहरों में स्पीच, OT और व्यवहार थेरेपिस्टों की क्यूरेटेड डायरेक्टरी।">Curated directory of speech therapists, occupational therapists, and behavioral therapists across Indian cities.</div>
       <span class="res-link" data-en="Find Therapist →" data-hi="थेरेपिस्ट खोजें →">Find Therapist →</span>
     </a>
-    <a href="#" class="res-card">
+    <a href="resource-govt-schemes.html" class="res-card">
       <div class="res-icon-wrap">🤲</div>
       <div class="res-title" data-en="Govt. Schemes &amp; Financial Aid" data-hi="Govt. Schemes &amp; Financial Aid">Govt. Schemes &amp; Financial Aid</div>
       <div class="res-title-hi" data-en="सरकारी योजनाएं और वित्तीय सहायता" data-hi="Govt. Schemes &amp; Financial Aid">सरकारी योजनाएं और वित्तीय सहायता</div>
       <div class="res-desc" data-en="Disability pensions, NHFDC loans, NGO scholarships, and Divyangjan schemes explained in one place." data-hi="विकलांगता पेंशन, NHFDC ऋण, NGO छात्रवृत्ति और दिव्यांगजन योजनाएं एक ही स्थान पर।">Disability pensions, NHFDC loans, NGO scholarships, and Divyangjan schemes explained in one place.</div>
       <span class="res-link" data-en="Explore Schemes →" data-hi="योजनाएं देखें →">Explore Schemes →</span>
     </a>
-    <a href="#" class="res-card">
+    <a href="resource-podcast.html" class="res-card">
       <div class="res-icon-wrap">🎙️</div>
       <div class="res-title" data-en="Podcast: Autism in India" data-hi="Podcast: Autism in India">Podcast: Autism in India</div>
       <div class="res-title-hi" data-en="पॉडकास्ट: भारत में ऑटिज्म" data-hi="Podcast: Autism in India">पॉडकास्ट: भारत में ऑटिज्म</div>
@@ -2048,7 +2065,7 @@ body.high-contrast {
         <div class="ci-icon">📍</div>
         <div>
           <div class="ci-label" data-en="Main Centre" data-hi="मुख्य केंद्र">Main Centre</div>
-          <div class="ci-val">Anurag Society for Social Needs</div>
+          <div class="ci-val">Anurag Society for Special Needs</div>
           <div class="ci-sub" data-en="Khatima, Uttarakhand, India" data-hi="खटीमा, उत्तराखंड, भारत">Khatima, Uttarakhand, India</div>
         </div>
       </div>
@@ -2099,8 +2116,8 @@ body.high-contrast {
       <div class="brand">
         <div class="brand-logo" style="width:40px;height:40px;font-size:1.2rem;">🌸</div>
         <div class="brand-name">
-          <span class="brand-name-en" style="color:white;font-size:1rem;">Anurag Society for Social Needs</span>
-          <span class="brand-name-hi" style="color:var(--gold);">अनुराग सोसायटी फ़ॉर सोशल नीड्स</span>
+          <span class="brand-name-en" style="color:white;font-size:1rem;">Anurag Society for Special Needs</span>
+          <span class="brand-name-hi" style="color:var(--gold);">अनुराग सोसायटी फ़ॉर स्पेशल नीड्स</span>
         </div>
       </div>
       <p>A community built on compassion, science, and the unwavering belief that every mind belongs.</p>
@@ -2109,40 +2126,40 @@ body.high-contrast {
     <div class="footer-col">
       <h5 data-en="Programs" data-hi="कार्यक्रम">Programs</h5>
       <ul>
-        <li><a href="#">Early Identification</a></li>
-        <li><a href="#">Speech Therapy</a></li>
-        <li><a href="#">Art Therapy</a></li>
-        <li><a href="#">Inclusive Education</a></li>
-        <li><a href="#">Vocational Training</a></li>
-        <li><a href="#">Carer Wellness</a></li>
+        <li><a href="index.html#programs">Early Identification</a></li>
+        <li><a href="index.html#programs">Speech Therapy</a></li>
+        <li><a href="index.html#programs">Art Therapy</a></li>
+        <li><a href="index.html#programs">Inclusive Education</a></li>
+        <li><a href="index.html#programs">Vocational Training</a></li>
+        <li><a href="index.html#programs">Carer Wellness</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5 data-en="Resources" data-hi="संसाधन">Resources</h5>
       <ul>
-        <li><a href="#">First Steps Guide</a></li>
-        <li><a href="#">School Toolkit</a></li>
-        <li><a href="#">RPWD Act Guide</a></li>
-        <li><a href="#">Therapy Finder</a></li>
-        <li><a href="#">Govt. Schemes</a></li>
-        <li><a href="#">Podcast</a></li>
+        <li><a href="resource-first-steps.html">First Steps Guide</a></li>
+        <li><a href="resource-school-toolkit.html">School Toolkit</a></li>
+        <li><a href="resource-rpwd-act.html">RPWD Act Guide</a></li>
+        <li><a href="resource-therapy-finder.html">Therapy Finder</a></li>
+        <li><a href="resource-govt-schemes.html">Govt. Schemes</a></li>
+        <li><a href="resource-podcast.html">Podcast</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5 data-en="Organisation" data-hi="संगठन">Organisation</h5>
       <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Our Team</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Events</a></li>
-        <li><a href="#">Volunteer</a></li>
-        <li><a href="#">Annual Report</a></li>
-        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#events">Events</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="annual-report.html">Annual Report</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Anurag Society for Social Needs. Built with ❤️ in India. Free to share.</span>
+    <span>© 2026 Anurag Society for Special Needs. Built with ❤️ in India. Free to share.</span>
     <a href="#top">Back to top ↑</a>
   </div>
 </footer>
