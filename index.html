@@ -124,16 +124,18 @@ nav {
 .brand-name-en {
   font-family: 'Playfair Display', serif;
   font-weight: 900;
-  font-size: 1.05rem;
+  font-size: 0.85rem;
   color: var(--indigo);
   letter-spacing: -0.01em;
   display: block;
+  white-space: nowrap;
 }
 .brand-name-hi {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: var(--lotus);
   font-weight: 500;
   display: block;
+  white-space: nowrap;
 }
 .nav-links {
   display: flex;
@@ -1364,7 +1366,7 @@ body.high-contrast {
   <a href="#top" class="brand">
     <div class="brand-logo">🌸</div>
     <div class="brand-name">
-      <span class="brand-name-en">Anurag Society</span>
+      <span class="brand-name-en">Anurag Society for Special Needs</span>
       <span class="brand-name-hi">अनुराग सोसायटी फ़ॉर स्पेशल नीड्स</span>
     </div>
   </a>
@@ -1421,27 +1423,119 @@ body.high-contrast {
     </div>
   </div>
   <div class="hero-right">
-    <div class="info-card">
-      <div class="ic-icon">📅</div>
-      <div>
-        <div class="ic-title">Community Discussion and Activity</div>
-        <div class="ic-desc">May 2 · Registration Requested </div>
-      </div>
-    </div>
-    <div class="info-card">
-      <div class="ic-icon">🏫</div>
-      <div>
-        <div class="ic-title">Parent Workshop</div>
-        <div class="ic-desc">May 16 · Registration Requested </div>
-      </div>
-    </div>
-    <div class="info-card">
-      <div class="ic-icon">📘</div>
-      <div>
-        <div class="ic-title">First Steps Guide — Hindi/English</div>
-        <div class="ic-desc">For newly diagnosed families -contact through email</div>
-      </div>
-    </div>
+    <!-- Hero Illustration: Parent kneeling to child's level, warm connection -->
+    <svg viewBox="0 0 420 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;filter:drop-shadow(0 20px 40px rgba(26,35,126,0.12))">
+      <!-- Background circle -->
+      <circle cx="210" cy="230" r="200" fill="rgba(26,35,126,0.04)"/>
+      <circle cx="210" cy="230" r="160" fill="rgba(192,57,43,0.03)"/>
+
+      <!-- Ground / floor line -->
+      <ellipse cx="210" cy="390" rx="160" ry="18" fill="rgba(26,35,126,0.06)"/>
+
+      <!-- === CHILD === -->
+      <!-- Child body -->
+      <rect x="185" y="280" width="36" height="70" rx="18" fill="#E8EAF6"/>
+      <!-- Child head -->
+      <circle cx="203" cy="262" r="24" fill="#FFCC99"/>
+      <!-- Child hair -->
+      <ellipse cx="203" cy="243" rx="24" ry="12" fill="#5D4037"/>
+      <!-- Child face - smile -->
+      <path d="M195 268 Q203 276 211 268" stroke="#C0392B" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- Child eyes -->
+      <circle cx="196" cy="261" r="2.5" fill="#1A237E"/>
+      <circle cx="210" cy="261" r="2.5" fill="#1A237E"/>
+      <!-- Child eye shine -->
+      <circle cx="197.5" cy="260" r="1" fill="white"/>
+      <circle cx="211.5" cy="260" r="1" fill="white"/>
+      <!-- Child left arm raised up to parent -->
+      <path d="M185 295 Q165 275 158 260" stroke="#FFCC99" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <!-- Child right arm -->
+      <path d="M221 295 Q235 290 238 282" stroke="#FFCC99" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <!-- Child legs -->
+      <rect x="187" y="342" width="14" height="45" rx="7" fill="#1A237E"/>
+      <rect x="205" y="342" width="14" height="45" rx="7" fill="#1A237E"/>
+      <!-- Child shoes -->
+      <ellipse cx="194" cy="388" rx="10" ry="6" fill="#C0392B"/>
+      <ellipse cx="212" cy="388" rx="10" ry="6" fill="#C0392B"/>
+      <!-- Child shirt pattern - small dots -->
+      <circle cx="198" cy="300" r="3" fill="rgba(26,35,126,0.2)"/>
+      <circle cx="208" cy="308" r="3" fill="rgba(26,35,126,0.2)"/>
+      <circle cx="200" cy="316" r="3" fill="rgba(26,35,126,0.2)"/>
+
+      <!-- === PARENT (kneeling, same level as child) === -->
+      <!-- Parent kneeling body -->
+      <path d="M255 240 Q260 290 258 340 Q255 360 248 370 Q265 370 278 365 Q282 340 278 300 L290 260 Q285 240 270 235 Z" fill="#3949AB"/>
+      <!-- Parent head -->
+      <circle cx="272" cy="218" r="30" fill="#D4A574"/>
+      <!-- Parent hair -->
+      <ellipse cx="272" cy="196" rx="30" ry="15" fill="#3E2723"/>
+      <path d="M242 210 Q245 195 272 188 Q299 195 302 210" fill="#3E2723"/>
+      <!-- Parent face - warm smile -->
+      <path d="M262 224 Q272 234 282 224" stroke="#C0392B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- Parent eyes -->
+      <circle cx="264" cy="216" r="3" fill="#1A237E"/>
+      <circle cx="280" cy="216" r="3" fill="#1A237E"/>
+      <circle cx="265.5" cy="215" r="1.2" fill="white"/>
+      <circle cx="281.5" cy="215" r="1.2" fill="white"/>
+      <!-- Parent left arm reaching to child -->
+      <path d="M258 255 Q230 268 175 263" stroke="#D4A574" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <!-- Parent hand holding child hand - heart shape suggestion -->
+      <circle cx="165" cy="263" r="10" fill="#D4A574"/>
+      <!-- Parent right arm -->
+      <path d="M286 260 Q305 268 310 278" stroke="#D4A574" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <!-- Parent kneeling legs -->
+      <ellipse cx="258" cy="368" rx="18" ry="10" fill="#1A237E"/>
+      <ellipse cx="278" cy="368" rx="18" ry="10" fill="#1A237E"/>
+
+      <!-- === DECORATIVE ELEMENTS === -->
+      <!-- Lotus flower top left -->
+      <g transform="translate(60,70)">
+        <ellipse cx="0" cy="0" rx="12" ry="22" fill="rgba(192,57,43,0.25)" transform="rotate(-20)"/>
+        <ellipse cx="0" cy="0" rx="12" ry="22" fill="rgba(192,57,43,0.25)" transform="rotate(20)"/>
+        <ellipse cx="0" cy="0" rx="12" ry="22" fill="rgba(192,57,43,0.3)"/>
+        <ellipse cx="0" cy="0" rx="8" ry="15" fill="rgba(249,168,37,0.6)"/>
+        <circle cx="0" cy="0" r="7" fill="#F9A825"/>
+      </g>
+
+      <!-- Small hearts floating -->
+      <text x="130" y="190" font-size="16" fill="rgba(192,57,43,0.3)" transform="rotate(-15,130,190)">♥</text>
+      <text x="330" y="150" font-size="12" fill="rgba(249,168,37,0.4)" transform="rotate(10,330,150)">♥</text>
+      <text x="90" y="310" font-size="10" fill="rgba(26,35,126,0.2)" transform="rotate(-8,90,310)">♥</text>
+
+      <!-- Stars / sparkles -->
+      <text x="340" y="280" font-size="18" fill="rgba(249,168,37,0.35)">✦</text>
+      <text x="75" y="170" font-size="14" fill="rgba(26,35,126,0.15)">✦</text>
+      <text x="360" y="180" font-size="10" fill="rgba(192,57,43,0.2)">✦</text>
+
+      <!-- Floating info cards overlaid -->
+      <g transform="translate(20, 30)">
+        <rect x="0" y="0" width="170" height="52" rx="12" fill="white" filter="url(#shadow)"/>
+        <rect x="0" y="0" width="5" height="52" rx="2" fill="#1A237E"/>
+        <text x="18" y="20" font-size="9" font-family="sans-serif" font-weight="600" fill="#1A237E">Community Discussion</text>
+        <text x="18" y="33" font-size="8" font-family="sans-serif" fill="#6A6A8A">May 2 · Registration Requested</text>
+        <text x="18" y="45" font-size="7" font-family="sans-serif" fill="#C0392B">📅 Upcoming</text>
+      </g>
+      <g transform="translate(220, 10)">
+        <rect x="0" y="0" width="155" height="52" rx="12" fill="white" filter="url(#shadow)"/>
+        <rect x="0" y="0" width="5" height="52" rx="2" fill="#C0392B"/>
+        <text x="18" y="20" font-size="9" font-family="sans-serif" font-weight="600" fill="#1A237E">Parent Workshop</text>
+        <text x="18" y="33" font-size="8" font-family="sans-serif" fill="#6A6A8A">May 16 · Free Entry</text>
+        <text x="18" y="45" font-size="7" font-family="sans-serif" fill="#C0392B">🏫 Register Now</text>
+      </g>
+      <g transform="translate(240, 380)">
+        <rect x="0" y="0" width="155" height="52" rx="12" fill="white" filter="url(#shadow)"/>
+        <rect x="0" y="0" width="5" height="52" rx="2" fill="#F9A825"/>
+        <text x="18" y="20" font-size="9" font-family="sans-serif" font-weight="600" fill="#1A237E">First Steps Guide</text>
+        <text x="18" y="33" font-size="8" font-family="sans-serif" fill="#6A6A8A">Hindi / English · Free</text>
+        <text x="18" y="45" font-size="7" font-family="sans-serif" fill="#C0392B">📘 Download</text>
+      </g>
+
+      <defs>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="rgba(0,0,0,0.08)"/>
+        </filter>
+      </defs>
+    </svg>
   </div>
 </section>
 <div class="divider"></div>
@@ -1453,6 +1547,36 @@ body.high-contrast {
   <div class="about-grid">
     <div class="about-quote-block">
       <div class="big-quote">"</div>
+      <!-- About illustration: two hands cupping a lotus — love and care -->
+      <div style="text-align:center;margin-bottom:1.5rem;">
+        <svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px;">
+          <!-- Left hand -->
+          <path d="M30 140 Q25 110 35 90 Q45 75 60 80 Q65 85 62 100 L58 130 Q80 100 95 85 Q105 75 115 82 Q122 90 112 105 Q130 85 142 80 Q155 76 158 90 Q160 103 145 118 Q160 100 172 96 Q185 93 186 108 Q187 122 170 138 Q155 152 135 158 Q110 165 85 162 Q55 158 40 148 Z" fill="#D4A574" opacity="0.9"/>
+          <!-- Right hand -->
+          <path d="M270 140 Q275 110 265 90 Q255 75 240 80 Q235 85 238 100 L242 130 Q220 100 205 85 Q195 75 185 82 Q178 90 188 105 Q170 85 158 80 Q145 76 142 90 Q140 103 155 118 Q140 100 128 96 Q115 93 114 108 Q113 122 130 138 Q145 152 165 158 Q190 165 215 162 Q245 158 260 148 Z" fill="#D4A574" opacity="0.9"/>
+          <!-- Lotus petals -->
+          <ellipse cx="150" cy="72" rx="14" ry="28" fill="rgba(192,57,43,0.7)" transform="rotate(-25,150,72)"/>
+          <ellipse cx="150" cy="72" rx="14" ry="28" fill="rgba(192,57,43,0.7)" transform="rotate(25,150,72)"/>
+          <ellipse cx="150" cy="68" rx="14" ry="30" fill="rgba(192,57,43,0.8)"/>
+          <ellipse cx="130" cy="80" rx="12" ry="24" fill="rgba(192,57,43,0.5)" transform="rotate(-40,130,80)"/>
+          <ellipse cx="170" cy="80" rx="12" ry="24" fill="rgba(192,57,43,0.5)" transform="rotate(40,170,80)"/>
+          <!-- Lotus center -->
+          <ellipse cx="150" cy="68" rx="10" ry="16" fill="#F9A825" opacity="0.9"/>
+          <circle cx="150" cy="68" r="9" fill="#F9A825"/>
+          <circle cx="150" cy="65" r="6" fill="#FDD835"/>
+          <!-- Small dots on lotus center -->
+          <circle cx="147" cy="63" r="1.5" fill="rgba(192,57,43,0.5)"/>
+          <circle cx="153" cy="63" r="1.5" fill="rgba(192,57,43,0.5)"/>
+          <circle cx="150" cy="60" r="1.5" fill="rgba(192,57,43,0.5)"/>
+          <!-- Sparkles -->
+          <text x="100" y="45" font-size="10" fill="rgba(249,168,37,0.5)">✦</text>
+          <text x="192" y="40" font-size="8" fill="rgba(192,57,43,0.4)">✦</text>
+          <text x="148" y="30" font-size="7" fill="rgba(26,35,126,0.3)">✦</text>
+          <!-- Small hearts -->
+          <text x="85" y="65" font-size="10" fill="rgba(192,57,43,0.3)">♥</text>
+          <text x="208" y="60" font-size="8" fill="rgba(192,57,43,0.3)">♥</text>
+        </svg>
+      </div>
       <blockquote class="about-quote" data-en="&ldquo;Anurag means deep love. That is exactly what we bring to every family, every child, every interaction.&rdquo;" data-hi="&ldquo;अनुराग का अर्थ है गहरा प्रेम। यही हम हर परिवार, हर बच्चे और हर बातचीत में लेकर आते हैं।&rdquo;">
         &ldquo;Anurag means deep love. That is exactly what we bring to every family, every child, every interaction.&rdquo;
       </blockquote>
@@ -1512,6 +1636,154 @@ body.high-contrast {
   <p class="sec-sub" data-en="From early identification to adult independence — our programs serve the full journey of every autistic individual and their family." data-hi="प्रारंभिक पहचान से वयस्क स्वतंत्रता तक — हमारे कार्यक्रम हर ऑटिस्टिक व्यक्ति की पूरी यात्रा को सेवा देते हैं।">
     From early identification to adult independence — our programs serve the full journey of every autistic individual and their family.
   </p>
+
+  <!-- Programs Journey Illustration: 6 figures along a path, each representing a life stage -->
+  <div style="margin-bottom:2.5rem;overflow:hidden;border-radius:20px;background:white;padding:1.5rem 2rem;box-shadow:0 2px 16px rgba(26,35,126,0.06);">
+    <svg viewBox="0 0 900 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+      <!-- Journey path -->
+      <path d="M30 120 Q150 80 220 110 Q300 140 380 100 Q460 65 540 100 Q620 135 700 95 Q780 60 870 90" stroke="rgba(26,35,126,0.1)" stroke-width="3" fill="none" stroke-dasharray="8,6"/>
+
+      <!-- === FIGURE 1: Baby/Toddler — Early Identification === -->
+      <g transform="translate(60,60)">
+        <!-- body -->
+        <ellipse cx="0" cy="30" rx="14" ry="18" fill="#E8EAF6"/>
+        <!-- head -->
+        <circle cx="0" cy="8" r="14" fill="#FFCC99"/>
+        <!-- hair sparse -->
+        <path d="M-8 0 Q0 -6 8 0" stroke="#5D4037" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- eyes -->
+        <circle cx="-4" cy="8" r="2" fill="#1A237E"/>
+        <circle cx="4" cy="8" r="2" fill="#1A237E"/>
+        <!-- smile -->
+        <path d="M-4 14 Q0 18 4 14" stroke="#C0392B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- arms up happy -->
+        <path d="M-12 28 Q-20 18 -22 10" stroke="#FFCC99" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M12 28 Q20 18 22 10" stroke="#FFCC99" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <!-- legs -->
+        <path d="M-5 46 L-5 62" stroke="#1A237E" stroke-width="7" stroke-linecap="round"/>
+        <path d="M5 46 L5 62" stroke="#1A237E" stroke-width="7" stroke-linecap="round"/>
+        <!-- label -->
+        <text x="0" y="80" text-anchor="middle" font-size="8" font-family="sans-serif" fill="#1A237E" font-weight="600">Early ID</text>
+        <!-- stage dot -->
+        <circle cx="0" cy="-8" r="5" fill="#1A237E" opacity="0.15"/>
+      </g>
+
+      <!-- Path dot 1 -->
+      <circle cx="130" cy="108" r="4" fill="rgba(26,35,126,0.15)"/>
+
+      <!-- === FIGURE 2: Child with speech bubble — Communication === -->
+      <g transform="translate(210,55)">
+        <ellipse cx="0" cy="32" rx="13" ry="20" fill="#FFEBEE"/>
+        <circle cx="0" cy="8" r="13" fill="#D4A574"/>
+        <path d="M-8 0 Q0 -7 8 0 Q8 -14 -8 -14 Z" fill="#3E2723"/>
+        <circle cx="-4" cy="8" r="2" fill="#1A237E"/>
+        <circle cx="4" cy="8" r="2" fill="#1A237E"/>
+        <path d="M-3 14 Q0 17 3 14" stroke="#C0392B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- speech bubble -->
+        <rect x="12" y="-8" width="28" height="18" rx="6" fill="rgba(192,57,43,0.15)" stroke="rgba(192,57,43,0.3)" stroke-width="1"/>
+        <path d="M12 6 L8 12 L16 8" fill="rgba(192,57,43,0.15)"/>
+        <text x="26" y="5" text-anchor="middle" font-size="8" fill="#C0392B">hi!</text>
+        <path d="M-11 30 Q-18 22 -20 14" stroke="#D4A574" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M11 30 Q18 22 20 14" stroke="#D4A574" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M-4 50 L-5 66" stroke="#C0392B" stroke-width="7" stroke-linecap="round"/>
+        <path d="M4 50 L5 66" stroke="#C0392B" stroke-width="7" stroke-linecap="round"/>
+        <text x="0" y="82" text-anchor="middle" font-size="8" font-family="sans-serif" fill="#1A237E" font-weight="600">Speech</text>
+      </g>
+
+      <!-- Path dot 2 -->
+      <circle cx="295" cy="115" r="4" fill="rgba(192,57,43,0.2)"/>
+
+      <!-- === FIGURE 3: Child painting — Art Therapy === -->
+      <g transform="translate(380,50)">
+        <ellipse cx="0" cy="34" rx="13" ry="20" fill="#FFFDE7"/>
+        <circle cx="0" cy="9" r="13" fill="#FFCC99"/>
+        <ellipse cx="0" cy="-3" rx="13" ry="7" fill="#5D4037"/>
+        <circle cx="-4" cy="9" r="2" fill="#1A237E"/>
+        <circle cx="4" cy="9" r="2" fill="#1A237E"/>
+        <path d="M-3 15 Q0 19 3 15" stroke="#C0392B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- arm holding brush -->
+        <path d="M12 32 Q22 20 28 12" stroke="#FFCC99" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <!-- paintbrush -->
+        <line x1="28" y1="12" x2="36" y2="4" stroke="#5D4037" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="36" cy="4" r="4" fill="#F9A825"/>
+        <!-- palette dots -->
+        <circle cx="18" cy="48" r="5" fill="rgba(192,57,43,0.3)"/>
+        <circle cx="26" cy="44" r="4" fill="rgba(249,168,37,0.4)"/>
+        <circle cx="22" cy="54" r="3" fill="rgba(26,35,126,0.2)"/>
+        <path d="M-11 32 Q-20 24 -22 16" stroke="#FFCC99" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M-4 52 L-4 68" stroke="#F9A825" stroke-width="7" stroke-linecap="round"/>
+        <path d="M4 52 L4 68" stroke="#F9A825" stroke-width="7" stroke-linecap="round"/>
+        <text x="0" y="84" text-anchor="middle" font-size="8" font-family="sans-serif" fill="#1A237E" font-weight="600">Art Therapy</text>
+      </g>
+
+      <!-- Path dot 3 -->
+      <circle cx="460" cy="88" r="4" fill="rgba(249,168,37,0.4)"/>
+
+      <!-- === FIGURE 4: Child with book — Inclusive Education === -->
+      <g transform="translate(545,45)">
+        <ellipse cx="0" cy="36" rx="13" ry="22" fill="#E0F2F1"/>
+        <circle cx="0" cy="10" r="13" fill="#D4A574"/>
+        <path d="M-10 2 Q0 -8 10 2 Q10 -14 -10 -14 Z" fill="#3E2723"/>
+        <circle cx="-4" cy="10" r="2" fill="#1A237E"/>
+        <circle cx="4" cy="10" r="2" fill="#1A237E"/>
+        <path d="M-3 16 Q0 20 3 16" stroke="#C0392B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- book in arms -->
+        <rect x="-20" y="30" width="24" height="18" rx="3" fill="#1A237E" opacity="0.8"/>
+        <line x1="-8" y1="30" x2="-8" y2="48" stroke="white" stroke-width="1" opacity="0.5"/>
+        <path d="M-11 34 Q-20 28 -22 20" stroke="#D4A574" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M11 34 Q20 26 18 18" stroke="#D4A574" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M-4 56 L-4 72" stroke="#00897B" stroke-width="7" stroke-linecap="round"/>
+        <path d="M4 56 L4 72" stroke="#00897B" stroke-width="7" stroke-linecap="round"/>
+        <text x="0" y="88" text-anchor="middle" font-size="8" font-family="sans-serif" fill="#1A237E" font-weight="600">Education</text>
+      </g>
+
+      <!-- Path dot 4 -->
+      <circle cx="628" cy="110" r="4" fill="rgba(0,137,123,0.3)"/>
+
+      <!-- === FIGURE 5: Young adult with briefcase — Vocational === -->
+      <g transform="translate(710,35)">
+        <rect x="-14" y="36" width="28" height="36" rx="8" fill="#3949AB"/>
+        <circle cx="0" cy="14" r="16" fill="#FFCC99"/>
+        <path d="M-14 4 Q0 -8 14 4 Q14 -18 -14 -18 Z" fill="#1A1A1A"/>
+        <circle cx="-5" cy="14" r="2.5" fill="#1A237E"/>
+        <circle cx="5" cy="14" r="2.5" fill="#1A237E"/>
+        <path d="M-4 21 Q0 25 4 21" stroke="#C0392B" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <!-- briefcase -->
+        <rect x="16" y="52" width="20" height="14" rx="3" fill="#F9A825"/>
+        <rect x="19" y="49" width="14" height="5" rx="2" fill="#F9A825" opacity="0.7"/>
+        <line x1="26" y1="52" x2="26" y2="66" stroke="rgba(0,0,0,0.2)" stroke-width="1"/>
+        <!-- arm holding briefcase -->
+        <path d="M14 50 Q16 52 18 54" stroke="#FFCC99" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M-14 50 Q-22 44 -24 36" stroke="#FFCC99" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M-5 70 L-5 90" stroke="#1A237E" stroke-width="8" stroke-linecap="round"/>
+        <path d="M5 70 L5 90" stroke="#1A237E" stroke-width="8" stroke-linecap="round"/>
+        <text x="0" y="106" text-anchor="middle" font-size="8" font-family="sans-serif" fill="#1A237E" font-weight="600">Vocational</text>
+      </g>
+
+      <!-- Path dot 5 -->
+      <circle cx="800" cy="80" r="4" fill="rgba(142,36,170,0.25)"/>
+
+      <!-- === FIGURE 6: Adult with heart — Carer Wellness === -->
+      <g transform="translate(858,40)">
+        <rect x="-13" y="38" width="26" height="34" rx="7" fill="#F3E5F5"/>
+        <circle cx="0" cy="16" r="15" fill="#D4A574"/>
+        <path d="M-12 6 Q0 -5 12 6 Q12 -16 -12 -16 Z" fill="#5D4037"/>
+        <circle cx="-4" cy="16" r="2.5" fill="#1A237E"/>
+        <circle cx="4" cy="16" r="2.5" fill="#1A237E"/>
+        <path d="M-3 22 Q0 27 3 22" stroke="#C0392B" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <!-- heart held out -->
+        <text x="-8" y="56" font-size="16" fill="rgba(192,57,43,0.7)">♥</text>
+        <path d="M-12 48 Q-20 40 -22 30" stroke="#D4A574" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M12 48 Q20 40 22 30" stroke="#D4A574" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M-4 70 L-4 88" stroke="#8E24AA" stroke-width="7" stroke-linecap="round"/>
+        <path d="M4 70 L4 88" stroke="#8E24AA" stroke-width="7" stroke-linecap="round"/>
+        <text x="0" y="104" text-anchor="middle" font-size="8" font-family="sans-serif" fill="#1A237E" font-weight="600">Wellness</text>
+      </g>
+
+      <!-- Arrow at end of journey -->
+      <path d="M900 88 L892 82 L892 94 Z" fill="rgba(26,35,126,0.2)"/>
+    </svg>
+  </div>
   <div class="programs-grid">
     <div class="prog-card">
       <div class="prog-icon-wrap">🔍</div>
@@ -1792,12 +2064,44 @@ body.high-contrast {
 
     <!-- PHOTO SLOT 1 — Featured/Large -->
     <div class="gitem" data-cat="autism-day" onclick="openLightbox(0)">
-      <!-- TO ADD PHOTO: replace the gplaceholder div below with:
-           <img src="photos/events/autism-day-2025/main.jpg" alt="World Autism Day Walk 2025"> -->
-      <div class="gplaceholder">
-        <div class="gp-icon">📸</div>
-        <div class="gp-label">Community Discussion and Activity<br><small>Replace with your photo</small></div>
-      </div>
+      <!-- TO ADD PHOTO: replace the svg below with: <img src="photos/events/community-discussion.jpg" alt="Community Discussion"> -->
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+        <rect width="300" height="300" fill="#1A237E"/>
+        <circle cx="150" cy="150" r="130" fill="rgba(255,255,255,0.04)"/>
+        <!-- 5 people in a circle discussion -->
+        <!-- Person 1 top -->
+        <circle cx="150" cy="60" r="18" fill="#FFCC99"/><rect x="138" y="78" width="24" height="32" rx="10" fill="#3949AB"/>
+        <circle cx="145" cy="57" r="2" fill="#1A237E"/><circle cx="155" cy="57" r="2" fill="#1A237E"/>
+        <path d="M146 64 Q150 68 154 64" stroke="white" stroke-width="1.5" fill="none"/>
+        <!-- Person 2 right -->
+        <circle cx="240" cy="130" r="18" fill="#D4A574"/><rect x="228" y="148" width="24" height="32" rx="10" fill="#C0392B"/>
+        <circle cx="235" cy="127" r="2" fill="#1A237E"/><circle cx="245" cy="127" r="2" fill="#1A237E"/>
+        <path d="M236 134 Q240 138 244 134" stroke="white" stroke-width="1.5" fill="none"/>
+        <!-- Person 3 bottom right -->
+        <circle cx="210" cy="230" r="18" fill="#FFCC99"/><rect x="198" y="248" width="24" height="32" rx="10" fill="#F9A825"/>
+        <circle cx="205" cy="227" r="2" fill="#1A237E"/><circle cx="215" cy="227" r="2" fill="#1A237E"/>
+        <path d="M206 234 Q210 238 214 234" stroke="#1A237E" stroke-width="1.5" fill="none"/>
+        <!-- Person 4 bottom left -->
+        <circle cx="90" cy="230" r="18" fill="#D4A574"/><rect x="78" y="248" width="24" height="32" rx="10" fill="#00897B"/>
+        <circle cx="85" cy="227" r="2" fill="#1A237E"/><circle cx="95" cy="227" r="2" fill="#1A237E"/>
+        <path d="M86 234 Q90 238 94 234" stroke="white" stroke-width="1.5" fill="none"/>
+        <!-- Person 5 left -->
+        <circle cx="60" cy="130" r="18" fill="#FFCC99"/><rect x="48" y="148" width="24" height="32" rx="10" fill="#8E24AA"/>
+        <circle cx="55" cy="127" r="2" fill="#1A237E"/><circle cx="65" cy="127" r="2" fill="#1A237E"/>
+        <path d="M56 134 Q60 138 64 134" stroke="white" stroke-width="1.5" fill="none"/>
+        <!-- Connection lines -->
+        <line x1="150" y1="78" x2="228" y2="130" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="240" y1="148" x2="215" y2="228" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="198" y1="248" x2="108" y2="248" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="78" y1="230" x2="72" y2="148" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="78" y1="130" x2="138" y2="78" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <!-- Center lotus -->
+        <circle cx="150" cy="150" r="22" fill="rgba(249,168,37,0.15)"/>
+        <text x="150" y="157" text-anchor="middle" font-size="20">🌸</text>
+        <!-- Speech bubbles -->
+        <rect x="158" y="48" width="36" height="18" rx="6" fill="rgba(249,168,37,0.3)"/>
+        <text x="176" y="61" text-anchor="middle" font-size="9" fill="white">हिंदी</text>
+      </svg>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
         <div class="goverlay-title">Community Discussion and Activity</div>
@@ -1807,10 +2111,40 @@ body.high-contrast {
 
     <!-- PHOTO SLOT 2 -->
     <div class="gitem" data-cat="art" onclick="openLightbox(1)">
-      <div class="gplaceholder">
-        <div class="gp-icon">🎨</div>
-        <div class="gp-label">Art Exhibition 2024</div>
-      </div>
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+        <rect width="300" height="300" fill="#FFF8F0"/>
+        <!-- Canvas on easel -->
+        <line x1="100" y1="80" x2="80" y2="220" stroke="#5D4037" stroke-width="4" stroke-linecap="round"/>
+        <line x1="200" y1="80" x2="220" y2="220" stroke="#5D4037" stroke-width="4" stroke-linecap="round"/>
+        <line x1="80" y1="220" x2="220" y2="220" stroke="#5D4037" stroke-width="4" stroke-linecap="round"/>
+        <rect x="95" y="75" width="110" height="100" rx="4" fill="white" stroke="#E0E0E0" stroke-width="2"/>
+        <!-- Painting on canvas - abstract colourful shapes -->
+        <circle cx="130" cy="110" r="20" fill="rgba(192,57,43,0.6)"/>
+        <circle cx="160" cy="120" r="16" fill="rgba(249,168,37,0.7)"/>
+        <circle cx="148" cy="100" r="14" fill="rgba(26,35,126,0.5)"/>
+        <circle cx="170" cy="105" r="12" fill="rgba(0,137,123,0.6)"/>
+        <!-- Child artist -->
+        <circle cx="68" cy="148" r="20" fill="#FFCC99"/>
+        <ellipse cx="68" cy="130" rx="20" ry="10" fill="#3E2723"/>
+        <circle cx="62" cy="148" r="2.5" fill="#1A237E"/><circle cx="74" cy="148" r="2.5" fill="#1A237E"/>
+        <path d="M63 155 Q68 160 73 155" stroke="#C0392B" stroke-width="2" fill="none"/>
+        <rect x="55" y="168" width="26" height="38" rx="10" fill="#E8EAF6"/>
+        <!-- Arm with brush -->
+        <path d="M81 178 Q95 165 100 155" stroke="#FFCC99" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <line x1="100" y1="155" x2="108" y2="143" stroke="#5D4037" stroke-width="3"/>
+        <circle cx="108" cy="143" r="5" fill="#F9A825"/>
+        <!-- Legs -->
+        <rect x="57" y="204" width="10" height="30" rx="5" fill="#1A237E"/>
+        <rect x="69" y="204" width="10" height="30" rx="5" fill="#1A237E"/>
+        <!-- Colour palette dots scattered -->
+        <circle cx="240" cy="220" r="8" fill="rgba(192,57,43,0.4)"/>
+        <circle cx="258" cy="210" r="6" fill="rgba(249,168,37,0.5)"/>
+        <circle cx="248" cy="230" r="5" fill="rgba(26,35,126,0.3)"/>
+        <circle cx="230" cy="235" r="7" fill="rgba(0,137,123,0.4)"/>
+        <!-- sparkles -->
+        <text x="220" y="90" font-size="14" fill="rgba(249,168,37,0.5)">✦</text>
+        <text x="240" y="130" font-size="10" fill="rgba(192,57,43,0.4)">✦</text>
+      </svg>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
         <div class="goverlay-title">Art Exhibition: Colours of My World</div>
@@ -1820,10 +2154,38 @@ body.high-contrast {
 
     <!-- PHOTO SLOT 3 -->
     <div class="gitem" data-cat="workshops" onclick="openLightbox(2)">
-      <div class="gplaceholder">
-        <div class="gp-icon">📚</div>
-        <div class="gp-label">Parent Workshop</div>
-      </div>
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+        <rect width="300" height="300" fill="#E8EAF6"/>
+        <!-- Classroom: teacher at board -->
+        <!-- Blackboard -->
+        <rect x="40" y="50" width="220" height="120" rx="8" fill="#1A237E"/>
+        <rect x="48" y="58" width="204" height="104" rx="4" fill="#1E3A5F"/>
+        <!-- Board content -->
+        <text x="75" y="90" font-size="11" fill="rgba(255,255,255,0.8)" font-family="sans-serif">Understanding Autism</text>
+        <line x1="65" y1="100" x2="235" y2="100" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <text x="70" y="118" font-size="9" fill="rgba(255,255,255,0.6)" font-family="sans-serif">• Early Signs</text>
+        <text x="70" y="132" font-size="9" fill="rgba(255,255,255,0.6)" font-family="sans-serif">• Inclusive Classroom</text>
+        <text x="70" y="146" font-size="9" fill="rgba(255,255,255,0.6)" font-family="sans-serif">• IEP Planning</text>
+        <!-- Teacher figure -->
+        <circle cx="258" cy="100" r="16" fill="#D4A574"/>
+        <path d="M246 90 Q258 82 270 90" fill="#3E2723"/>
+        <circle cx="253" cy="99" r="2" fill="#1A237E"/><circle cx="263" cy="99" r="2" fill="#1A237E"/>
+        <path d="M254 106 Q258 110 262 106" stroke="#C0392B" stroke-width="1.5" fill="none"/>
+        <rect x="246" y="116" width="24" height="34" rx="8" fill="#C0392B"/>
+        <!-- Teacher arm pointing -->
+        <path d="M246 125 Q230 118 220 112" stroke="#D4A574" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <!-- 3 participant silhouettes at bottom -->
+        <circle cx="75" cy="225" r="14" fill="#FFCC99"/>
+        <rect x="63" y="239" width="24" height="30" rx="8" fill="#3949AB"/>
+        <circle cx="150" cy="220" r="14" fill="#D4A574"/>
+        <rect x="138" y="234" width="24" height="30" rx="8" fill="#F9A825"/>
+        <circle cx="225" cy="225" r="14" fill="#FFCC99"/>
+        <rect x="213" y="239" width="24" height="30" rx="8" fill="#00897B"/>
+        <!-- Notebooks on desks -->
+        <rect x="55" y="258" width="38" height="6" rx="2" fill="white" opacity="0.6"/>
+        <rect x="130" y="254" width="38" height="6" rx="2" fill="white" opacity="0.6"/>
+        <rect x="205" y="258" width="38" height="6" rx="2" fill="white" opacity="0.6"/>
+      </svg>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
         <div class="goverlay-title">Parent Workshop</div>
@@ -1833,23 +2195,84 @@ body.high-contrast {
 
     <!-- PHOTO SLOT 4 -->
     <div class="gitem" data-cat="annual" onclick="openLightbox(3)">
-      <div class="gplaceholder">
-        <div class="gp-icon">🎉</div>
-        <div class="gp-label">Annual Function 2024</div>
-      </div>
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+        <rect width="300" height="300" fill="#FFF1DC"/>
+        <!-- Stage / celebration scene -->
+        <!-- Stage platform -->
+        <rect x="30" y="200" width="240" height="20" rx="4" fill="#F9A825" opacity="0.4"/>
+        <rect x="40" y="185" width="220" height="20" rx="4" fill="#F9A825" opacity="0.3"/>
+        <!-- Curtains -->
+        <path d="M30 50 Q50 100 40 185" fill="rgba(192,57,43,0.2)"/>
+        <path d="M270 50 Q250 100 260 185" fill="rgba(192,57,43,0.2)"/>
+        <!-- Banner -->
+        <rect x="70" y="55" width="160" height="35" rx="6" fill="#1A237E"/>
+        <text x="150" y="76" text-anchor="middle" font-size="10" fill="white" font-family="sans-serif" font-weight="bold">Annual Function</text>
+        <!-- Bunting -->
+        <path d="M30 50 Q80 70 150 55 Q220 70 270 50" stroke="rgba(26,35,126,0.3)" stroke-width="1.5" fill="none"/>
+        <polygon points="60,52 70,52 65,62" fill="rgba(192,57,43,0.5)"/>
+        <polygon points="100,60 110,60 105,70" fill="rgba(249,168,37,0.6)"/>
+        <polygon points="140,54 150,54 145,64" fill="rgba(26,35,126,0.5)"/>
+        <polygon points="180,60 190,60 185,70" fill="rgba(192,57,43,0.5)"/>
+        <polygon points="220,52 230,52 225,62" fill="rgba(249,168,37,0.6)"/>
+        <!-- 3 figures on stage receiving certificates -->
+        <circle cx="100" cy="160" r="16" fill="#FFCC99"/>
+        <rect x="88" y="176" width="24" height="28" rx="8" fill="#3949AB"/>
+        <rect x="82" y="162" width="22" height="15" rx="4" fill="white" opacity="0.8"/>
+        <circle cx="175" cy="155" r="18" fill="#D4A574"/>
+        <rect x="163" y="173" width="24" height="28" rx="8" fill="#C0392B"/>
+        <rect x="156" y="157" width="24" height="16" rx="4" fill="white" opacity="0.8"/>
+        <circle cx="248" cy="160" r="16" fill="#FFCC99"/>
+        <rect x="236" y="176" width="24" height="28" rx="8" fill="#00897B"/>
+        <rect x="230" y="162" width="22" height="15" rx="4" fill="white" opacity="0.8"/>
+        <!-- Stars -->
+        <text x="50" y="140" font-size="16" fill="rgba(249,168,37,0.5)">★</text>
+        <text x="240" y="145" font-size="12" fill="rgba(249,168,37,0.5)">★</text>
+        <text x="148" y="48" font-size="14" fill="rgba(249,168,37,0.6)">★</text>
+      </svg>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
-        <div class="goverlay-title">Annual Day Celebration 2024</div>
-        <div class="goverlay-meta">May 2026 · ASFSN, Khatima</div>
+        <div class="goverlay-title">Annual Day Celebration</div>
+        <div class="goverlay-meta">ASFSN, Khatima</div>
       </div>
     </div>
 
     <!-- PHOTO SLOT 5 -->
     <div class="gitem" data-cat="community" onclick="openLightbox(4)">
-      <div class="gplaceholder">
-        <div class="gp-icon">🤝</div>
-        <div class="gp-label">Sibling Support Circle</div>
-      </div>
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+        <rect width="300" height="300" fill="#F3E5F5"/>
+        <!-- Two siblings sitting together reading -->
+        <!-- Ground -->
+        <ellipse cx="150" cy="265" rx="100" ry="14" fill="rgba(142,36,170,0.08)"/>
+        <!-- Older sibling left -->
+        <circle cx="105" cy="150" r="22" fill="#D4A574"/>
+        <path d="M84 138 Q105 128 126 138" fill="#3E2723"/>
+        <circle cx="99" cy="150" r="2.5" fill="#1A237E"/><circle cx="111" cy="150" r="2.5" fill="#1A237E"/>
+        <path d="M100 158 Q105 163 110 158" stroke="#C0392B" stroke-width="2" fill="none"/>
+        <rect x="92" y="172" width="26" height="44" rx="10" fill="#8E24AA" opacity="0.8"/>
+        <!-- Younger sibling right -->
+        <circle cx="195" cy="158" r="18" fill="#FFCC99"/>
+        <ellipse cx="195" cy="144" rx="18" ry="9" fill="#5D4037"/>
+        <circle cx="190" cy="158" r="2" fill="#1A237E"/><circle cx="200" cy="158" r="2" fill="#1A237E"/>
+        <path d="M191 165 Q195 169 199 165" stroke="#C0392B" stroke-width="1.8" fill="none"/>
+        <rect x="183" y="176" width="24" height="38" rx="9" fill="#F9A825" opacity="0.8"/>
+        <!-- Book between them -->
+        <rect x="118" y="185" width="60" height="44" rx="6" fill="#1A237E" opacity="0.85"/>
+        <line x1="148" y1="185" x2="148" y2="229" stroke="white" stroke-width="1.5" opacity="0.4"/>
+        <!-- Older arm on book -->
+        <path d="M105" y1="185" x2="120" y2="200" stroke="#D4A574" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M105 185 Q112 193 120 200" stroke="#D4A574" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <!-- Younger arm on book -->
+        <path d="M183 195 Q170 198 162 200" stroke="#FFCC99" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <!-- Legs -->
+        <rect x="94" y="214" width="12" height="36" rx="6" fill="#8E24AA" opacity="0.6"/>
+        <rect x="108" y="214" width="12" height="36" rx="6" fill="#8E24AA" opacity="0.6"/>
+        <rect x="183" y="212" width="10" height="34" rx="5" fill="#F9A825" opacity="0.6"/>
+        <rect x="195" y="212" width="10" height="34" rx="5" fill="#F9A825" opacity="0.6"/>
+        <!-- Floating hearts -->
+        <text x="145" y="140" font-size="14" fill="rgba(192,57,43,0.3)">♥</text>
+        <text x="220" y="130" font-size="10" fill="rgba(192,57,43,0.25)">♥</text>
+        <text x="75" y="130" font-size="9" fill="rgba(192,57,43,0.25)">♥</text>
+      </svg>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
         <div class="goverlay-title">Sibling Support Circle</div>
@@ -1859,10 +2282,43 @@ body.high-contrast {
 
     <!-- PHOTO SLOT 6 -->
     <div class="gitem" data-cat="art" onclick="openLightbox(5)">
-      <div class="gplaceholder">
-        <div class="gp-icon">🎵</div>
-        <div class="gp-label">Music Therapy Session</div>
-      </div>
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+        <rect width="300" height="300" fill="#E8F5E9"/>
+        <!-- Music therapy: child with instrument, figure playing -->
+        <!-- Musical notes floating -->
+        <text x="55" y="70" font-size="22" fill="rgba(26,35,126,0.2)">♪</text>
+        <text x="200" y="55" font-size="18" fill="rgba(192,57,43,0.25)">♫</text>
+        <text x="240" y="100" font-size="14" fill="rgba(249,168,37,0.35)">♪</text>
+        <text x="40" y="120" font-size="12" fill="rgba(0,137,123,0.3)">♫</text>
+        <text x="160" y="45" font-size="16" fill="rgba(26,35,126,0.2)">♪</text>
+        <!-- Child playing drum -->
+        <circle cx="110" cy="150" r="22" fill="#FFCC99"/>
+        <ellipse cx="110" cy="132" rx="22" ry="11" fill="#5D4037"/>
+        <circle cx="104" cy="150" r="2.5" fill="#1A237E"/><circle cx="116" cy="150" r="2.5" fill="#1A237E"/>
+        <path d="M105 158 Q110 163 115 158" stroke="#C0392B" stroke-width="2" fill="none"/>
+        <rect x="97" y="172" width="26" height="40" rx="10" fill="#3949AB"/>
+        <!-- Drum -->
+        <ellipse cx="110" cy="220" rx="35" ry="12" fill="#C0392B" opacity="0.7"/>
+        <rect x="75" y="210" width="70" height="24" rx="4" fill="#C0392B" opacity="0.5"/>
+        <ellipse cx="110" cy="210" rx="35" ry="12" fill="#E74C3C" opacity="0.8"/>
+        <!-- Drumsticks -->
+        <line x1="88" y1="195" x2="72" y2="175" stroke="#5D4037" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="70" cy="172" r="5" fill="#F9A825"/>
+        <line x1="132" y1="195" x2="148" y2="175" stroke="#5D4037" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="150" cy="172" r="5" fill="#F9A825"/>
+        <!-- Arms -->
+        <path d="M97 180 Q85 188 80 196" stroke="#FFCC99" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M123 180 Q135 188 140 196" stroke="#FFCC99" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <!-- Legs -->
+        <rect x="99" y="210" width="11" height="38" rx="5" fill="#1A237E"/>
+        <rect x="112" y="210" width="11" height="38" rx="5" fill="#1A237E"/>
+        <!-- Facilitator figure background -->
+        <circle cx="215" cy="155" r="18" fill="#D4A574" opacity="0.6"/>
+        <rect x="203" y="173" width="24" height="36" rx="9" fill="#00897B" opacity="0.5"/>
+        <!-- Sound waves -->
+        <path d="M155 205 Q165 195 155 185" stroke="rgba(192,57,43,0.3)" stroke-width="2" fill="none"/>
+        <path d="M162 210 Q178 198 162 180" stroke="rgba(192,57,43,0.2)" stroke-width="2" fill="none"/>
+      </svg>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
         <div class="goverlay-title">Music Therapy Sessions</div>
@@ -1872,23 +2328,104 @@ body.high-contrast {
 
     <!-- PHOTO SLOT 7 — Wide -->
     <div class="gitem" data-cat="autism-day" onclick="openLightbox(6)">
-      <div class="gplaceholder">
-        <div class="gp-icon">🌸</div>
-        <div class="gp-label">Awareness Campaign 2024 — Group photo</div>
-      </div>
+      <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+        <rect width="600" height="200" fill="#1A237E"/>
+        <!-- Group awareness walk: row of diverse figures with banner -->
+        <!-- Sky/atmosphere -->
+        <circle cx="300" cy="-20" r="200" fill="rgba(255,255,255,0.03)"/>
+        <!-- Banner they carry -->
+        <line x1="100" y1="80" x2="500" y2="80" stroke="rgba(249,168,37,0.4)" stroke-width="2"/>
+        <rect x="160" y="65" width="280" height="30" rx="6" fill="rgba(249,168,37,0.15)" stroke="rgba(249,168,37,0.4)" stroke-width="1"/>
+        <text x="300" y="85" text-anchor="middle" font-size="11" fill="rgba(249,168,37,0.9)" font-family="sans-serif" font-weight="bold">Autism Awareness · Khatima</text>
+        <!-- 8 walking figures -->
+        <g transform="translate(60,95)"><!-- Fig 1 -->
+          <circle cx="0" cy="0" r="14" fill="#FFCC99"/><rect x="-10" y="14" width="20" height="28" rx="7" fill="#C0392B"/>
+          <path d="-8 28 L-10 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+          <path d="8 28 L10 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(130,95)"><!-- Fig 2 -->
+          <circle cx="0" cy="0" r="14" fill="#D4A574"/><rect x="-10" y="14" width="20" height="28" rx="7" fill="#3949AB"/>
+          <path d="-8 28 L-8 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+          <path d="8 28 L8 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(195,98)"><!-- Child small -->
+          <circle cx="0" cy="0" r="11" fill="#FFCC99"/><rect x="-8" y="11" width="16" height="22" rx="6" fill="#F9A825"/>
+          <path d="-6 22 L-6 40" stroke="#1A237E" stroke-width="5" stroke-linecap="round"/>
+          <path d="6 22 L6 40" stroke="#1A237E" stroke-width="5" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(255,95)"><!-- Fig 4 -->
+          <circle cx="0" cy="0" r="14" fill="#FFCC99"/><rect x="-10" y="14" width="20" height="28" rx="7" fill="#00897B"/>
+          <path d="-8 28 L-10 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+          <path d="8 28 L10 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(320,95)"><!-- Fig 5 -->
+          <circle cx="0" cy="0" r="14" fill="#D4A574"/><rect x="-10" y="14" width="20" height="28" rx="7" fill="#8E24AA"/>
+          <path d="-8 28 L-8 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+          <path d="8 28 L8 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(385,98)"><!-- Child small -->
+          <circle cx="0" cy="0" r="11" fill="#FFCC99"/><rect x="-8" y="11" width="16" height="22" rx="6" fill="#C0392B"/>
+          <path d="-6 22 L-6 40" stroke="#1A237E" stroke-width="5" stroke-linecap="round"/>
+          <path d="6 22 L6 40" stroke="#1A237E" stroke-width="5" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(440,95)"><!-- Fig 7 -->
+          <circle cx="0" cy="0" r="14" fill="#FFCC99"/><rect x="-10" y="14" width="20" height="28" rx="7" fill="#F9A825"/>
+          <path d="-8 28 L-10 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+          <path d="8 28 L10 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(505,95)"><!-- Fig 8 -->
+          <circle cx="0" cy="0" r="14" fill="#D4A574"/><rect x="-10" y="14" width="20" height="28" rx="7" fill="#3949AB"/>
+          <path d="-8 28 L-8 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+          <path d="8 28 L8 50" stroke="#1A237E" stroke-width="6" stroke-linecap="round"/>
+        </g>
+        <!-- Lotus flowers at corners -->
+        <text x="20" y="50" font-size="20" fill="rgba(249,168,37,0.3)">🌸</text>
+        <text x="555" y="50" font-size="20" fill="rgba(249,168,37,0.3)">🌸</text>
+        <!-- Hearts floating -->
+        <text x="290" y="55" font-size="14" fill="rgba(192,57,43,0.3)">♥</text>
+        <text x="310" y="45" font-size="10" fill="rgba(192,57,43,0.25)">♥</text>
+      </svg>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
-        <div class="goverlay-title">Autism Awareness Campaign 2024</div>
+        <div class="goverlay-title">Community Awareness Walk</div>
         <div class="goverlay-meta">ASFSN, Khatima</div>
       </div>
     </div>
 
     <!-- PHOTO SLOT 8 -->
     <div class="gitem" data-cat="workshops" onclick="openLightbox(7)">
-      <div class="gplaceholder">
-        <div class="gp-icon">👩‍🏫</div>
-        <div class="gp-label">Teacher Training</div>
-      </div>
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+        <rect width="300" height="300" fill="#E0F2F1"/>
+        <!-- Teacher training: figure presenting, others taking notes -->
+        <!-- Presentation screen -->
+        <rect x="60" y="45" width="180" height="110" rx="8" fill="#1A237E"/>
+        <rect x="68" y="53" width="164" height="94" rx="4" fill="#1E3A5F"/>
+        <text x="150" y="82" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)" font-family="sans-serif" font-weight="bold">Teacher Training</text>
+        <line x1="80" y1="92" x2="220" y2="92" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <text x="88" y="108" font-size="8.5" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Inclusive Classrooms</text>
+        <text x="88" y="122" font-size="8.5" fill="rgba(255,255,255,0.65)" font-family="sans-serif">Sensory Strategies</text>
+        <text x="88" y="136" font-size="8.5" fill="rgba(255,255,255,0.65)" font-family="sans-serif">IEP Writing</text>
+        <!-- Stand -->
+        <rect x="143" y="155" width="14" height="20" rx="2" fill="#5D4037"/>
+        <rect x="120" y="172" width="60" height="6" rx="3" fill="#5D4037"/>
+        <!-- Trainer figure right side -->
+        <circle cx="258" cy="100" r="16" fill="#FFCC99"/>
+        <path d="M246 90 Q258 82 270 90" fill="#3E2723"/>
+        <circle cx="253" cy="100" r="2" fill="#1A237E"/><circle cx="263" cy="100" r="2" fill="#1A237E"/>
+        <path d="M254 107 Q258 111 262 107" stroke="#C0392B" stroke-width="1.5" fill="none"/>
+        <rect x="246" y="116" width="24" height="32" rx="8" fill="#C0392B"/>
+        <path d="M246 124 Q230 115 218 108" stroke="#FFCC99" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <!-- 2 attendees at bottom -->
+        <circle cx="85" cy="228" r="15" fill="#D4A574"/>
+        <rect x="73" y="243" width="24" height="32" rx="8" fill="#3949AB" opacity="0.8"/>
+        <rect x="65" y="248" width="32" height="8" rx="3" fill="white" opacity="0.7"/>
+        <circle cx="200" cy="228" r="15" fill="#FFCC99"/>
+        <rect x="188" y="243" width="24" height="32" rx="8" fill="#8E24AA" opacity="0.8"/>
+        <rect x="180" y="248" width="32" height="8" rx="3" fill="white" opacity="0.7"/>
+        <!-- Certificate icon -->
+        <rect x="130" y="220" width="40" height="30" rx="4" fill="white" opacity="0.6"/>
+        <text x="150" y="240" text-anchor="middle" font-size="14">🏅</text>
+      </svg>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
         <div class="goverlay-title">Teacher Training: Autism in Classroom</div>
@@ -1898,10 +2435,51 @@ body.high-contrast {
 
     <!-- PHOTO SLOT 9 -->
     <div class="gitem" data-cat="community" onclick="openLightbox(8)">
-      <div class="gplaceholder">
-        <div class="gp-icon">🏃</div>
-        <div class="gp-label">Inclusion Run 2024</div>
-      </div>
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+        <rect width="300" height="300" fill="#FBE9E7"/>
+        <!-- Inclusion run: figures running together -->
+        <!-- Path/road -->
+        <path d="M0 230 Q150 210 300 230" fill="rgba(192,57,43,0.08)"/>
+        <!-- Finish line banner -->
+        <line x1="220" y1="90" x2="220" y2="220" stroke="#1A237E" stroke-width="3"/>
+        <line x1="280" y1="90" x2="280" y2="220" stroke="#1A237E" stroke-width="3"/>
+        <rect x="218" y="88" width="64" height="28" fill="#F9A825" opacity="0.8"/>
+        <text x="250" y="107" text-anchor="middle" font-size="9" fill="#1A237E" font-family="sans-serif" font-weight="bold">FINISH</text>
+        <!-- Checkered pattern on banner -->
+        <rect x="218" y="116" width="8" height="8" fill="#1A237E" opacity="0.4"/>
+        <rect x="234" y="116" width="8" height="8" fill="#1A237E" opacity="0.4"/>
+        <rect x="250" y="116" width="8" height="8" fill="#1A237E" opacity="0.4"/>
+        <rect x="266" y="116" width="8" height="8" fill="#1A237E" opacity="0.4"/>
+        <!-- Runner 1 - child -->
+        <circle cx="80" cy="155" r="18" fill="#FFCC99"/>
+        <ellipse cx="80" cy="141" rx="18" ry="9" fill="#3E2723"/>
+        <circle cx="75" cy="155" r="2" fill="#1A237E"/><circle cx="85" cy="155" r="2" fill="#1A237E"/>
+        <path d="M76 162 Q80 166 84 162" stroke="#C0392B" stroke-width="1.5" fill="none"/>
+        <rect x="68" y="173" width="24" height="32" rx="8" fill="#C0392B"/>
+        <!-- Running arms -->
+        <path d="M68 182 Q55 172 50 162" stroke="#FFCC99" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M92 182 Q105 175 108 168" stroke="#FFCC99" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <!-- Running legs -->
+        <path d="M72 203 Q65 218 60 228" stroke="#1A237E" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M84 203 Q95 215 100 222" stroke="#1A237E" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <!-- Runner 2 - adult -->
+        <circle cx="158" cy="148" r="20" fill="#D4A574"/>
+        <path d="M140 136 Q158 126 176 136" fill="#5D4037"/>
+        <circle cx="152" cy="148" r="2.5" fill="#1A237E"/><circle cx="164" cy="148" r="2.5" fill="#1A237E"/>
+        <path d="M153 156 Q158 161 163 156" stroke="#C0392B" stroke-width="2" fill="none"/>
+        <rect x="145" y="168" width="26" height="36" rx="9" fill="#3949AB"/>
+        <path d="M145 178 Q130 168 125 155" stroke="#D4A574" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M171 178 Q182 170 186 160" stroke="#D4A574" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M149 202 Q140 218 135 226" stroke="#1A237E" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <path d="M163 202 Q175 214 180 222" stroke="#1A237E" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <!-- Motion lines -->
+        <line x1="25" y1="155" x2="45" y2="155" stroke="rgba(192,57,43,0.25)" stroke-width="2" stroke-linecap="round"/>
+        <line x1="20" y1="165" x2="42" y2="163" stroke="rgba(192,57,43,0.18)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="110" y1="150" x2="125" y2="148" stroke="rgba(192,57,43,0.2)" stroke-width="2" stroke-linecap="round"/>
+        <!-- Hearts trail -->
+        <text x="110" y="135" font-size="12" fill="rgba(192,57,43,0.3)">♥</text>
+        <text x="55" y="135" font-size="9" fill="rgba(192,57,43,0.25)">♥</text>
+      </svg>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
         <div class="goverlay-title">Inclusion Run for Awareness</div>
@@ -2061,6 +2639,41 @@ body.high-contrast {
       </div>
     </div>
     <div class="contact-info">
+      <!-- Contact illustration: figure reaching out a hand -->
+      <div style="text-align:center;margin-bottom:1.25rem;">
+        <svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px;">
+          <!-- Two figures reaching toward each other across a gap -->
+          <!-- Left figure - parent -->
+          <circle cx="55" cy="45" r="20" fill="#D4A574"/>
+          <path d="M38 35 Q55 25 72 35" fill="#3E2723"/>
+          <circle cx="49" cy="45" r="2.5" fill="#1A237E"/><circle cx="61" cy="45" r="2.5" fill="#1A237E"/>
+          <path d="M50 53 Q55 58 60 53" stroke="#C0392B" stroke-width="2" fill="none"/>
+          <rect x="43" y="65" width="24" height="38" rx="10" fill="#3949AB"/>
+          <!-- Left arm reaching out -->
+          <path d="M67 75 Q100 65 130 60" stroke="#D4A574" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <!-- Left hand -->
+          <circle cx="133" cy="59" r="10" fill="#D4A574"/>
+          <!-- Right figure - child -->
+          <circle cx="225" cy="50" r="16" fill="#FFCC99"/>
+          <ellipse cx="225" cy="37" rx="16" ry="8" fill="#5D4037"/>
+          <circle cx="220" cy="50" r="2" fill="#1A237E"/><circle cx="230" cy="50" r="2" fill="#1A237E"/>
+          <path d="M221 57 Q225 61 229 57" stroke="#C0392B" stroke-width="1.5" fill="none"/>
+          <rect x="215" y="66" width="20" height="32" rx="8" fill="#C0392B"/>
+          <!-- Right arm reaching out -->
+          <path d="M215 73 Q180 65 150 60" stroke="#FFCC99" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <!-- Right hand -->
+          <circle cx="147" cy="59" r="9" fill="#FFCC99"/>
+          <!-- Connection/meeting point - heart -->
+          <text x="131" y="48" font-size="22" fill="rgba(192,57,43,0.6)">♥</text>
+          <!-- Legs -->
+          <rect x="45" y="101" width="9" height="18" rx="4" fill="#1A237E"/><rect x="57" y="101" width="9" height="18" rx="4" fill="#1A237E"/>
+          <rect x="217" y="96" width="8" height="16" rx="4" fill="#1A237E"/><rect x="227" y="96" width="8" height="16" rx="4" fill="#1A237E"/>
+          <!-- Sparkles -->
+          <text x="20" y="30" font-size="10" fill="rgba(249,168,37,0.4)">✦</text>
+          <text x="250" y="35" font-size="8" fill="rgba(249,168,37,0.35)">✦</text>
+          <text x="135" y="22" font-size="7" fill="rgba(192,57,43,0.3)">✦</text>
+        </svg>
+      </div>
       <div class="ci-block">
         <div class="ci-icon">📍</div>
         <div>
@@ -2116,8 +2729,8 @@ body.high-contrast {
       <div class="brand">
         <div class="brand-logo" style="width:40px;height:40px;font-size:1.2rem;">🌸</div>
         <div class="brand-name">
-          <span class="brand-name-en" style="color:white;font-size:1rem;">Anurag Society for Special Needs</span>
-          <span class="brand-name-hi" style="color:var(--gold);">अनुराग सोसायटी फ़ॉर स्पेशल नीड्स</span>
+          <span class="brand-name-en" style="color:white;font-size:0.85rem;">Anurag Society for Special Needs</span>
+          <span class="brand-name-hi" style="color:var(--gold);font-size:0.68rem;">अनुराग सोसायटी फ़ॉर स्पेशल नीड्स</span>
         </div>
       </div>
       <p>A community built on compassion, science, and the unwavering belief that every mind belongs.</p>
