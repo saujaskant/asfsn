@@ -1224,6 +1224,34 @@ footer {
 .gph-hint { font-size: 0.62rem; color: rgba(255,255,255,0.25); text-align: center; padding: 0 0.75rem; }
 
 
+/* ── GALLERY VIDEO SUPPORT ── */
+.gitem-media {
+  width: 100%; height: 100%;
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.gitem-media .gphoto-row { flex: 1; display: flex; min-height: 0; }
+.gitem-media .gphoto-row .gphoto { flex: 1; overflow: hidden; }
+.gitem-media .gphoto-row .gphoto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.gitem:hover .gitem-media .gphoto img { transform: scale(1.05); }
+.gvideo-row { display: flex; gap: 2px; background: #000; flex-shrink: 0; }
+.gvideo-thumb {
+  flex: 1; position: relative; cursor: pointer;
+  overflow: hidden; background: #111; min-height: 56px;
+}
+.gvideo-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.2s; }
+.gvideo-thumb:hover img { opacity: 1; }
+.gvideo-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 3px; }
+.gvideo-play-btn { width: 30px; height: 30px; background: rgba(192,57,43,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: white; }
+.gvideo-play-label { font-size: 0.58rem; color: rgba(255,255,255,0.85); font-weight: 600; text-align: center; padding: 0 4px; line-height: 1.2; max-width: 85px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+/* Video modal */
+.video-modal { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.92); display: none; align-items: center; justify-content: center; padding: 2rem; }
+.video-modal.open { display: flex; }
+.video-modal-inner { position: relative; width: 100%; max-width: 860px; }
+.video-modal-close { position: absolute; top: -2.5rem; right: 0; background: rgba(255,255,255,0.1); border: none; color: white; width: 36px; height: 36px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.video-modal-close:hover { background: #C0392B; }
+.video-modal iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 12px; }
+
 .lightbox {
   position: fixed; inset: 0; z-index: 1000;
   background: rgba(5, 8, 30, 0.96);
@@ -1987,6 +2015,7 @@ body.high-contrast {
     <button class="gtab" onclick="filterGallery('workshops', this)" data-en="📚 Workshops" data-hi="📚 कार्यशालाएं">📚 Workshops</button>
     <button class="gtab" onclick="filterGallery('annual', this)" data-en="🎉 Annual Function" data-hi="🎉 वार्षिक समारोह">🎉 Annual Function</button>
     <button class="gtab" onclick="filterGallery('community', this)" data-en="🤝 Community" data-hi="🤝 समुदाय">🤝 Community</button>
+    <button class="gtab" onclick="filterGallery('republic-day', this)" data-en="🇮🇳 Republic Day" data-hi="🇮🇳 गणतंत्र दिवस">🇮🇳 Republic Day</button>
   </div>
 
   <!-- Gallery Grid -->
@@ -2016,17 +2045,46 @@ body.high-contrast {
          4. Add <span class="gphoto-count">📷 N photos</span> to show count badge
     ══════════════════════════════════════════════════════ -->
 
-    <!-- TILE 1 — Community Discussion (Featured Large) -->
-    <div class="gitem" data-cat="autism-day" onclick="openLightbox(0)">
-      <div class="gplaceholder-new">
-        <div class="gph-icon">📸</div>
-        <div class="gph-title">Community Discussion &amp; Activity</div>
-        <div class="gph-hint">Add photos here → see instructions above</div>
+    <!-- TILE 1 — Autism Awareness Day (Featured Large) -->
+    <!-- TO ADD PHOTOS: replace each src="" with your photo path e.g. src="photos/events/autism-day/photo1.jpg" -->
+    <!-- TO ADD VIDEOS: replace VIDEO_ID_1 and VIDEO_ID_2 with your YouTube video IDs -->
+    <!--   YouTube video ID is the part after ?v= in the URL e.g. https://youtube.com/watch?v=dQw4w9WgXcQ → ID is dQw4w9WgXcQ -->
+    <div class="gitem" data-cat="autism-day" onclick="">
+      <div class="gitem-media">
+        <!-- 6 photos in mosaic: 2 rows of 3 -->
+        <div class="gphoto-row" style="flex:1;">
+          <div class="gphoto"><img src="" alt="Autism Awareness Day 2026 - 1"></div>
+          <div class="gphoto"><img src="" alt="Autism Awareness Day 2026 - 2"></div>
+          <div class="gphoto"><img src="" alt="Autism Awareness Day 2026 - 3"></div>
+        </div>
+        <div class="gphoto-row" style="flex:1;">
+          <div class="gphoto"><img src="" alt="Autism Awareness Day 2026 - 4"></div>
+          <div class="gphoto"><img src="" alt="Autism Awareness Day 2026 - 5"></div>
+          <div class="gphoto"><img src="" alt="Autism Awareness Day 2026 - 6"></div>
+        </div>
+        <!-- 2 YouTube video thumbnails at bottom -->
+        <div class="gvideo-row">
+          <div class="gvideo-thumb" onclick="openVideo('VIDEO_ID_1', event)">
+            <img src="https://img.youtube.com/vi/VIDEO_ID_1/mqdefault.jpg" alt="Autism Awareness Day Video 1">
+            <div class="gvideo-play">
+              <div class="gvideo-play-btn">▶</div>
+              <div class="gvideo-play-label">Video 1</div>
+            </div>
+          </div>
+          <div class="gvideo-thumb" onclick="openVideo('VIDEO_ID_2', event)">
+            <img src="https://img.youtube.com/vi/VIDEO_ID_2/mqdefault.jpg" alt="Autism Awareness Day Video 2">
+            <div class="gvideo-play">
+              <div class="gvideo-play-btn">▶</div>
+              <div class="gvideo-play-label">Video 2</div>
+            </div>
+          </div>
+        </div>
       </div>
+      <span class="gphoto-count">📷 6 · 🎬 2</span>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
-        <div class="goverlay-title">Community Discussion and Activity</div>
-        <div class="goverlay-meta">May 2026 · ASFSN, Khatima</div>
+        <div class="goverlay-title">Autism Awareness Day 2026</div>
+        <div class="goverlay-meta">ASFSN, Khatima</div>
       </div>
     </div>
 
@@ -2099,16 +2157,37 @@ body.high-contrast {
       </div>
     </div>
 
-    <!-- TILE 7 — Community Awareness Walk (Wide) -->
-    <div class="gitem" data-cat="autism-day" onclick="openLightbox(6)">
-      <div class="gplaceholder-new">
-        <div class="gph-icon">🌸</div>
-        <div class="gph-title">Community Awareness Walk — Group Photos</div>
-        <div class="gph-hint">Wide tile — great for group photos</div>
+    <!-- TILE 7 — Republic Day (Wide) -->
+    <!-- TO ADD PHOTO: replace src="" with your photo path e.g. src="photos/events/republic-day/photo1.jpg" -->
+    <!-- TO ADD VIDEOS: replace VIDEO_ID_3 and VIDEO_ID_4 with your YouTube video IDs -->
+    <div class="gitem" data-cat="republic-day" onclick="">
+      <div class="gitem-media">
+        <!-- 1 photo -->
+        <div class="gphoto-row" style="flex:1;">
+          <div class="gphoto"><img src="" alt="Republic Day 2026 - ASFSN Khatima"></div>
+        </div>
+        <!-- 2 YouTube video thumbnails -->
+        <div class="gvideo-row">
+          <div class="gvideo-thumb" onclick="openVideo('VIDEO_ID_3', event)">
+            <img src="https://img.youtube.com/vi/VIDEO_ID_3/mqdefault.jpg" alt="Republic Day Video 1">
+            <div class="gvideo-play">
+              <div class="gvideo-play-btn">▶</div>
+              <div class="gvideo-play-label">Republic Day Video 1</div>
+            </div>
+          </div>
+          <div class="gvideo-thumb" onclick="openVideo('VIDEO_ID_4', event)">
+            <img src="https://img.youtube.com/vi/VIDEO_ID_4/mqdefault.jpg" alt="Republic Day Video 2">
+            <div class="gvideo-play">
+              <div class="gvideo-play-btn">▶</div>
+              <div class="gvideo-play-label">Republic Day Video 2</div>
+            </div>
+          </div>
+        </div>
       </div>
+      <span class="gphoto-count">📷 1 · 🎬 2</span>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
-        <div class="goverlay-title">Community Awareness Walk</div>
+        <div class="goverlay-title">Republic Day Celebration 2026</div>
         <div class="goverlay-meta">ASFSN, Khatima</div>
       </div>
     </div>
@@ -2450,13 +2529,13 @@ function filterGallery(cat, btn) {
 
 /* ── LIGHTBOX DATA ── */
 const lbData = [
-  { src: '', title: 'Community Discussion and Activity', meta: 'May 2, 2026 · ASFSN, Khatima' },
+  { src: '', title: 'Autism Awareness Day 2026', meta: 'ASFSN, Khatima' },
   { src: '', title: 'Art Exhibition: Colours of My World', meta: 'May 9, 2026 · ASFSN, Khatima' },
   { src: '', title: 'Parent Workshop', meta: 'May 16, 2026 · ASFSN, Khatima' },
   { src: '', title: 'Annual Day Celebration', meta: 'ASFSN, Khatima' },
   { src: '', title: 'Sibling Support Circle', meta: 'May 23, 2026 · ASFSN, Khatima' },
   { src: '', title: 'Music Therapy Sessions', meta: 'Every Saturday · ASFSN, Khatima' },
-  { src: '', title: 'Community Awareness Campaign', meta: 'ASFSN, Khatima' },
+  { src: '', title: 'Republic Day Celebration 2026', meta: 'ASFSN, Khatima' },
   { src: '', title: 'Teacher Training: Autism in Classroom', meta: 'May 30, 2026 · ASFSN, Khatima' },
   { src: '', title: 'Inclusion Run for Awareness', meta: 'ASFSN, Khatima' },
 ];
@@ -2553,6 +2632,10 @@ function handleSubscribe() {
 let currentLang = 'en';
 function setLang(lang) {
   currentLang = lang;
+/* ── BILINGUAL ENGINE ── */
+let currentLang = 'en';
+function setLang(lang) {
+  currentLang = lang;
   document.getElementById('btnEN').classList.toggle('active', lang === 'en');
   document.getElementById('btnHI').classList.toggle('active', lang === 'hi');
   document.querySelectorAll('[data-' + lang + ']').forEach(el => {
@@ -2560,6 +2643,39 @@ function setLang(lang) {
   });
   document.documentElement.lang = lang;
 }
+</script>
+
+<!-- ── VIDEO MODAL ── -->
+<div class="video-modal" id="videoModal" onclick="closeVideoOutside(event)">
+  <div class="video-modal-inner">
+    <button class="video-modal-close" onclick="closeVideo()">✕</button>
+    <iframe id="videoFrame" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+  </div>
+</div>
+
+<script>
+/* ── VIDEO PLAYER ── */
+function openVideo(videoId, e) {
+  if (e) e.stopPropagation(); // prevent gallery lightbox from opening
+  const modal = document.getElementById('videoModal');
+  const frame = document.getElementById('videoFrame');
+  frame.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeVideo() {
+  const modal = document.getElementById('videoModal');
+  const frame = document.getElementById('videoFrame');
+  frame.src = ''; // stop video
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeVideoOutside(e) {
+  if (e.target === document.getElementById('videoModal')) closeVideo();
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeVideo();
+});
 </script>
 </body>
 </html>
