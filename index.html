@@ -1173,84 +1173,65 @@ footer {
 
 /* ── MULTI-PHOTO GALLERY ── */
 .gitem { position: relative; }
+/* ── GALLERY: PHOTOS ── */
 .gitem-photos {
-  width: 100%; height: 100%;
-  position: absolute; inset: 0;
-  display: grid;
+  position: absolute; inset: 0; display: grid; gap: 2px;
 }
-/* Single photo */
 .gitem-photos.count-1 { grid-template-columns: 1fr; }
-/* Two photos side by side */
 .gitem-photos.count-2 { grid-template-columns: 1fr 1fr; }
-/* Three photos: 1 large left, 2 stacked right */
 .gitem-photos.count-3 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
 .gitem-photos.count-3 .gphoto:first-child { grid-row: span 2; }
-/* Four photos: 2x2 grid */
 .gitem-photos.count-4 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
-/* 5+ photos: mosaic */
 .gitem-photos.count-5 { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; }
 .gitem-photos.count-5 .gphoto:first-child { grid-column: span 2; }
-.gphoto { overflow: hidden; }
-.gphoto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
-.gitem:hover .gphoto img { transform: scale(1.05); }
-/* Photo count badge */
-.gphoto-count {
-  position: absolute;
-  top: 0.6rem; right: 0.6rem;
-  background: rgba(0,0,0,0.55);
-  color: white;
-  font-size: 0.68rem;
-  font-weight: 700;
-  padding: 0.2rem 0.55rem;
-  border-radius: 100px;
-  backdrop-filter: blur(4px);
-  z-index: 3;
-}
-/* Placeholder state */
-.gplaceholder-new {
-  width: 100%; height: 100%;
-  position: absolute; inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: rgba(255,255,255,0.05);
-  border: 2px dashed rgba(255,255,255,0.15);
-  border-radius: inherit;
-}
+/* Shared photo cell */
+.gphoto { position: relative; overflow: hidden; min-width: 0; min-height: 0; }
+.gphoto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.gitem:hover .gphoto img { transform: scale(1.04); }
+/* Badge */
+.gphoto-count { position: absolute; top: 0.6rem; right: 0.6rem; background: rgba(0,0,0,0.55); color: white; font-size: 0.68rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 100px; backdrop-filter: blur(4px); z-index: 3; }
+/* Placeholder */
+.gplaceholder-new { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(255,255,255,0.05); border: 2px dashed rgba(255,255,255,0.15); border-radius: inherit; }
 .gph-icon { font-size: 1.8rem; opacity: 0.3; }
 .gph-title { font-size: 0.72rem; color: rgba(255,255,255,0.5); text-align: center; padding: 0 1rem; font-weight: 500; }
 .gph-hint { font-size: 0.62rem; color: rgba(255,255,255,0.25); text-align: center; padding: 0 0.75rem; }
 
+/* ── GALLERY: MEDIA TILE (photos + video strip) ── */
+.gitem-media { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; }
+/* Photo rows fill all space above the video strip */
+.gphoto-rows { flex: 1; display: flex; flex-direction: column; gap: 2px; min-height: 0; }
+.gphoto-row { flex: 1; display: flex; gap: 2px; min-height: 0; overflow: hidden; }
+.gitem-media .gphoto { flex: 1; position: relative; overflow: hidden; min-width: 0; min-height: 0; }
+.gitem-media .gphoto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.gitem:hover .gitem-media .gphoto img { transform: scale(1.04); }
 
-/* ── GALLERY VIDEO SUPPORT ── */
-.gitem-media {
-  width: 100%; height: 100%;
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column; overflow: hidden;
-}
-.gitem-media .gphoto-row { flex: 1; display: flex; min-height: 0; }
-.gitem-media .gphoto-row .gphoto { flex: 1; overflow: hidden; }
-.gitem-media .gphoto-row .gphoto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
-.gitem:hover .gitem-media .gphoto img { transform: scale(1.05); }
-.gvideo-row { display: flex; gap: 2px; background: #000; flex-shrink: 0; }
-.gvideo-thumb {
-  flex: 1; position: relative; cursor: pointer;
-  overflow: hidden; background: #111; min-height: 56px;
-}
-.gvideo-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.2s; }
-.gvideo-thumb:hover img { opacity: 1; }
-.gvideo-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 3px; }
-.gvideo-play-btn { width: 30px; height: 30px; background: rgba(192,57,43,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: white; }
-.gvideo-play-label { font-size: 0.58rem; color: rgba(255,255,255,0.85); font-weight: 600; text-align: center; padding: 0 4px; line-height: 1.2; max-width: 85px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-/* Video modal */
-.video-modal { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.92); display: none; align-items: center; justify-content: center; padding: 2rem; }
+/* Video strip — fixed 70px at bottom */
+.gvideo-row { display: flex; height: 70px; flex-shrink: 0; gap: 2px; background: #050505; }
+.gvideo-thumb { flex: 1; position: relative; overflow: hidden; background: #111; cursor: pointer; }
+.gvideo-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.25s, transform 0.25s; }
+.gvideo-thumb:hover img { opacity: 1; transform: scale(1.06); }
+.gvideo-play { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; pointer-events: none; }
+.gvideo-play-btn { width: 28px; height: 28px; background: rgba(192,57,43,0.92); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.5); transition: transform 0.2s, background 0.2s; }
+.gvideo-thumb:hover .gvideo-play-btn { transform: scale(1.18); background: #C0392B; }
+.gvideo-play-label { font-size: 0.56rem; color: rgba(255,255,255,0.88); font-weight: 600; text-align: center; padding: 0 4px; line-height: 1.2; max-width: 90px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+/* ── VIDEO MODAL ── */
+.video-modal { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.95); display: none; align-items: center; justify-content: center; padding: 1.5rem; }
 .video-modal.open { display: flex; }
-.video-modal-inner { position: relative; width: 100%; max-width: 860px; }
-.video-modal-close { position: absolute; top: -2.5rem; right: 0; background: rgba(255,255,255,0.1); border: none; color: white; width: 36px; height: 36px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.video-modal-inner { position: relative; width: 100%; max-width: 900px; }
+.video-modal-close { position: absolute; top: -3rem; right: 0; background: rgba(255,255,255,0.12); border: none; color: white; width: 38px; height: 38px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
 .video-modal-close:hover { background: #C0392B; }
-.video-modal iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 12px; }
+.video-modal iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 12px; display: block; }
+
+/* Placeholder inside media tile — shown only when no photos loaded */
+.gitem-media .gplaceholder-new {
+  position: absolute; inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+/* Hide placeholder when photo rows have actual img content */
+.gitem-media .gphoto-rows:has(img) ~ .gplaceholder-new,
+.gitem-media:has(.gphoto img) .gplaceholder-new { display: none; }
 
 .lightbox {
   position: fixed; inset: 0; z-index: 1000;
@@ -2051,31 +2032,31 @@ body.high-contrast {
     <!--   YouTube video ID is the part after ?v= in the URL e.g. https://youtube.com/watch?v=dQw4w9WgXcQ → ID is dQw4w9WgXcQ -->
     <div class="gitem" data-cat="autism-day" onclick="">
       <div class="gitem-media">
-        <!-- 6 photos in mosaic: 2 rows of 3 -->
-        <div class="gphoto-row" style="flex:1;">
-          <div class="gphoto"><img src="photos/events/AutAwa1.jpeg" alt="Autism Awareness Day 2026 - 1"></div>
-          <div class="gphoto"><img src="photos/events/AutAwa2.jpeg" alt="Autism Awareness Day 2026 - 2"></div>
-          <div class="gphoto"><img src="photos/events/AutAwa3.jpeg" alt="Autism Awareness Day 2026 - 3"></div>
+        <div class="gphoto-rows">
+          <div class="gphoto-row">
+            <div class="gphoto"><img src="photos/events/AutAwa1.jpeg" alt="Autism Awareness Day 2026 - 1"></div>
+            <div class="gphoto"><img src="photos/events/AutAwa2.jpeg" alt="Autism Awareness Day 2026 - 2"></div>
+            <div class="gphoto"><img src="photos/events/AutAwa3.jpeg" alt="Autism Awareness Day 2026 - 3"></div>
+          </div>
+          <div class="gphoto-row">
+            <div class="gphoto"><img src="photos/events/AutAwa4.jpeg" alt="Autism Awareness Day 2026 - 4"></div>
+            <div class="gphoto"><img src="photos/events/AutAwa5.jpeg" alt="Autism Awareness Day 2026 - 5"></div>
+            <div class="gphoto"><img src="photos/events/AutAwa6.jpeg" alt="Autism Awareness Day 2026 - 6"></div>
+          </div>
         </div>
-        <div class="gphoto-row" style="flex:1;">
-          <div class="gphoto"><img src="photos/events/AutAwa4.jpeg" alt="Autism Awareness Day 2026 - 4"></div>
-          <div class="gphoto"><img src="photos/events/AutAwa5.jpeg" alt="Autism Awareness Day 2026 - 5"></div>
-          <div class="gphoto"><img src="photos/events/AutAwa6.jpeg" alt="Autism Awareness Day 2026 - 6"></div>
-        </div>
-        <!-- 2 YouTube video thumbnails at bottom -->
         <div class="gvideo-row">
           <div class="gvideo-thumb" onclick="openVideo('shZjWXPoUZo', event)">
             <img src="https://img.youtube.com/vi/shZjWXPoUZo/mqdefault.jpg" alt="Autism Awareness Day Video 1">
             <div class="gvideo-play">
               <div class="gvideo-play-btn">▶</div>
-              <div class="gvideo-play-label">Video 1</div>
+              <div class="gvideo-play-label">Awareness Video 1</div>
             </div>
           </div>
           <div class="gvideo-thumb" onclick="openVideo('tyBIi99xkqE', event)">
             <img src="https://img.youtube.com/vi/tyBIi99xkqE/mqdefault.jpg" alt="Autism Awareness Day Video 2">
             <div class="gvideo-play">
               <div class="gvideo-play-btn">▶</div>
-              <div class="gvideo-play-label">Video 2</div>
+              <div class="gvideo-play-label">Awareness Video 2</div>
             </div>
           </div>
         </div>
@@ -2089,11 +2070,18 @@ body.high-contrast {
     </div>
 
     <!-- TILE 2 — Art Exhibition -->
-    <div class="gitem" data-cat="art" onclick="openLightbox(1)">
-      <div class="gitem-photos count-2">
-                <div class="gphoto"><img src="photos/events/art1.jpeg" alt="art1"></div>
-                <div class="gphoto"><img src="photos/events/art2.jpeg" alt="art2"></div>
+    <!-- TO ADD MORE PHOTOS OR VIDEOS: follow Tile 1 pattern -->
+    <div class="gitem" data-cat="art" onclick="">
+      <div class="gitem-media">
+        <div class="gphoto-rows">
+          <div class="gphoto-row">
+            <div class="gphoto"><img src="photos/events/art1.jpeg" alt="Art Exhibition 1"></div>
+            <div class="gphoto"><img src="photos/events/art2.jpeg" alt="Art Exhibition 2"></div>
+          </div>
+        </div>
+        <!-- Add video strip when ready -->
       </div>
+      <span class="gphoto-count">📷 2</span>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
         <div class="goverlay-title">Art Exhibition: Colours of My World</div>
@@ -2101,12 +2089,30 @@ body.high-contrast {
       </div>
     </div>
 
-    <!-- TILE 3 — Parent Workshop -->
-    <div class="gitem" data-cat="workshops" onclick="openLightbox(2)">
-      <div class="gplaceholder-new">
-        <div class="gph-icon">📚</div>
-        <div class="gph-title">Parent Workshop</div>
-        <div class="gph-hint">Supports up to 5 photos per tile</div>
+    <!-- TILE — Parent Workshop -->
+    <!-- TO ADD PHOTOS: add <div class="gphoto-rows"> with <div class="gphoto-row"> children inside gitem-media -->
+    <!-- TO ADD VIDEOS: add <div class="gvideo-row"> with gvideo-thumb items inside gitem-media -->
+    <!-- See Tile 1 (Autism Awareness Day) as the reference example -->
+    <div class="gitem" data-cat="workshops" onclick="">
+      <div class="gitem-media">
+        <div class="gphoto-rows">
+          <div class="gphoto-row">
+            <!-- Add photos here: <div class="gphoto"><img src="photos/events/your-photo.jpg" alt="..."></div> -->
+          </div>
+        </div>
+        <!-- Add video strip when ready:
+        <div class="gvideo-row">
+          <div class="gvideo-thumb" onclick="openVideo('YOUR_VIDEO_ID', event)">
+            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/mqdefault.jpg" alt="Video">
+            <div class="gvideo-play"><div class="gvideo-play-btn">▶</div><div class="gvideo-play-label">Video Title</div></div>
+          </div>
+        </div>
+        -->
+        <div class="gplaceholder-new" id="placeholder-tile3">
+          <div class="gph-icon">📚</div>
+          <div class="gph-title">Parent Workshop</div>
+          <div class="gph-hint">Add photos &amp; videos — see Tile 1 as example</div>
+        </div>
       </div>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
@@ -2115,12 +2121,30 @@ body.high-contrast {
       </div>
     </div>
 
-    <!-- TILE 4 — Annual Function -->
-    <div class="gitem" data-cat="annual" onclick="openLightbox(3)">
-      <div class="gplaceholder-new">
-        <div class="gph-icon">🎉</div>
-        <div class="gph-title">Annual Day Celebration</div>
-        <div class="gph-hint">Supports up to 5 photos per tile</div>
+    <!-- TILE — Annual Function -->
+    <!-- TO ADD PHOTOS: add <div class="gphoto-rows"> with <div class="gphoto-row"> children inside gitem-media -->
+    <!-- TO ADD VIDEOS: add <div class="gvideo-row"> with gvideo-thumb items inside gitem-media -->
+    <!-- See Tile 1 (Autism Awareness Day) as the reference example -->
+    <div class="gitem" data-cat="annual" onclick="">
+      <div class="gitem-media">
+        <div class="gphoto-rows">
+          <div class="gphoto-row">
+            <!-- Add photos here: <div class="gphoto"><img src="photos/events/your-photo.jpg" alt="..."></div> -->
+          </div>
+        </div>
+        <!-- Add video strip when ready:
+        <div class="gvideo-row">
+          <div class="gvideo-thumb" onclick="openVideo('YOUR_VIDEO_ID', event)">
+            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/mqdefault.jpg" alt="Video">
+            <div class="gvideo-play"><div class="gvideo-play-btn">▶</div><div class="gvideo-play-label">Video Title</div></div>
+          </div>
+        </div>
+        -->
+        <div class="gplaceholder-new" id="placeholder-tile4">
+          <div class="gph-icon">🎉</div>
+          <div class="gph-title">Annual Day Celebration</div>
+          <div class="gph-hint">Add photos &amp; videos — see Tile 1 as example</div>
+        </div>
       </div>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
@@ -2129,12 +2153,30 @@ body.high-contrast {
       </div>
     </div>
 
-    <!-- TILE 5 — Sibling Support Circle -->
-    <div class="gitem" data-cat="community" onclick="openLightbox(4)">
-      <div class="gplaceholder-new">
-        <div class="gph-icon">🤝</div>
-        <div class="gph-title">Sibling Support Circle</div>
-        <div class="gph-hint">Supports up to 5 photos per tile</div>
+    <!-- TILE — Sibling Support Circle -->
+    <!-- TO ADD PHOTOS: add <div class="gphoto-rows"> with <div class="gphoto-row"> children inside gitem-media -->
+    <!-- TO ADD VIDEOS: add <div class="gvideo-row"> with gvideo-thumb items inside gitem-media -->
+    <!-- See Tile 1 (Autism Awareness Day) as the reference example -->
+    <div class="gitem" data-cat="community" onclick="">
+      <div class="gitem-media">
+        <div class="gphoto-rows">
+          <div class="gphoto-row">
+            <!-- Add photos here: <div class="gphoto"><img src="photos/events/your-photo.jpg" alt="..."></div> -->
+          </div>
+        </div>
+        <!-- Add video strip when ready:
+        <div class="gvideo-row">
+          <div class="gvideo-thumb" onclick="openVideo('YOUR_VIDEO_ID', event)">
+            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/mqdefault.jpg" alt="Video">
+            <div class="gvideo-play"><div class="gvideo-play-btn">▶</div><div class="gvideo-play-label">Video Title</div></div>
+          </div>
+        </div>
+        -->
+        <div class="gplaceholder-new" id="placeholder-tile5">
+          <div class="gph-icon">🤝</div>
+          <div class="gph-title">Sibling Support Circle</div>
+          <div class="gph-hint">Add photos &amp; videos — see Tile 1 as example</div>
+        </div>
       </div>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
@@ -2143,12 +2185,30 @@ body.high-contrast {
       </div>
     </div>
 
-    <!-- TILE 6 — Music Therapy -->
-    <div class="gitem" data-cat="art" onclick="openLightbox(5)">
-      <div class="gplaceholder-new">
-        <div class="gph-icon">🎵</div>
-        <div class="gph-title">Music Therapy Sessions</div>
-        <div class="gph-hint">Supports up to 5 photos per tile</div>
+    <!-- TILE — Music Therapy -->
+    <!-- TO ADD PHOTOS: add <div class="gphoto-rows"> with <div class="gphoto-row"> children inside gitem-media -->
+    <!-- TO ADD VIDEOS: add <div class="gvideo-row"> with gvideo-thumb items inside gitem-media -->
+    <!-- See Tile 1 (Autism Awareness Day) as the reference example -->
+    <div class="gitem" data-cat="art" onclick="">
+      <div class="gitem-media">
+        <div class="gphoto-rows">
+          <div class="gphoto-row">
+            <!-- Add photos here: <div class="gphoto"><img src="photos/events/your-photo.jpg" alt="..."></div> -->
+          </div>
+        </div>
+        <!-- Add video strip when ready:
+        <div class="gvideo-row">
+          <div class="gvideo-thumb" onclick="openVideo('YOUR_VIDEO_ID', event)">
+            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/mqdefault.jpg" alt="Video">
+            <div class="gvideo-play"><div class="gvideo-play-btn">▶</div><div class="gvideo-play-label">Video Title</div></div>
+          </div>
+        </div>
+        -->
+        <div class="gplaceholder-new" id="placeholder-tile6">
+          <div class="gph-icon">🎵</div>
+          <div class="gph-title">Music Therapy Sessions</div>
+          <div class="gph-hint">Add photos &amp; videos — see Tile 1 as example</div>
+        </div>
       </div>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
@@ -2162,11 +2222,11 @@ body.high-contrast {
     <!-- TO ADD VIDEOS: replace VIDEO_ID_3 and VIDEO_ID_4 with your YouTube video IDs -->
     <div class="gitem" data-cat="republic-day" onclick="">
       <div class="gitem-media">
-        <!-- 1 photo -->
-        <div class="gphoto-row" style="flex:1;">
-          <div class="gphoto"><img src="photos/events/Republicdayphoto1.jpg" alt="Republic Day 2026 - ASFSN Khatima"></div>
+        <div class="gphoto-rows">
+          <div class="gphoto-row">
+            <div class="gphoto"><img src="photos/events/Republicdayphoto1.jpg" alt="Republic Day 2026 - ASFSN Khatima"></div>
+          </div>
         </div>
-        <!-- 2 YouTube video thumbnails -->
         <div class="gvideo-row">
           <div class="gvideo-thumb" onclick="openVideo('VIDEO_ID_3', event)">
             <img src="https://img.youtube.com/vi/VIDEO_ID_3/mqdefault.jpg" alt="Republic Day Video 1">
@@ -2192,12 +2252,30 @@ body.high-contrast {
       </div>
     </div>
 
-    <!-- TILE 8 — Teacher Training -->
-    <div class="gitem" data-cat="workshops" onclick="openLightbox(7)">
-      <div class="gplaceholder-new">
-        <div class="gph-icon">👩‍🏫</div>
-        <div class="gph-title">Teacher Training</div>
-        <div class="gph-hint">Supports up to 5 photos per tile</div>
+    <!-- TILE — Teacher Training -->
+    <!-- TO ADD PHOTOS: add <div class="gphoto-rows"> with <div class="gphoto-row"> children inside gitem-media -->
+    <!-- TO ADD VIDEOS: add <div class="gvideo-row"> with gvideo-thumb items inside gitem-media -->
+    <!-- See Tile 1 (Autism Awareness Day) as the reference example -->
+    <div class="gitem" data-cat="workshops" onclick="">
+      <div class="gitem-media">
+        <div class="gphoto-rows">
+          <div class="gphoto-row">
+            <!-- Add photos here: <div class="gphoto"><img src="photos/events/your-photo.jpg" alt="..."></div> -->
+          </div>
+        </div>
+        <!-- Add video strip when ready:
+        <div class="gvideo-row">
+          <div class="gvideo-thumb" onclick="openVideo('YOUR_VIDEO_ID', event)">
+            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/mqdefault.jpg" alt="Video">
+            <div class="gvideo-play"><div class="gvideo-play-btn">▶</div><div class="gvideo-play-label">Video Title</div></div>
+          </div>
+        </div>
+        -->
+        <div class="gplaceholder-new" id="placeholder-tile8">
+          <div class="gph-icon">👩‍🏫</div>
+          <div class="gph-title">Teacher Training: Autism in Classroom</div>
+          <div class="gph-hint">Add photos &amp; videos — see Tile 1 as example</div>
+        </div>
       </div>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
@@ -2206,12 +2284,30 @@ body.high-contrast {
       </div>
     </div>
 
-    <!-- TILE 9 — Inclusion Run -->
-    <div class="gitem" data-cat="community" onclick="openLightbox(8)">
-      <div class="gplaceholder-new">
-        <div class="gph-icon">🏃</div>
-        <div class="gph-title">Inclusion Run for Awareness</div>
-        <div class="gph-hint">Supports up to 5 photos per tile</div>
+    <!-- TILE — Inclusion Run -->
+    <!-- TO ADD PHOTOS: add <div class="gphoto-rows"> with <div class="gphoto-row"> children inside gitem-media -->
+    <!-- TO ADD VIDEOS: add <div class="gvideo-row"> with gvideo-thumb items inside gitem-media -->
+    <!-- See Tile 1 (Autism Awareness Day) as the reference example -->
+    <div class="gitem" data-cat="community" onclick="">
+      <div class="gitem-media">
+        <div class="gphoto-rows">
+          <div class="gphoto-row">
+            <!-- Add photos here: <div class="gphoto"><img src="photos/events/your-photo.jpg" alt="..."></div> -->
+          </div>
+        </div>
+        <!-- Add video strip when ready:
+        <div class="gvideo-row">
+          <div class="gvideo-thumb" onclick="openVideo('YOUR_VIDEO_ID', event)">
+            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/mqdefault.jpg" alt="Video">
+            <div class="gvideo-play"><div class="gvideo-play-btn">▶</div><div class="gvideo-play-label">Video Title</div></div>
+          </div>
+        </div>
+        -->
+        <div class="gplaceholder-new" id="placeholder-tile9">
+          <div class="gph-icon">🏃</div>
+          <div class="gph-title">Inclusion Run for Awareness</div>
+          <div class="gph-hint">Add photos &amp; videos — see Tile 1 as example</div>
+        </div>
       </div>
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
