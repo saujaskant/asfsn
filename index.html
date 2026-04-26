@@ -1223,7 +1223,48 @@ footer {
 .video-modal-close:hover { background: #C0392B; }
 .video-modal iframe { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 12px; display: block; }
 
-/* Placeholder inside media tile — shown only when no photos loaded */
+/* ── VIDEO TILE (standalone) ── */
+.gvideo-tile {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  padding: 0.85rem 0.75rem 0.75rem;
+  gap: 0.5rem;
+  background: #0d0d1a;
+}
+.gvt-header {
+  display: flex; align-items: center; gap: 0.4rem;
+  flex-shrink: 0;
+}
+.gvt-icon { font-size: 0.9rem; }
+.gvt-title {
+  font-size: 0.68rem; font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.gvt-list {
+  flex: 1; display: flex; gap: 4px;
+  min-height: 0; overflow: hidden;
+}
+.gvt-list .gvideo-thumb {
+  flex: 1; border-radius: 6px; overflow: hidden;
+}
+.gvt-hint {
+  font-size: 0.58rem; color: rgba(255,255,255,0.3);
+  text-align: center; flex-shrink: 0;
+}
+/* Override gvideo-row height inside tile */
+.gvideo-tile .gvideo-thumb { height: 100%; position: relative; }
+
+/* Fix gallery grid — auto-flow dense so added tiles don't break layout */
+.gallery-grid {
+  grid-auto-flow: dense;
+}
+/* Tile 1A spans 2 col x 2 row — use class instead of inline style for cleanliness */
+.gitem.featured { grid-column: span 2; grid-row: span 2; }
+.gitem.wide { grid-column: span 2; }
+
+
 .gitem-media .gplaceholder-new {
   position: absolute; inset: 0;
   z-index: 1;
@@ -1986,11 +2027,11 @@ body.high-contrast {
 <section class="section" id="gallery">
   <div class="sec-eyebrow" data-en="Our Moments" data-hi="हमारे पल">Our Moments</div>
   <h2 class="sec-title" data-en="Events &amp; Occasions" data-hi="आयोजन और अवसर">Events &amp; Occasions</h2>
-  <p class="sec-sub" data-en="A glimpse into the joy, learning, and community we build together every day." data-hi="हर दिन मिलकर बनाई जाने वाली खुशी, सीख और समुदाय की एक झलक।">A glimpse into the joy, learning, and community we build together every day.</p>
+  <p class="sec-sub" data-en="Photos and videos from our events, activities, and community moments at ASFSN, Khatima." data-hi="ASFSN, खटीमा में हमारे आयोजनों, गतिविधियों और सामुदायिक पलों की फ़ोटो और वीडियो।">Photos and videos from our events, activities, and community moments at ASFSN, Khatima.</p>
 
   <!-- Filter Tabs -->
   <div class="gallery-tabs">
-    <button class="gtab active" onclick="filterGallery('all', this)" data-en="All Photos" data-hi="सभी फ़ोटो">All Photos</button>
+    <button class="gtab active" onclick="filterGallery('all', this)" data-en="All" data-hi="सभी">All</button>
     <button class="gtab" onclick="filterGallery('autism-day', this)" data-en="🌸 Autism Day" data-hi="🌸 ऑटिज्म दिवस">🌸 Autism Day</button>
     <button class="gtab" onclick="filterGallery('art', this)" data-en="🎨 Art &amp; Therapy" data-hi="🎨 कला और चिकित्सा">🎨 Art &amp; Therapy</button>
     <button class="gtab" onclick="filterGallery('workshops', this)" data-en="📚 Workshops" data-hi="📚 कार्यशालाएं">📚 Workshops</button>
@@ -2026,11 +2067,8 @@ body.high-contrast {
          4. Add <span class="gphoto-count">📷 N photos</span> to show count badge
     ══════════════════════════════════════════════════════ -->
 
-    <!-- TILE 1 — Autism Awareness Day (Featured Large) -->
-    <!-- TO ADD PHOTOS: replace each src="" with your photo path e.g. src="photos/events/autism-day/photo1.jpg" -->
-    <!-- TO ADD VIDEOS: replace VIDEO_ID_1 and VIDEO_ID_2 with your YouTube video IDs -->
-    <!--   YouTube video ID is the part after ?v= in the URL e.g. https://youtube.com/watch?v=dQw4w9WgXcQ → ID is dQw4w9WgXcQ -->
-    <div class="gitem" data-cat="autism-day" onclick="">
+    <!-- TILE 1A — Autism Awareness Day PHOTOS (Featured Large 2x2) -->
+    <div class="gitem featured" data-cat="autism-day" onclick="openLightbox(0)">
       <div class="gitem-media">
         <div class="gphoto-rows">
           <div class="gphoto-row">
@@ -2044,28 +2082,39 @@ body.high-contrast {
             <div class="gphoto"><img src="photos/events/AutAwa6.jpeg" alt="Autism Awareness Day 2026 - 6"></div>
           </div>
         </div>
-        <div class="gvideo-row">
+      </div>
+      <span class="gphoto-count">📷 6</span>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">Autism Awareness Day 2026 — Photos</div>
+        <div class="goverlay-meta">ASFSN, Khatima</div>
+      </div>
+    </div>
+
+    <!-- TILE 1B — Autism Awareness Day VIDEOS -->
+    <div class="gitem" data-cat="autism-day" style="background:#0a0a14;">
+      <div class="gvideo-tile">
+        <div class="gvt-header">
+          <span class="gvt-icon">🎬</span>
+          <span class="gvt-title">Autism Awareness Day — Videos</span>
+        </div>
+        <div class="gvt-list">
           <div class="gvideo-thumb" onclick="openVideo('shZjWXPoUZo', event)">
-            <img src="https://img.youtube.com/vi/shZjWXPoUZo/mqdefault.jpg" alt="Autism Awareness Day Video 1">
+            <img src="https://img.youtube.com/vi/shZjWXPoUZo/mqdefault.jpg" alt="Awareness Video 1">
             <div class="gvideo-play">
               <div class="gvideo-play-btn">▶</div>
               <div class="gvideo-play-label">Awareness Video 1</div>
             </div>
           </div>
           <div class="gvideo-thumb" onclick="openVideo('tyBIi99xkqE', event)">
-            <img src="https://img.youtube.com/vi/tyBIi99xkqE/mqdefault.jpg" alt="Autism Awareness Day Video 2">
+            <img src="https://img.youtube.com/vi/tyBIi99xkqE/mqdefault.jpg" alt="Awareness Video 2">
             <div class="gvideo-play">
               <div class="gvideo-play-btn">▶</div>
               <div class="gvideo-play-label">Awareness Video 2</div>
             </div>
           </div>
         </div>
-      </div>
-      <span class="gphoto-count">📷 6 · 🎬 2</span>
-      <div class="goverlay">
-        <div class="goverlay-zoom">🔍</div>
-        <div class="goverlay-title">Autism Awareness Day 2026</div>
-        <div class="goverlay-meta">ASFSN, Khatima</div>
+        <div class="gvt-hint">Click to open in YouTube ↗</div>
       </div>
     </div>
 
@@ -2217,17 +2266,31 @@ body.high-contrast {
       </div>
     </div>
 
-    <!-- TILE 7 — Republic Day (Wide) -->
-    <!-- TO ADD PHOTO: replace src="" with your photo path e.g. src="photos/events/republic-day/photo1.jpg" -->
-    <!-- TO ADD VIDEOS: replace VIDEO_ID_3 and VIDEO_ID_4 with your YouTube video IDs -->
-    <div class="gitem" data-cat="republic-day" onclick="">
+    <!-- TILE 7A — Republic Day PHOTO (Wide) -->
+    <div class="gitem wide" data-cat="republic-day" onclick="openLightbox(6)">
       <div class="gitem-media">
         <div class="gphoto-rows">
           <div class="gphoto-row">
             <div class="gphoto"><img src="photos/events/Republicdayphoto1.jpg" alt="Republic Day 2026 - ASFSN Khatima"></div>
           </div>
         </div>
-        <div class="gvideo-row">
+      </div>
+      <span class="gphoto-count">📷 1</span>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">Republic Day Celebration 2026 — Photo</div>
+        <div class="goverlay-meta">ASFSN, Khatima</div>
+      </div>
+    </div>
+
+    <!-- TILE 7B — Republic Day VIDEOS -->
+    <div class="gitem" data-cat="republic-day" style="background:#0a0a14;">
+      <div class="gvideo-tile">
+        <div class="gvt-header">
+          <span class="gvt-icon">🎬</span>
+          <span class="gvt-title">Republic Day — Videos</span>
+        </div>
+        <div class="gvt-list">
           <div class="gvideo-thumb" onclick="openVideo('VIDEO_ID_3', event)">
             <img src="https://img.youtube.com/vi/VIDEO_ID_3/mqdefault.jpg" alt="Republic Day Video 1">
             <div class="gvideo-play">
@@ -2243,12 +2306,7 @@ body.high-contrast {
             </div>
           </div>
         </div>
-      </div>
-      <span class="gphoto-count">📷 1 · 🎬 2</span>
-      <div class="goverlay">
-        <div class="goverlay-zoom">🔍</div>
-        <div class="goverlay-title">Republic Day Celebration 2026</div>
-        <div class="goverlay-meta">ASFSN, Khatima</div>
+        <div class="gvt-hint">Click to open in YouTube ↗</div>
       </div>
     </div>
 
@@ -2741,37 +2799,12 @@ function setLang(lang) {
 }
 </script>
 
-<!-- ── VIDEO MODAL ── -->
-<div class="video-modal" id="videoModal" onclick="closeVideoOutside(event)">
-  <div class="video-modal-inner">
-    <button class="video-modal-close" onclick="closeVideo()">✕</button>
-    <iframe id="videoFrame" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-  </div>
-</div>
-
 <script>
 /* ── VIDEO PLAYER ── */
 function openVideo(videoId, e) {
-  if (e) e.stopPropagation(); // prevent gallery lightbox from opening
-  const modal = document.getElementById('videoModal');
-  const frame = document.getElementById('videoFrame');
-  frame.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  if (e) { e.stopPropagation(); e.preventDefault(); }
+  window.open('https://www.youtube.com/watch?v=' + videoId, '_blank');
 }
-function closeVideo() {
-  const modal = document.getElementById('videoModal');
-  const frame = document.getElementById('videoFrame');
-  frame.src = ''; // stop video
-  modal.classList.remove('open');
-  document.body.style.overflow = '';
-}
-function closeVideoOutside(e) {
-  if (e.target === document.getElementById('videoModal')) closeVideo();
-}
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeVideo();
-});
 </script>
 </body>
 </html>
