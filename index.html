@@ -1256,7 +1256,20 @@ footer {
 /* Override gvideo-row height inside tile */
 .gvideo-tile .gvideo-thumb { height: 100%; position: relative; }
 
-/* Fix gallery grid — auto-flow dense so added tiles don't break layout */
+/* Wide video tile — rectangular, shorter than photo tile */
+.gitem.wide[style*="max-height"] {
+  aspect-ratio: auto !important;
+}
+.gitem.wide[style*="max-height"] .gvideo-tile {
+  position: absolute; inset: 0;
+}
+
+/* Fix video tile for standalone gitem without gitem-media */
+.gitem:not(.featured):not(.wide) .gvideo-tile {
+  position: absolute; inset: 0;
+}
+
+
 .gallery-grid {
   grid-auto-flow: dense;
 }
@@ -2266,40 +2279,23 @@ body.high-contrast {
       </div>
     </div>
 
-    <!-- TILE 7A — Republic Day PHOTO (Wide) -->
-    <div class="gitem wide" data-cat="republic-day" onclick="openLightbox(6)">
-      <div class="gitem-media">
-        <div class="gphoto-rows">
-          <div class="gphoto-row">
-            <div class="gphoto"><img src="photos/events/Republicdayphoto1.jpg" alt="Republic Day 2026 - ASFSN Khatima"></div>
-          </div>
-        </div>
-      </div>
-      <span class="gphoto-count">📷 1</span>
-      <div class="goverlay">
-        <div class="goverlay-zoom">🔍</div>
-        <div class="goverlay-title">Republic Day Celebration 2026 — Photo</div>
-        <div class="goverlay-meta">ASFSN, Khatima</div>
-      </div>
-    </div>
-
-    <!-- TILE 7B — Republic Day VIDEOS -->
-    <div class="gitem" data-cat="republic-day" style="background:#0a0a14;">
+    <!-- TILE 7A — Republic Day VIDEOS (Wide rectangular) -->
+    <div class="gitem wide" data-cat="republic-day" style="min-height:140px;max-height:160px;aspect-ratio:auto;">
       <div class="gvideo-tile">
         <div class="gvt-header">
           <span class="gvt-icon">🎬</span>
           <span class="gvt-title">Republic Day — Videos</span>
         </div>
         <div class="gvt-list">
-          <div class="gvideo-thumb" onclick="openVideo('VIDEO_ID_3', event)">
-            <img src="https://img.youtube.com/vi/VIDEO_ID_3/mqdefault.jpg" alt="Republic Day Video 1">
+          <div class="gvideo-thumb" onclick="openVideo('Xti3BKDj-NY', event)">
+            <img src="https://img.youtube.com/vi/Xti3BKDj-NY/mqdefault.jpg" alt="Republic Day Video 1">
             <div class="gvideo-play">
               <div class="gvideo-play-btn">▶</div>
               <div class="gvideo-play-label">Republic Day Video 1</div>
             </div>
           </div>
-          <div class="gvideo-thumb" onclick="openVideo('VIDEO_ID_4', event)">
-            <img src="https://img.youtube.com/vi/VIDEO_ID_4/mqdefault.jpg" alt="Republic Day Video 2">
+          <div class="gvideo-thumb" onclick="openVideo('TyBj2yeCQLs', event)">
+            <img src="https://img.youtube.com/vi/TyBj2yeCQLs/mqdefault.jpg" alt="Republic Day Video 2">
             <div class="gvideo-play">
               <div class="gvideo-play-btn">▶</div>
               <div class="gvideo-play-label">Republic Day Video 2</div>
@@ -2307,6 +2303,23 @@ body.high-contrast {
           </div>
         </div>
         <div class="gvt-hint">Click to open in YouTube ↗</div>
+      </div>
+    </div>
+
+    <!-- TILE 7B — Republic Day PHOTO -->
+    <div class="gitem" data-cat="republic-day" onclick="openLightbox(6)">
+      <div class="gitem-media">
+        <div class="gphoto-rows">
+          <div class="gphoto-row">
+            <div class="gphoto"><img src="photos/events/Republicdayphoto1.jpeg" alt="Republic Day 2026 - ASFSN Khatima"></div>
+          </div>
+        </div>
+      </div>
+      <span class="gphoto-count">📷 1</span>
+      <div class="goverlay">
+        <div class="goverlay-zoom">🔍</div>
+        <div class="goverlay-title">Republic Day Celebration 2026</div>
+        <div class="goverlay-meta">ASFSN, Khatima</div>
       </div>
     </div>
 
