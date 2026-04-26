@@ -1089,9 +1089,7 @@ footer {
   cursor: pointer;
   background: rgba(255,255,255,0.06);
   aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   transition: transform 0.25s, box-shadow 0.25s;
   border: 1px solid rgba(255,255,255,0.08);
 }
@@ -1189,13 +1187,45 @@ footer {
 .gph-hint { font-size: 0.62rem; color: rgba(255,255,255,0.25); text-align: center; padding: 0 0.75rem; }
 
 /* ── GALLERY: MEDIA TILE (photos + video strip) ── */
-.gitem-media { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; background: transparent; }
-/* Photo rows fill all space above the video strip */
-/* Photo rows background black — fills any sub-pixel gaps between photos */
-.gphoto-rows { flex: 1; display: flex; flex-direction: column; gap: 2px; min-height: 0; background: #000; }
-.gphoto-row { flex: 1; display: flex; gap: 2px; min-height: 0; overflow: hidden; }
-.gitem-media .gphoto { flex: 1; position: relative; overflow: hidden; min-width: 0; min-height: 0; }
-.gitem-media .gphoto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.gitem-media {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.gphoto-rows {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+  min-height: 0;
+}
+.gphoto-row {
+  flex: 1;
+  display: flex;
+  gap: 2px;
+  min-height: 0;
+  overflow: hidden;
+}
+.gitem-media .gphoto {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+}
+.gitem-media .gphoto img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
 .gitem:hover .gitem-media .gphoto img { transform: scale(1.04); }
 
 /* Video strip — fixed 70px at bottom */
