@@ -1095,18 +1095,10 @@ footer {
   transition: transform 0.25s, box-shadow 0.25s;
   border: 1px solid rgba(255,255,255,0.08);
 }
-.gitem:nth-child(1) { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 340px; }
-.gitem:nth-child(7) { grid-column: span 2; aspect-ratio: auto; min-height: 180px; }
+/* Featured = 2×2, Wide = 2×1 — controlled by class not nth-child */
+.gitem.featured { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 340px; }
+.gitem.wide { grid-column: span 2; aspect-ratio: auto; min-height: 180px; }
 .gitem:hover { transform: scale(1.02); box-shadow: 0 12px 40px rgba(0,0,0,0.4); z-index: 2; }
-
-/* Real image fill */
-.gitem img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s;
-}
-.gitem:hover img { transform: scale(1.06); }
 
 /* Placeholder state (before real photos) */
 .gplaceholder {
@@ -1256,16 +1248,8 @@ footer {
 /* Override gvideo-row height inside tile */
 .gvideo-tile .gvideo-thumb { height: 100%; position: relative; }
 
-/* Wide video tile — rectangular, shorter than photo tile */
-.gitem.wide[style*="max-height"] {
-  aspect-ratio: auto !important;
-}
-.gitem.wide[style*="max-height"] .gvideo-tile {
-  position: absolute; inset: 0;
-}
-
 /* Fix video tile for standalone gitem without gitem-media */
-.gitem:not(.featured):not(.wide) .gvideo-tile {
+.gitem .gvideo-tile {
   position: absolute; inset: 0;
 }
 
@@ -2279,8 +2263,8 @@ body.high-contrast {
       </div>
     </div>
 
-    <!-- TILE 7A — Republic Day VIDEOS (Wide rectangular) -->
-    <div class="gitem wide" data-cat="republic-day" style="min-height:140px;max-height:160px;aspect-ratio:auto;">
+    <!-- TILE 7A — Republic Day VIDEOS -->
+    <div class="gitem" data-cat="republic-day" style="background:#0a0a14;">
       <div class="gvideo-tile">
         <div class="gvt-header">
           <span class="gvt-icon">🎬</span>
@@ -2295,7 +2279,7 @@ body.high-contrast {
             </div>
           </div>
           <div class="gvideo-thumb" onclick="openVideo('TyBj2yeCQLs', event)">
-            <img src="https://img.youtube.com/vi/TyBj2yeCQLs/mqdefault.jpg" alt="Republic Day Video 2">
+            <img src="https://img.youtube.com/vi/TyBj2yeCQLs/hqdefault.jpg" alt="Republic Day Video 2" onerror="this.src='https://img.youtube.com/vi/TyBj2yeCQLs/0.jpg'">
             <div class="gvideo-play">
               <div class="gvideo-play-btn">▶</div>
               <div class="gvideo-play-label">Republic Day Video 2</div>
