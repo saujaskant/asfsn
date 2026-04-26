@@ -1189,7 +1189,7 @@ footer {
 .gph-hint { font-size: 0.62rem; color: rgba(255,255,255,0.25); text-align: center; padding: 0 0.75rem; }
 
 /* ── GALLERY: MEDIA TILE (photos + video strip) ── */
-.gitem-media { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; }
+.gitem-media { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; background: #000; }
 /* Photo rows fill all space above the video strip */
 .gphoto-rows { flex: 1; display: flex; flex-direction: column; gap: 2px; min-height: 0; }
 .gphoto-row { flex: 1; display: flex; gap: 2px; min-height: 0; overflow: hidden; }
@@ -2303,70 +2303,6 @@ body.high-contrast {
       <div class="goverlay">
         <div class="goverlay-zoom">🔍</div>
         <div class="goverlay-title">Republic Day Celebration 2026</div>
-        <div class="goverlay-meta">ASFSN, Khatima</div>
-      </div>
-    </div>
-
-    <!-- TILE — Teacher Training -->
-    <!-- TO ADD PHOTOS: add <div class="gphoto-rows"> with <div class="gphoto-row"> children inside gitem-media -->
-    <!-- TO ADD VIDEOS: add <div class="gvideo-row"> with gvideo-thumb items inside gitem-media -->
-    <!-- See Tile 1 (Autism Awareness Day) as the reference example -->
-    <div class="gitem" data-cat="workshops" onclick="">
-      <div class="gitem-media">
-        <div class="gphoto-rows">
-          <div class="gphoto-row">
-            <!-- Add photos here: <div class="gphoto"><img src="photos/events/your-photo.jpg" alt="..."></div> -->
-          </div>
-        </div>
-        <!-- Add video strip when ready:
-        <div class="gvideo-row">
-          <div class="gvideo-thumb" onclick="openVideo('YOUR_VIDEO_ID', event)">
-            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/mqdefault.jpg" alt="Video">
-            <div class="gvideo-play"><div class="gvideo-play-btn">▶</div><div class="gvideo-play-label">Video Title</div></div>
-          </div>
-        </div>
-        -->
-        <div class="gplaceholder-new" id="placeholder-tile8">
-          <div class="gph-icon">👩‍🏫</div>
-          <div class="gph-title">Teacher Training: Autism in Classroom</div>
-          <div class="gph-hint">Add photos &amp; videos — see Tile 1 as example</div>
-        </div>
-      </div>
-      <div class="goverlay">
-        <div class="goverlay-zoom">🔍</div>
-        <div class="goverlay-title">Teacher Training: Autism in Classroom</div>
-        <div class="goverlay-meta">May 2026 · ASFSN, Khatima</div>
-      </div>
-    </div>
-
-    <!-- TILE — Inclusion Run -->
-    <!-- TO ADD PHOTOS: add <div class="gphoto-rows"> with <div class="gphoto-row"> children inside gitem-media -->
-    <!-- TO ADD VIDEOS: add <div class="gvideo-row"> with gvideo-thumb items inside gitem-media -->
-    <!-- See Tile 1 (Autism Awareness Day) as the reference example -->
-    <div class="gitem" data-cat="community" onclick="">
-      <div class="gitem-media">
-        <div class="gphoto-rows">
-          <div class="gphoto-row">
-            <!-- Add photos here: <div class="gphoto"><img src="photos/events/your-photo.jpg" alt="..."></div> -->
-          </div>
-        </div>
-        <!-- Add video strip when ready:
-        <div class="gvideo-row">
-          <div class="gvideo-thumb" onclick="openVideo('YOUR_VIDEO_ID', event)">
-            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/mqdefault.jpg" alt="Video">
-            <div class="gvideo-play"><div class="gvideo-play-btn">▶</div><div class="gvideo-play-label">Video Title</div></div>
-          </div>
-        </div>
-        -->
-        <div class="gplaceholder-new" id="placeholder-tile9">
-          <div class="gph-icon">🏃</div>
-          <div class="gph-title">Inclusion Run for Awareness</div>
-          <div class="gph-hint">Add photos &amp; videos — see Tile 1 as example</div>
-        </div>
-      </div>
-      <div class="goverlay">
-        <div class="goverlay-zoom">🔍</div>
-        <div class="goverlay-title">Inclusion Run for Awareness</div>
         <div class="goverlay-meta">ASFSN, Khatima</div>
       </div>
     </div>
