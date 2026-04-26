@@ -1189,9 +1189,10 @@ footer {
 .gph-hint { font-size: 0.62rem; color: rgba(255,255,255,0.25); text-align: center; padding: 0 0.75rem; }
 
 /* ── GALLERY: MEDIA TILE (photos + video strip) ── */
-.gitem-media { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; background: #000; }
+.gitem-media { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; background: transparent; }
 /* Photo rows fill all space above the video strip */
-.gphoto-rows { flex: 1; display: flex; flex-direction: column; gap: 2px; min-height: 0; }
+/* Photo rows background black — fills any sub-pixel gaps between photos */
+.gphoto-rows { flex: 1; display: flex; flex-direction: column; gap: 2px; min-height: 0; background: #000; }
 .gphoto-row { flex: 1; display: flex; gap: 2px; min-height: 0; overflow: hidden; }
 .gitem-media .gphoto { flex: 1; position: relative; overflow: hidden; min-width: 0; min-height: 0; }
 .gitem-media .gphoto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
@@ -2278,8 +2279,9 @@ body.high-contrast {
               <div class="gvideo-play-label">Republic Day Video 1</div>
             </div>
           </div>
-          <div class="gvideo-thumb" onclick="openVideo('TyBj2yeCQLs', event)">
-            <img src="https://img.youtube.com/vi/TyBj2yeCQLs/hqdefault.jpg" alt="Republic Day Video 2" onerror="this.src='https://img.youtube.com/vi/TyBj2yeCQLs/0.jpg'">
+          <div class="gvideo-thumb" onclick="openVideo('TyBj2yeCQLs', event)" style="background:linear-gradient(135deg,#1A237E,#3949AB);">
+            <img src="https://img.youtube.com/vi/TyBj2yeCQLs/maxresdefault.jpg" alt="Republic Day Video 2" 
+                 onerror="this.style.display='none'">
             <div class="gvideo-play">
               <div class="gvideo-play-btn">▶</div>
               <div class="gvideo-play-label">Republic Day Video 2</div>
